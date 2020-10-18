@@ -24,10 +24,27 @@ class UserDAO{
 
                 $user->setEmail($data["email"]);
                 $user->setPassword($data["password"]);
+
+                array_push($this->userList,$user);
             }
         }
     }
 
+    public function saveData(){
+
+    }
+
+    public function add(){
+
+    }
+
+    public function getAll(){
+
+    }
+
+    public function remove(){
+        
+    }
 
 
 }

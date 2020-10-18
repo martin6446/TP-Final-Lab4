@@ -20,4 +20,8 @@ class CinemaController{
 
         var_dump($datos);
     }
+
+    public function showListView(){
+        require_once(VIEWS_PATH."cinema-list.php");
+    }
 }

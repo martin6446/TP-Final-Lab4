@@ -1,15 +1,25 @@
 <div class="wrapper row1" >
   <header id="header" class="clear"> 
     <div id="logo" class="fl_left">
-      <h1>Cellphones</h1>
     </div>
-    <nav id="mainav" class="fl_right">
-      <ul class="clear">
-        <li class="active"><a class="drop" href="#">Actions</a>
-          <ul>
-            <li><a href="<?php echo FRONT_ROOT ?>CellPhone/showAddView">ADD</a></li>
-            <li><a href="<?php echo FRONT_ROOT ?>CellPhone/showListView">LIST/REMOVE</a></li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <h2>Lumiére</h2>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Movies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Tickets</a>
+        </li>
       </ul>
-    </nav>
+    </div>
+  </nav>
   </header>
 </div>
