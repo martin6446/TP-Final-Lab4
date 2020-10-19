@@ -20,7 +20,7 @@ class UserController{
 
         $_SESSION["loggeduser"] = $user->getEmail();
 
-        $this->userDAO->add();
+        $this->userDAO->add($user);
 
         
     }
