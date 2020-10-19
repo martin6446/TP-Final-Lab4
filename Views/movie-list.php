@@ -17,11 +17,19 @@
   </thead>
   <tbody>
     <tr>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td><button type="submit" class="btn btn-secondary" value="<?php ?>">Clik Me!</button></td>
-    </tr>
+        <?php
+        var_dump($movieList);
+        foreach($movieList as $movie){
+
+        ?>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td><button type="submit" class="btn btn-secondary" value="<?php ?>">Clik Me!</button></td>
+        </tr>
+        <?php
+        }
+    ?>
     <tr>
       <td>Jacob</td>
       <td>Thornton</td>
