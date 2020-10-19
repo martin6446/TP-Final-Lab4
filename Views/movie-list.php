@@ -16,9 +16,9 @@
     </tr>
   </thead>
   <tbody>
-<!--     <tr>
+    <tr>
         <?php
-        #var_dump($movieList);
+        var_dump($movieList);
         foreach($movieList as $movie){
 
           ?>
@@ -30,7 +30,7 @@
         <?php
         }
     ?>
-    <tr> -->
+    <tr>
       <td>Jacob</td>
       <td>Thornton</td>
       <td>@fat</td>
