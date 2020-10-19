@@ -6,7 +6,7 @@
   </div>
 </div>
 <!-- JAVASCRIPTS -->
-<script src="../layout/scripts/jquery.min.js"></script> 
-<script src="../layout/scripts/jquery.mobilemenu.js"></script>
+<script src="../layout/js/bootstrap.js"></script>
+<script src="../layout/js/bootstrap.bundle.js"></script>
 </body>
 </html>
