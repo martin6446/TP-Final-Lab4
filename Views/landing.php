@@ -62,10 +62,10 @@ require_once(VIEWS_PATH . "nav-bar.php");
 <section class="py-5">
     <div class="container">
         <h1 class="font-weight-light text-center">Welcome to Lumiere cinemas</h1>
-        <form>
+        <form action="<?php echo FRONT_ROOT ?>movie/showListView" method="POST">
             <div class="row">
                 <div class="col-6">
-                    <select class="form-control" id="genero">
+                    <select class="form-control" id="genre" name="genre">
                         <?php 
                             echo "<option value='All'>All genres</option>";
                             foreach($genres as $genre){
@@ -75,7 +75,7 @@ require_once(VIEWS_PATH . "nav-bar.php");
                     </select>
                 </div>
                 <div class="col-2">
-                    <button class="btn btn-success px-10">Find Movies</button>
+                    <button type="submit" class="btn btn-success px-10">Find Movies</button>
                 </div>
             </div>
         </form>
