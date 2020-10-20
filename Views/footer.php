@@ -5,8 +5,9 @@
   <div id="copyright" class="clear" align="center"> 
   </div>
 </div>
+
 <!-- JAVASCRIPTS -->
-<script src="../layout/scripts/jquery.min.js"></script> 
-<script src="../layout/scripts/jquery.mobilemenu.js"></script>
+<script src="<?php echo JQUERY_PATH?>jquery.min.js"></script>
+<script src="<?php echo JS_PATH?>bootstrap.bundle.min.js"></script>
 </body>
 </html>

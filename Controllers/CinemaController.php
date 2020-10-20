@@ -12,9 +12,13 @@ class CinemaController{
         $this->cinemaDAO = new CinemaDAO();
     }
 
-    
 
     public function showListView(){
+
+        $cinemaList = $this->cinemaDAO->getAll();
+
         require_once(VIEWS_PATH."cinema-list.php");
     }
+
+
 }

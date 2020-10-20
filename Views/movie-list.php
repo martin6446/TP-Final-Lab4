@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    <form action="<?php echo FRONT_ROOT?>cinema/showListView" method="POST">
+<?php require_once(VIEWS_PATH."nav-bar.php");?>
+<form action="<?php echo FRONT_ROOT?>cinema/showListView" method="POST">
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -48,5 +42,3 @@
   </tbody>
 </table>
 </form>
-</body>
-</html>

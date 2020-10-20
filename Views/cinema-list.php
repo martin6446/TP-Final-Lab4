@@ -1,7 +1,6 @@
-<?php require_once("nav-bar.php") ?>
-
+<?php require_once(VIEWS_PATH."nav-bar.php");?>
 <table class="table table-striped">
-    <thead>
+    <thead class="thead-dark">
         <tr>
             <th scope="col">Cinema Name</th>
             <th scope="col">Schedule</th>
@@ -10,43 +9,26 @@
     </thead>
     <tbody>
         <tr>
-            <td>Mark</td>
-            <td <div class="btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select a Schedule
-                </button>
-                <div class="dropdown-menu">
-                    ...
-                </div>
-                </div>
-            </td>
-            <td><button type="submit" class="btn btn-secondary">Clik Me!</button></td>
+            <?php
+            foreach ($cinemaList as $cinema) {
+            ?>
+                <td><?php echo $cinema->getName() ?></td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown button
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                </td>
+                <td><button type="submit" class="btn btn-secondary">Click Me!</button></td>
         </tr>
-        <tr>
-            <td>Jacob</td>
-            <td <div class="btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select a Schedule
-                </button>
-                <div class="dropdown-menu">
-                    ...
-                </div>
-                </div>
-            </td>
-            <td><button type="submit" class="btn btn-secondary">Clik Me!</button></td>
-        </tr>
-        <tr>
-            <td>Larry</td>
-            <td <div class="btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select a Schedule
-                </button>
-                <div class="dropdown-menu">
-                    ...
-                </div>
-                </div>
-            </td>
-            <td><button type="submit" class="btn btn-secondary">Clik Me!</button></td>
-        </tr>
+    <?php
+            }
+    ?>
     </tbody>
 </table>
