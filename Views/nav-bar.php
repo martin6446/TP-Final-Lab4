@@ -20,7 +20,7 @@
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item nav navbar-nav navbar-right ">
+          <li class="nav-item ">
             <?php
             if ($_SESSION["isAdmin"] === true) {
             ?>
@@ -28,6 +28,9 @@
             <?php
             }
             ?>
+          </li>
+          <li class="nav-item nav">
+            <a href="<?php echo   FRONT_ROOT?>user/logout" class="nav-link">Log Out</a>
           </li>
         </ul>
       </div>

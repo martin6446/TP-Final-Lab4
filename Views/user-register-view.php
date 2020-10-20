@@ -19,14 +19,6 @@
                         <label for="exampleDropdownFormPassword2">Password</label>
                         <input type="password" name="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
                     </div>
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="dropdownCheck2">
-                            <label class="form-check-label" for="dropdownCheck2">
-                                Remember me
-                            </label>
-                        </div>
-                    </div>
                     <button type="submit" class="btn btn-primary">Sign in</button>
                 </form>
     </div>
