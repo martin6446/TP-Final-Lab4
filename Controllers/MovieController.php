@@ -12,6 +12,8 @@ class MovieController{
     }
 
     public function showListView(){
+        require_once(VIEWS_PATH."nav-bar.php");
+
 
         $movieList = $this->getData();
 

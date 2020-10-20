@@ -7,6 +7,5 @@
 </div>
 <!-- JAVASCRIPTS -->
 <script src="../layout/js/bootstrap.js"></script>
-<script src="../layout/js/bootstrap.bundle.js"></script>
 </body>
 </html>

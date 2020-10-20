@@ -1,7 +1,5 @@
-<?php require_once("nav-bar.php") ?>
-
 <table class="table table-striped">
-    <thead>
+    <thead class="thead-dark">
         <tr>
             <th scope="col">Cinema Name</th>
             <th scope="col">Schedule</th>

@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    <form action="<?php echo FRONT_ROOT?>cinema/showListView" method="POST">
+<form action="<?php echo FRONT_ROOT?>cinema/showListView" method="POST">
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -18,7 +11,7 @@
   <tbody>
     <tr>
         <?php
-        var_dump($movieList);
+        #var_dump($movieList);
         foreach($movieList as $movie){
 
           ?>
@@ -45,5 +38,3 @@
   </tbody>
 </table>
 </form>
-</body>
-</html>
