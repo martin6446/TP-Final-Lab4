@@ -23,7 +23,12 @@ class CinemaDAO{
                 $cinema = new Cinema();
 
                 $cinema->setName($data["name"]);
-                $cinema->setLocation($data["location"]);
+                $cinema->setTicketValue($data["ticketvalue"]);
+                $cinema->setAddress($data["address"]);
+                $cinema->setAddress2($data["address2"]);
+                $cinema->setCity($data["city"]);
+                $cinema->setState($data["state"]);
+                $cinema->setZip($data["zip"]);
                 $cinema->setMoviePlaying($data["movieplaying"]);
                 $cinema->setCapacity($data["capacity"]);
 
@@ -37,7 +42,12 @@ class CinemaDAO{
 
         foreach($this->cinemaList as $cinema){
             $valuesArray["name"] = $cinema->getName();
-            $valuesArray["location"] = $cinema->getLocation();
+            $valuesArray["ticketvalue"] = $cinema->getTicketValue();
+            $valuesArray["address"] = $cinema->getAddress();
+            $valuesArray["address2"] = $cinema->getAddress2();
+            $valuesArray["city"] = $cinema->getCity();
+            $valuesArray["state"] = $cinema->getState();
+            $valuesArray["zip"] = $cinema->getZip();
             $valuesArray["movieplaying"] = $cinema->getMoviePlaying();
             $valuesArray["capacity"] = $cinema->getCapacity();
 
@@ -59,16 +69,18 @@ class CinemaDAO{
         return $this->cinemaList;
     }
 
-    public function remove($cinemaid){
+    public function remove($name){
         
         $this->retrieveData();
+        $arrayAux = [];
 
         foreach($this->cinemaList as $cinema){
-            if($cinema->getId() == $cinemaid){
-                array_splice($this->cinemaList,array_search($cinema,$this->cinemaList),1);
-            break;
+            if($cinema->getName() != $name){
+            array_push($arrayAux,$cinema);
             }
         }
+
+        $this->cinemaList = $arrayAux;
 
         $this->saveData();
     }

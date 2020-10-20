@@ -8,7 +8,7 @@
       <div class="list-group list-group-flush">
         <a href="<?php echo FRONT_ROOT?>admin/showAdminAddCinemaView"  class="list-group-item list-group-item-action bg-light">Add Cinema</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Add Movie</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Remove Cinema</a>
+        <a href="<?php echo FRONT_ROOT?>admin/showAdminRemoveCinemaView" class="list-group-item list-group-item-action bg-light">Remove Cinema</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Remove Movie</a>
       </div>
     </div>

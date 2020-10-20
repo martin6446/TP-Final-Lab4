@@ -10,6 +10,7 @@ class Cinema{
     private $zip;
     private $moviePlaying;
     private $capacity;
+    private $ticketValue;
         
 
     public function getName()
@@ -98,6 +99,17 @@ class Cinema{
     public function setZip($zip)
     {
         $this->zip = $zip;
+    }
+
+    public function getTicketValue()
+    {
+        return $this->ticketValue;
+    }
+
+    
+    public function setTicketValue($ticketValue)
+    {
+        $this->ticketValue = $ticketValue;
     }
 }
 

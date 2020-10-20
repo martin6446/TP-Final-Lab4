@@ -1,26 +1,13 @@
 [
     {
-        "name": "el paseo",
-        "location": "diagonal alberdi",
-        "movieplaying": "mulan",
-        "capacity": 50
-    },
-    {
-        "name": "paseo aldrey",
-        "location": "shopping paseo aldrey",
-        "movieplaying": "aladin",
-        "capacity": 70
-    },
-    {
-        "name": "ambassador",
-        "location": "la calle peatonal",
-        "movieplaying": "deadpool",
-        "capacity": 200
-    },
-    {
-        "name": "cinema II",
-        "location": "shopping los gallegos",
-        "movieplaying": "rango",
-        "capacity": 120
+        "name": "cinema aldrey",
+        "ticketvalue": "500",
+        "address": "sarmiento",
+        "address2": "alberti",
+        "city": "mar del plata",
+        "state": "Buenos Aires",
+        "zip": "7600",
+        "movieplaying": null,
+        "capacity": "1500"
     }
 ]
