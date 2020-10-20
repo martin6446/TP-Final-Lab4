@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Movies</title>
-</head>
-<body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <h1>Lumiére</h1>
   </nav>
 
-  <form align="center" action="<?php echo FRONT_ROOT?>movie/showListView" method="POST" class="border-top border-primary p-3 mb-2 bg-dark text-white">
+  <form action="<?php echo FRONT_ROOT?>movie/showListView" method="POST" class="border-top border-primary p-3 mb-2 bg-dark text-white">
     <div class="form-group">
       <label for="InputEmail">Email address</label>
       <input type="email" name="useremail" class="form-control-sm" id="InputEmail" aria-describedby="emailHelp" required>
@@ -27,6 +18,3 @@
 <!--   <div class="alert alert-danger" role="alert">
   A simple danger alert—check it out!
 </div> -->
-</body>
-
-</html>
