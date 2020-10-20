@@ -25,6 +25,10 @@ class MovieDAO implements IMovieDAO{
         return $this->movieList;
     }
 
+    public function clearJson(){
+        file_put_contents($this->filename, array());
+    }
+
     private function SaveData(){
         $arrayToEncode = array();
 
