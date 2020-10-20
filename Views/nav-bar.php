@@ -18,6 +18,9 @@
           <li class="nav-item">
             <a class="nav-link" href="<?php echo FRONT_ROOT?>cinema/showListView">Cinemas</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo FRONT_ROOT?>admin/showAdminView">Admin View</a>
+          </li>
         </ul>
       </div>
     </nav>

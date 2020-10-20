@@ -14,8 +14,6 @@ class CinemaController{
 
 
     public function showListView(){
-        require_once(VIEWS_PATH."nav-bar.php");
-
 
         $cinemaList = $this->cinemaDAO->getAll();
 
