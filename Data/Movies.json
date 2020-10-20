@@ -64,16 +64,6 @@
         "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/sy6DvAu72kjoseZEjocnm2ZZ09i.jpg"
     },
     {
-        "Id": 726739,
-        "title": "Cats & Dogs 3: Paws Unite",
-        "genre": [
-            "Action",
-            "Comedy"
-        ],
-        "release": "2020-10-02",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/4BgSWFMW2MJ0dT5metLzsRWO7IJ.jpg"
-    },
-    {
         "Id": 592350,
         "title": "My Hero Academia: Heroes Rising",
         "genre": [
@@ -94,6 +84,16 @@
         ],
         "release": "2020-10-02",
         "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/c3SbZPZPOfGMHq7DB7FnTIMQKuY.jpg"
+    },
+    {
+        "Id": 726739,
+        "title": "Cats & Dogs 3: Paws Unite",
+        "genre": [
+            "Action",
+            "Comedy"
+        ],
+        "release": "2020-10-02",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/4BgSWFMW2MJ0dT5metLzsRWO7IJ.jpg"
     },
     {
         "Id": 446893,
@@ -211,14 +211,14 @@
         "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/zQFjMmE3K9AX5QrBL1SXIxYQ9jz.jpg"
     },
     {
-        "Id": 530723,
-        "title": "Bad Education",
+        "Id": 659986,
+        "title": "The Owners",
         "genre": [
-            "Comedy",
-            "Drama",
-            "TV Movie"
+            "Action",
+            "Horror",
+            "Thriller"
         ],
-        "release": "2020-09-23",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/gizz5FphOtfSnLaGpRALOZgILd5.jpg"
+        "release": "2020-08-27",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/gzFatNrw0lhKD5NxaU6zC7S2KjP.jpg"
     }
 ]

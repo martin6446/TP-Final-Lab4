@@ -14,8 +14,11 @@
         <?php
         
         foreach($movieList as $movie){
-          
-         // echo "<tr>". "<td>" . $movie->getName()."<tr>"."</td>";
+          echo "<tr>";
+          echo "<td>". $movie->getName()."</td>";
+          echo "<td>". $movie->getdate()."</td>";
+          echo "<td>". $movie->getGenre()[0]."</td>";
+          echo "</tr>";
         
           //echo "<td> <img src=". $dire .$movie[0]["backdrop_path"] ."></td>";
           

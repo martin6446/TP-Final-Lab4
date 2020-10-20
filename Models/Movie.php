@@ -37,7 +37,6 @@ class Movie{
     {
         return $this->genre;
     }
-
     
     public function addGenre($genre)
     {
