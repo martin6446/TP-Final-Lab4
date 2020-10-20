@@ -13,13 +13,13 @@
     <tr>
         <?php
         foreach($movieList as $movie){
-          
           echo "<tr>";
-          echo "<td>" . $movie->getName()."</td>";
-          echo "<td>". $movie->getReleaseDate() . "</td>";
-    
-          $strGenres = ""; 
-
+          echo "<td>". $movie->getName()."</td>";
+          echo "<td>". $movie->getdate()."</td>";
+          echo "<td>". $movie->getGenre()[0]."</td>";
+          echo "</tr>";
+        
+          //echo "<td> <img src=". $dire .$movie[0]["backdrop_path"] ."></td>";
           
           foreach($movie->getGenres() as $genre){
             $strGenres = $strGenres . ", " . $genre; 

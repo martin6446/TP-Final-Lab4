@@ -81,15 +81,14 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/2nFzxaAK7JIsk6l7qZ8rFBsa3yW.jpg"
     },
     {
-        "Id": 726739,
-        "title": "Cats & Dogs 3: Paws Unite",
+        "Id": 592350,
+        "title": "My Hero Academia: Heroes Rising",
         "genre": [
             "Action",
-            "Comedy"
+            "Animation"
         ],
-        "release": "2020-10-02",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/4BgSWFMW2MJ0dT5metLzsRWO7IJ.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/t22fWbzdnThPseipsdpwgdPOPCR.jpg"
+        "release": "2019-12-20",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/zGVbrulkupqpbwgiNedkJPyQum4.jpg"
     },
     {
         "Id": 667141,
@@ -118,6 +117,16 @@
         "release": "2020-10-16",
         "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/h8Rb9gBr48ODIwYUttZNYeMWeUU.jpg",
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/xoqr4dMbRJnzuhsWDF3XNHQwJ9x.jpg"
+    },
+    {
+        "Id": 726739,
+        "title": "Cats & Dogs 3: Paws Unite",
+        "genre": [
+            "Action",
+            "Comedy"
+        ],
+        "release": "2020-10-02",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/4BgSWFMW2MJ0dT5metLzsRWO7IJ.jpg"
     },
     {
         "Id": 446893,
@@ -232,15 +241,14 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/pGqBDYycGWsMYc57sYv5M9GAQoW.jpg"
     },
     {
-        "Id": 554311,
-        "title": "Zombi Child",
+        "Id": 659986,
+        "title": "The Owners",
         "genre": [
-            "Drama",
-            "Fantasy",
-            "Horror"
+            "Action",
+            "Horror",
+            "Thriller"
         ],
-        "release": "2019-06-12",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/tiuUUPnd3NGrBaF9aGYXXvXameL.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/yroX00jccBkKwIZ2oXRDcx0NIal.jpg"
+        "release": "2020-08-27",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/gzFatNrw0lhKD5NxaU6zC7S2KjP.jpg"
     }
 ]
