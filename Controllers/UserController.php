@@ -12,6 +12,10 @@ class UserController{
         $this->userDAO = new UserDAO();
     }
 
+    public function userRegisterView(){
+        require_once(VIEWS_PATH."user-register-view.php");
+    }
+
     public function userRegister($email, $password){
         $user = new User();
 
