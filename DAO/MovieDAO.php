@@ -49,8 +49,6 @@ class MovieDAO implements IMovieDAO{
             $movie->setReleaseDate($movies["release_date"]);
             $movie->setMoviePoster("https://image.tmdb.org/t/p/original/" . $movies["poster_path"]);
 
-            
-
             foreach($movies["genre_ids"] as $genre_id){
                 foreach($genres as $genre){
       
