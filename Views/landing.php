@@ -61,22 +61,21 @@ require_once(VIEWS_PATH . "nav-bar.php");
 <!-- Page Content -->
 <section class="py-5">
     <div class="container">
-        <h1 class="font-weight-light">Welcome to Lumiere cinemas</h1>
+        <h1 class="font-weight-light text-center">Welcome to Lumiere cinemas</h1>
         <form>
             <div class="row">
                 <div class="col-6">
-
-                <?php  var_dump($genre); ?>
                     <select class="form-control" id="genero">
                         <?php 
                             echo "<option value='All'>All genres</option>";
-                            var_dump($genre);
-                                               
+                            foreach($genres as $genre){
+                                echo "<option value='".$genre['name']."'>".$genre['name']."</option>";
+                            }                    
                         ?>
                     </select>
                 </div>
-                <div class="col-3">
-                    <button class="btn btn-success px-10">Search</button>
+                <div class="col-2">
+                    <button class="btn btn-success px-10">Find Movies</button>
                 </div>
             </div>
         </form>

@@ -3,7 +3,7 @@ namespace Controllers;
 
 use DAO\MovieDAO as MovieDAO;
 
-class lalaController
+class LandingController
 {
     private $movieDAO;
 
@@ -14,9 +14,9 @@ class lalaController
 
     public function loadData()
     {
-        $genre = $this->movieDAO->getGenres();
+        $genres = $this->movieDAO->getGenres();
 
-        require_once(VIEWS_PATH."index2.php");
+        require_once(VIEWS_PATH."landing.php");
         
     }
 }

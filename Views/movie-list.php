@@ -4,22 +4,29 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">Movie Name</th>
-      <th scope="col">date</th>
-      <th scope="col">Category</th>
+      <th scope="col">Release Date</th>
+      <th scope="col">Genre</th>
       <th scope="col">Select</th>
     </tr>
   </thead>
   <tbody>
     <tr>
         <?php
-        
         foreach($movieList as $movie){
           
-         // echo "<tr>". "<td>" . $movie->getName()."<tr>"."</td>";
-        
-          //echo "<td> <img src=". $dire .$movie[0]["backdrop_path"] ."></td>";
+          echo "<tr>";
+          echo "<td>" . $movie->getName()."</td>";
+          echo "<td>". $movie->getReleaseDate() . "</td>";
+    
+          $strGenres = ""; 
+
           
-          //echo "<td>". $movie[""] ."</td>";
+          foreach($movie->getGenres() as $genre){
+            $strGenres = $strGenres . ", " . $genre; 
+          }
+          echo "<td>". substr($strGenres, 1) . "</td>";
+          echo "<td><button type='submit' class='btn btn-secondary'>Select</button></td>";
+          echo "</tr>";
           }
           ?>
        <!--  <td>Mark</td>

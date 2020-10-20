@@ -46,7 +46,7 @@ class MovieDAO implements IMovieDAO{
             $movie = new Movie();
             $movie->setIdMovie($movies["id"]);
             $movie->setName($movies["title"]);
-            $movie->setDate($movies["release_date"]);
+            $movie->setReleaseDate($movies["release_date"]);
             $movie->setMoviePoster("https://image.tmdb.org/t/p/original/" . $movies["poster_path"]);
 
             
@@ -89,8 +89,8 @@ class MovieDAO implements IMovieDAO{
         foreach($this->movieList as $movie){
             $valuesArray["Id"] = $movie->getIdMovie();
             $valuesArray["title"] = $movie->getName();
-            $valuesArray["genre"] = $movie->getGenre();
-            $valuesArray["release"] = $movie->getDate();
+            $valuesArray["genre"] = $movie->getGenres();
+            $valuesArray["release"] = $movie->getReleaseDate();
             $valuesArray["poster"] = $movie->getMoviePoster();
             array_push($arrayToEncode, $valuesArray);
         }
@@ -110,8 +110,8 @@ class MovieDAO implements IMovieDAO{
                 $movie = new Movie();
                 $movie->setIdMovie($valuesArray["Id"]);
                 $movie->setName($valuesArray["title"]);
-                $movie->setGenre($valuesArray["genre"]);
-                $movie->setDate($valuesArray["release"]);
+                $movie->setGenres($valuesArray["genre"]);
+                $movie->setReleaseDate($valuesArray["release"]);
                 $movie->setMoviePoster($valuesArray["poster"]);
                 array_push($this->movieList, $movie);
             }

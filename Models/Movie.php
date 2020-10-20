@@ -7,8 +7,8 @@ class Movie{
     private $idMovie;
     private $moviePoster;
     private $name;
-    private $date; // date real
-    private $genre = array();
+    private $releaseDate; // date real
+    private $genres = array();
     private $duration;
 
     public function getName()
@@ -22,26 +22,26 @@ class Movie{
         $this->name = $name;
     }
 
-    public function getDate()
+    public function getReleaseDate()
     {
-        return $this->date;
+        return $this->releaseDate;
     }
 
     
-    public function setDate($date)
+    public function setReleaseDate($date)
     {
-        $this->date = $date;
+        $this->releaseDate = $date;
     }
 
-    public function getGenre()
+    public function getGenres()
     {
-        return $this->genre;
+        return $this->genres;
     }
 
     
     public function addGenre($genre)
     {
-        array_push($this->genre, $genre);
+        array_push($this->genres, $genre);
     }
 
     public function getDuration()
@@ -78,9 +78,9 @@ class Movie{
     }
 
     
-    public function setGenre($genre)
+    public function setGenres($genre)
     {
-        $this->genre = $genre;
+        $this->genres = $genre;
     }
 }
 
