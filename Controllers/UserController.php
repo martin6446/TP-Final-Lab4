@@ -12,7 +12,7 @@ class UserController{
         $this->userDAO = new UserDAO();
     }
 
-    public function UserRegister($email, $password){
+    public function userRegister($email, $password){
         $user = new User();
 
         $user->setEmail($email);
@@ -21,6 +21,8 @@ class UserController{
         $_SESSION["loggeduser"] = $user->getEmail();
 
         $this->userDAO->add($user);
+        require_once(VIEWS_PATH."index.php");
+
 
         
     }

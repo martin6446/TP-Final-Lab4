@@ -12,18 +12,21 @@
   <tbody>
     <tr>
         <?php
-        #var_dump($movieList);
+        
         foreach($movieList as $movie){
-
+          
+         // echo "<tr>". "<td>" . $movie->getName()."<tr>"."</td>";
+        
+          //echo "<td> <img src=". $dire .$movie[0]["backdrop_path"] ."></td>";
+          
+          //echo "<td>". $movie[""] ."</td>";
+          }
           ?>
-        <td>Mark</td>
+       <!--  <td>Mark</td>
         <td>Otto</td>
         <td>@mdo</td>
         <td><button type="submit" class="btn btn-secondary" value="<?php ?>">Clik Me!</button></td>
         </tr>
-        <?php
-        }
-    ?>
     <tr>
       <td>Jacob</td>
       <td>Thornton</td>
@@ -35,7 +38,7 @@
       <td>the Bird</td>
       <td>@twitter</td>
       <td><button type="submit" class="btn btn-secondary">Clik Me!</button></td>
-    </tr>
+    </tr> -->
   </tbody>
 </table>
 </form>
