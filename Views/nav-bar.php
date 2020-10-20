@@ -8,7 +8,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav ">
           <li class="nav-item active">
             <a class="nav-link" href="<?php echo FRONT_ROOT ?>landing/loadData">Home <span class="sr-only">(current)</span></a>
           </li>
@@ -16,10 +16,18 @@
             <a class="nav-link" href="<?php echo FRONT_ROOT ?>movie/showListView">Movies</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo FRONT_ROOT?>cinema/showListView">Cinemas</a>
+            <a class="nav-link" href="<?php echo FRONT_ROOT ?>cinema/showListView">Cinemas</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo FRONT_ROOT?>admin/showAdminView">Admin View</a>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item nav navbar-nav navbar-right ">
+            <?php
+            if ($_SESSION["isAdmin"] === true) {
+            ?>
+              <a class="nav-link" href="<?php echo FRONT_ROOT ?>admin/showAdminView">Admin View</a>
+            <?php
+            }
+            ?>
           </li>
         </ul>
       </div>

@@ -16,8 +16,34 @@ class UserController{
         require_once(VIEWS_PATH. "notification.php");
     }
 
-    public function userRegister($email, $password){
-        $user = new User();
+    public function userRegisterView(){
+        require_once(VIEWS_PATH."user-register-view.php");
+    }
+
+    public function userRegister($name, $lastname,$email, $password,$confirmpass){
+
+        /* echo "name ".$name. "<br>";
+        echo "lastname ".$lastname. "<br>";
+        echo "email ".$email. "<br>";
+        echo "password".$password. "<br>";
+        echo "confirm password".$confirmpass. "<br>";
+        die; */
+
+        if($password === $confirmpass){
+
+            $user = new User($name,$lastname,$email,$password);
+
+            $this->userDAO->add($user);
+            $_SESSION["isAdmin"] = $user->getIsAdmin();
+            header("location:".FRONT_ROOT."/landing/loadData");
+        }else {
+            $this->userRegisterView();
+        }
+
+
+
+
+      /*   $user = new User();
 
         $user->setEmail($email);
         $user->setPassword($password);
@@ -26,7 +52,7 @@ class UserController{
 
         $this->userDAO->add($user);
         #require_once(FRONT_ROOT."index/loadData.php");
-        #require_once(FRONT_ROOT."movie/showListView");
+        #require_once(FRONT_ROOT."movie/showListView"); */
 
     }
 
@@ -42,7 +68,7 @@ class UserController{
         }
 
         if($flag){
-            $_SESSION["loggeduser"] = $user->getEmail();
+            $_SESSION["isAdmin"] = $user->getIsAdmin();
             header("location:".FRONT_ROOT."/landing/loadData");
         }else{
             $this->notification("Wrong username or password", FRONT_ROOT."index.php");
@@ -50,6 +76,4 @@ class UserController{
         
         /// aca alertariamos de un error en el logeo.
     }
-
 }
-?>
