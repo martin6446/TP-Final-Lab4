@@ -66,11 +66,11 @@ require_once(VIEWS_PATH . "nav-bar.php");
             <div class="row">
                 <div class="col-6">
 
-                <?php  var_dump($genres); ?>
+                <?php  var_dump($genre); ?>
                     <select class="form-control" id="genero">
                         <?php 
                             echo "<option value='All'>All genres</option>";
-                            var_dump($genres);
+                            var_dump($genre);
                                                
                         ?>
                     </select>

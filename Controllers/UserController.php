@@ -20,8 +20,9 @@ class UserController{
 
         $_SESSION["loggeduser"] = $user->getEmail();
 
-        $this->userDAO->add($user);
-        require_once(FRONT_ROOT."index/loadData.php");
+        #$this->userDAO->add($user);
+        #require_once(FRONT_ROOT."index/loadData.php");
+        require_once(VIEWS_PATH."index2.php");
 
 
         

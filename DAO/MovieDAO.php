@@ -39,7 +39,7 @@ class MovieDAO implements IMovieDAO{
         $response = $this->getData();
         $genres = $this->getGenres();
         
-        $this->movieDAO->clearJson();
+        $this->clearJson();
         
         foreach($response["results"] as $movies){
         
@@ -60,7 +60,7 @@ class MovieDAO implements IMovieDAO{
                 }
               } 
             /// Por ahora persisten en un json....
-            $this->movieDAO->Add($movie);
+            $this->Add($movie);
         }
         
         return $this->movieList;
