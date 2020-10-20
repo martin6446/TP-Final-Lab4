@@ -12,8 +12,62 @@ class MovieDAO implements IMovieDAO{
     public function __construct()
     {
         $this->filename = dirname(__DIR__)."/Data/Movies.json";
+        $this->responseToMovies();
+
     }
     
+    private function getData(){
+
+        $url = "https://api.themoviedb.org/3/movie/now_playing?api_key=c0cb585209076897c1f12bc28efc0a20";
+        $json = file_get_contents($url);
+        $datos = json_decode($json,true);
+        
+        //var_dump($datos);
+        return $datos;
+    }
+
+    public function getGenres(){
+        $url = "https://api.themoviedb.org/3/genre/movie/list?api_key=c0cb585209076897c1f12bc28efc0a20&language=en-US";
+        $json = file_get_contents($url);
+        return json_decode($json,true)["genres"];
+    }
+
+
+    private function responseToMovies(){
+        
+
+        $response = $this->getData();
+        $genres = $this->getGenres();
+        
+        $this->movieDAO->clearJson();
+        
+        foreach($response["results"] as $movies){
+        
+            $movie = new Movie();
+            $movie->setIdMovie($movies["id"]);
+            $movie->setName($movies["title"]);
+            $movie->setDate($movies["release_date"]);
+            $movie->setMoviePoster("https://image.tmdb.org/t/p/original/" . $movies["poster_path"]);
+
+            
+
+            foreach($movies["genre_ids"] as $genre_id){
+                foreach($genres as $genre){
+      
+                if($genre_id == $genre["id"]){
+                    $movie->addGenre($genre["name"]);
+                  }
+                }
+              } 
+            /// Por ahora persisten en un json....
+            $this->movieDAO->Add($movie);
+        }
+        
+        return $this->movieList;
+
+    }
+
+
     public function Add(Movie $movie){
         $this->RetrieveData();
         array_push($this->movieList, $movie);
