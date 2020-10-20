@@ -11,7 +11,7 @@
   <tbody>
     <tr>
         <?php
-        #var_dump($movieList);
+        var_dump($movieList);
         foreach($movieList as $movie){
 
           ?>
