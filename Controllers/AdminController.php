@@ -1,16 +1,13 @@
 <?php
 namespace Controllers;
 
-use DAO\AdminDAO as AdminDAO;
 
 class AdminController{
-    private $adminDAO;
     private $cinemaController;
     private $movieController;
 
     public function __construct()
     {
-        $this->adminDAO = new AdminDAO();
         $this->cinemaController = new CinemaController();
         $this->movieController = new MovieController();
     }

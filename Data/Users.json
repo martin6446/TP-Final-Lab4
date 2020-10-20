@@ -1,6 +1,9 @@
 [
     {
+        "name": "martin",
+        "lastname": "caminero",
         "email": "martincaminero64@gmail.com",
-        "password": "123"
+        "password": "123456",
+        "isAdmin": "true"
     }
 ]

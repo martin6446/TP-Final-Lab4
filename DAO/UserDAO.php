@@ -21,9 +21,11 @@ class UserDAO{
 
             foreach($arrayToDecode as $data){
                 $user = new User();
-
+                $user->setName($data["name"]);
+                $user->setLastName($data["lastname"]);
                 $user->setEmail($data["email"]);
                 $user->setPassword($data["password"]);
+                $user->setIsAdmin($data["isAdmin"] == "true"? true : false);
 
                 array_push($this->userList,$user);
             }
@@ -34,8 +36,11 @@ class UserDAO{
         $arrayToEncode = array();
 
         foreach($this->userList as $user){
+            $valuesArray["name"] = $user->getName();
+            $valuesArray["lastname"] = $user->getLastName();
             $valuesArray["email"] = $user->getEmail();
             $valuesArray["password"] = $user->getPassword();
+            $valuesArray["isAdmin"] = $user->getIsAdmin();
 
             array_push($arrayToEncode,$valuesArray);
         }

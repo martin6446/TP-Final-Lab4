@@ -1,49 +1,73 @@
-<form class="form-horizontal" action='' method="POST">
-  <fieldset>
-    <div id="legend">
-      <legend class="">Register</legend>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <h1>Lumiére</h1>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sign In
+                </a>
+                <form action="<?php echo FRONT_ROOT?>user/userLogin" class="dropdown-menu p-2 dropdown-menu-right">
+                    <div class="form-group ">
+                        <label for="exampleDropdownFormEmail2">Email address</label>
+                        <input type="email" name="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleDropdownFormPassword2">Password</label>
+                        <input type="password" name="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="dropdownCheck2">
+                            <label class="form-check-label" for="dropdownCheck2">
+                                Remember me
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </form>
     </div>
-    <div class="control-group">
-      <!-- Username -->
-      <label class="control-label"  for="username">Username</label>
-      <div class="controls">
-        <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
-        <p class="help-block">Username can contain any letters or numbers, without spaces</p>
-      </div>
+</nav>
+<h1 class="text-center text-white bg-dark">Registrate</h1>
+<div class="container ">
+    <div class="border border-secondary rounded p-4 text-center">
+        <form method="POST" action="<?php echo FRONT_ROOT ?>user/userRegister">
+            <div class="form-row">
+                <div class="form-group mx-auto col-4">
+                    <label for="inputCinemaName">Nombre</label>
+                    <input type="text" name="name" class="form-control" id="inputCinemaName" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group mx-auto col-4">
+                    <label for="inputCinemaName">Apellido</label>
+                    <input type="text" name="lastname" class="form-control" id="inputCinemaName" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group mx-auto col-4">
+                    <label for="inputAddress">Email</label>
+                    <input type="text" name="email" class="form-control" id="inputAddress" placeholder="" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group mx-auto col-4">
+                    <label for="inputCity">Password</label>
+                    <input type="password" name="password" class="form-control" id="inputCity" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group mx-auto col-4">
+                    <label for="inputCity">Confirm Password</label>
+                    <input type="password" name="confirmpass" class="form-control" id="inputCity" required>
+                </div>
+            </div>
+            <div class="form-group">
+            </div>
+            <button type="submit" class="btn btn-secondary m-2">Register</button>
+        </form>
     </div>
- 
-    <div class="control-group">
-      <!-- E-mail -->
-      <label class="control-label" for="email">E-mail</label>
-      <div class="controls">
-        <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
-        <p class="help-block">Please provide your E-mail</p>
-      </div>
-    </div>
- 
-    <div class="control-group">
-      <!-- Password-->
-      <label class="control-label" for="password">Password</label>
-      <div class="controls">
-        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
-        <p class="help-block">Password should be at least 4 characters</p>
-      </div>
-    </div>
- 
-    <div class="control-group">
-      <!-- Password -->
-      <label class="control-label"  for="password_confirm">Password (Confirm)</label>
-      <div class="controls">
-        <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
-        <p class="help-block">Please confirm password</p>
-      </div>
-    </div>
- 
-    <div class="control-group">
-      <!-- Button -->
-      <div class="controls">
-        <button class="btn btn-success">Register</button>
-      </div>
-    </div>
-  </fieldset>
-</form>
+</div>

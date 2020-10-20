@@ -16,10 +16,16 @@
             <a class="nav-link" href="<?php echo FRONT_ROOT ?>movie/showListView">Movies</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo FRONT_ROOT?>cinema/showListView">Cinemas</a>
+            <a class="nav-link" href="<?php echo FRONT_ROOT ?>cinema/showListView">Cinemas</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo FRONT_ROOT?>admin/showAdminView">Admin View</a>
+          <li class="nav-item nav navbar-nav navbar-right">
+            <?php
+            if ($_SESSION["isAdmin"] === true) {
+            ?>
+              <a class="nav-link" href="<?php echo FRONT_ROOT ?>admin/showAdminView">Admin View</a>
+            <?php
+            }
+            ?>
           </li>
         </ul>
       </div>
