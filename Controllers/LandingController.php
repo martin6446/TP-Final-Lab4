@@ -14,6 +14,9 @@ class LandingController
 
     public function loadData()
     {
+        $movies = $this->movieDAO->getAll();
+        $featuredMovies = array();
+        array_push($featuredMovies, $movies[0], $movies[3], $movies[4]);
         $genres = $this->movieDAO->getGenres();
 
         require_once(VIEWS_PATH."landing.php");

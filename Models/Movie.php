@@ -6,6 +6,7 @@ class Movie{
 
     private $idMovie;
     private $moviePoster;
+    private $backdrop;
     private $name;
     private $releaseDate; // date real
     private $genres = array();
@@ -82,6 +83,16 @@ class Movie{
     {
         $this->genres = $genre;
     }
+
+    public function getBackdrop(){
+        return $this->backdrop;
+    }
+
+
+    public function setBackdrop($backdrop){
+        $this->backdrop = $backdrop;
+    }
+
 }
 
 
