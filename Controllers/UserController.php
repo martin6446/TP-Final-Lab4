@@ -24,16 +24,31 @@ class UserController{
 
         $_SESSION["loggeduser"] = $user->getEmail();
 
-        #$this->userDAO->add($user);
+        $this->userDAO->add($user);
         #require_once(FRONT_ROOT."index/loadData.php");
-        require_once(FRONT_ROOT."landing/loadData");
+        #require_once(FRONT_ROOT."movie/showListView");
 
-
-        
     }
 
-    public function UserLogin($email, $password){
+    public function userLogin($email, $password){
+        $userList = $this->userDAO->getAll();
+        $flag = false;
+
+        foreach($userList as $user){
+            if($user->getEmail() == $email && $user->getPassword() == $password){
+                $flag = true;
+                break;
+            }
+        }
+
+        if($flag){
+            $_SESSION["loggeduser"] = $user->getEmail();
+            header("location:".FRONT_ROOT."/landing/loadData");
+        }else{
+            require_once(VIEWS_PATH."login.php");
+        }
         
+        /// aca alertariamos de un error en el logeo.
     }
 }
 

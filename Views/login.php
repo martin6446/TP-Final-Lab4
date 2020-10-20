@@ -2,7 +2,7 @@
   <h1>Lumiére</h1>
   </nav>
 
-  <form action="<?php echo FRONT_ROOT?>user/userRegister" method="POST" class="border-top border-primary p-3 mb-2 bg-dark text-white">
+  <form action="<?php echo FRONT_ROOT?>user/userLogin" method="POST" class="border-top border-primary p-3 mb-2 bg-dark text-white">
     <div class="form-group">
       <label for="InputEmail">Email address</label>
       <input type="email" name="useremail" class="form-control-sm" id="InputEmail" aria-describedby="emailHelp" required>
