@@ -12,6 +12,10 @@ class UserController{
         $this->userDAO = new UserDAO();
     }
 
+    public function notification($notification, $location){
+        require_once(VIEWS_PATH. "notification.php");
+    }
+
     public function userRegister($email, $password){
         $user = new User();
 
@@ -41,11 +45,11 @@ class UserController{
             $_SESSION["loggeduser"] = $user->getEmail();
             header("location:".FRONT_ROOT."/landing/loadData");
         }else{
-            require_once(VIEWS_PATH."login.php");
+            $this->notification("Wrong username or password", FRONT_ROOT."index.php");
         }
         
         /// aca alertariamos de un error en el logeo.
     }
-}
 
+}
 ?>
