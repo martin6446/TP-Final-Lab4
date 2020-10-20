@@ -46,16 +46,6 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/9guoVF7zayiiUq5ulKQpt375VIy.jpg"
     },
     {
-        "Id": 592350,
-        "title": "My Hero Academia: Heroes Rising",
-        "genre": [
-            "Action",
-            "Animation"
-        ],
-        "release": "2019-12-20",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/zGVbrulkupqpbwgiNedkJPyQum4.jpg"
-    },
-    {
         "Id": 718444,
         "title": "Rogue",
         "genre": [
@@ -98,7 +88,8 @@
             "Comedy"
         ],
         "release": "2020-10-02",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/4BgSWFMW2MJ0dT5metLzsRWO7IJ.jpg"
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/4BgSWFMW2MJ0dT5metLzsRWO7IJ.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/t22fWbzdnThPseipsdpwgdPOPCR.jpg"
     },
     {
         "Id": 667141,
@@ -125,7 +116,8 @@
             "History"
         ],
         "release": "2020-10-16",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/h8Rb9gBr48ODIwYUttZNYeMWeUU.jpg"
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/h8Rb9gBr48ODIwYUttZNYeMWeUU.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/xoqr4dMbRJnzuhsWDF3XNHQwJ9x.jpg"
     },
     {
         "Id": 446893,
@@ -162,7 +154,8 @@
             "Family"
         ],
         "release": "2020-08-27",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/ltyARDw2EFXZ2H2ERnlEctXPioP.jpg"
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/ltyARDw2EFXZ2H2ERnlEctXPioP.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/4gKyQ1McHa8ZKDsYoyKQSevF01J.jpg"
     },
     {
         "Id": 590223,
@@ -174,7 +167,8 @@
             "Romance"
         ],
         "release": "2020-10-16",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/r4Lm1XKP0VsTgHX4LG4syAwYA2I.jpg"
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/r4Lm1XKP0VsTgHX4LG4syAwYA2I.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/lA5fOBqTOQBQ1s9lEYYPmNXoYLi.jpg"
     },
     {
         "Id": 604578,
@@ -203,18 +197,6 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/n1RohH2VoK1CdVI2fXvcP19dSlm.jpg"
     },
     {
-        "Id": 531876,
-        "title": "The Outpost",
-        "genre": [
-            "Action",
-            "Drama",
-            "History",
-            "War"
-        ],
-        "release": "2020-06-24",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/hPkqY2EMqWUnFEoedukilIUieVG.jpg"
-    },
-    {
         "Id": 597398,
         "title": "Away",
         "genre": [
@@ -240,18 +222,6 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/AdqOBPw4PdtzOcfEuQuZ8MNeTKb.jpg"
     },
     {
-        "Id": 413518,
-        "title": "Pinocchio",
-        "genre": [
-            "Adventure",
-            "Drama",
-            "Fantasy",
-            "Family"
-        ],
-        "release": "2019-12-19",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/4w1ItwCJCTtSi9nPfJC1vU6NIVg.jpg"
-    },
-    {
         "Id": 627290,
         "title": "Antebellum",
         "genre": [
@@ -270,6 +240,7 @@
             "Horror"
         ],
         "release": "2019-06-12",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/tiuUUPnd3NGrBaF9aGYXXvXameL.jpg"
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/tiuUUPnd3NGrBaF9aGYXXvXameL.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/yroX00jccBkKwIZ2oXRDcx0NIal.jpg"
     }
 ]
