@@ -3,9 +3,12 @@ namespace Models;
 
 
 class Movie{
+
+    private $idMovie;
+    private $moviePoster;
     private $name;
-    private $date;
-    private $category;
+    private $date; // date real
+    private $genre = array();
     private $duration;
 
     public function getName()
@@ -30,15 +33,15 @@ class Movie{
         $this->date = $date;
     }
 
-    public function getCategory()
+    public function getGenre()
     {
-        return $this->category;
+        return $this->genre;
     }
 
     
-    public function setCategory($category)
+    public function addGenre($genre)
     {
-        $this->category = $category;
+        array_push($this->genre, $genre);
     }
 
     public function getDuration()
@@ -50,6 +53,34 @@ class Movie{
     public function setDuration($duration)
     {
         $this->duration = $duration;
+    }
+
+    public function getIdMovie()
+    {
+        return $this->idMovie;
+    }
+
+    
+    public function setIdMovie($idMovie)
+    {
+        $this->idMovie = $idMovie;
+    }
+
+    public function getMoviePoster()
+    {
+        return $this->moviePoster;
+    }
+
+    
+    public function setMoviePoster($moviePoster)
+    {
+        $this->moviePoster = $moviePoster;
+    }
+
+    
+    public function setGenre($genre)
+    {
+        $this->genre = $genre;
     }
 }
 

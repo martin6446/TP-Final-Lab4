@@ -3,7 +3,11 @@ namespace Models;
 
 class Cinema{
     private $name;
-    private $location;
+    private $address;
+    private $address2;
+    private $city;
+    private $state;
+    private $zip;
     private $moviePlaying;
     private $capacity;
         
@@ -17,17 +21,6 @@ class Cinema{
     public function setName($name)
     {
         $this->name = $name;
-    }
-
-    public function getLocation()
-    {
-        return $this->location;
-    }
-
-    
-    public function setLocation($location)
-    {
-        $this->location = $location;
     }
 
     public function getMoviePlaying()
@@ -50,6 +43,61 @@ class Cinema{
     public function setCapacity($capacity)
     {
         $this->capacity = $capacity;
+    }
+
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+
+    public function getAddress2()
+    {
+        return $this->address2;
+    }
+
+    
+    public function setAddress2($address2)
+    {
+        $this->address2 = $address2;
+    }
+
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    
+    public function setCity($city)
+    {
+        $this->city = $city;
+    }
+
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    
+    public function setState($state)
+    {
+        $this->state = $state;
+    }
+
+    public function getZip()
+    {
+        return $this->zip;
+    }
+
+    
+    public function setZip($zip)
+    {
+        $this->zip = $zip;
     }
 }
 

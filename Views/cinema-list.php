@@ -1,3 +1,4 @@
+<?php require_once(VIEWS_PATH."nav-bar.php");?>
 <table class="table table-striped">
     <thead class="thead-dark">
         <tr>
