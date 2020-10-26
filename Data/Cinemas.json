@@ -9,5 +9,27 @@
         "zip": "7600",
         "movieplaying": null,
         "capacity": "1500"
+    },
+    {
+        "name": "cine",
+        "ticketvalue": "100",
+        "address": "salta",
+        "address2": "bolivar",
+        "city": "mar del plata",
+        "state": "Buenos Aires",
+        "zip": "7600",
+        "movieplaying": null,
+        "capacity": "500"
+    },
+    {
+        "name": "cine",
+        "ticketvalue": "-100",
+        "address": "asdfadf",
+        "address2": "asdfasdf",
+        "city": "mar del plata",
+        "state": "Buenos Aires",
+        "zip": "-100",
+        "movieplaying": null,
+        "capacity": "-500"
     }
 ]

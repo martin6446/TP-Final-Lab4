@@ -4,6 +4,20 @@
         "lastname": "caminero",
         "email": "martincaminero64@gmail.com",
         "password": "123456",
-        "isAdmin": "true"
+        "isAdmin": true
+    },
+    {
+        "name": "facundo",
+        "lastname": "monteagudo",
+        "email": "facumonte@hotmail.com",
+        "password": "123456",
+        "isAdmin": false
+    },
+    {
+        "name": "facundo",
+        "lastname": "monteagudo",
+        "email": "facumonte@hotmail.com",
+        "password": "123456",
+        "isAdmin": "false"
     }
 ]
