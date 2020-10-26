@@ -1,5 +1,8 @@
 <?php require_once(VIEWS_PATH."nav-bar.php");?>
 
+
+
+
   <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
