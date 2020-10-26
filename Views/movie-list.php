@@ -29,23 +29,6 @@
           echo "</tr>";
           }
           ?>
-       <!--  <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td><button type="submit" class="btn btn-secondary" value="<?php ?>">Clik Me!</button></td>
-        </tr>
-    <tr>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td><button type="submit" class="btn btn-secondary">Clik Me!</button></td>
-    </tr>
-    <tr>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td><button type="submit" class="btn btn-secondary">Clik Me!</button></td>
-    </tr> -->
   </tbody>
 </table>
 </form>

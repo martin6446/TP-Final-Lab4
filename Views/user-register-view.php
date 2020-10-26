@@ -10,7 +10,7 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Sign In
                 </a>
-                <form action="<?php echo FRONT_ROOT?>user/userLogin" class="dropdown-menu p-2 dropdown-menu-right">
+                <form action="<?php echo FRONT_ROOT?>user/userLogin"  class="dropdown-menu p-2 dropdown-menu-right">
                     <div class="form-group ">
                         <label for="exampleDropdownFormEmail2">Email address</label>
                         <input type="email" name="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
