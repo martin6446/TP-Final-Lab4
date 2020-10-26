@@ -9,6 +9,7 @@
     </thead>
     <tbody>
         <tr>
+            <form action="<?php echo FRONT_ROOT ?>cinema/modifyCinema" method="GET">
             <?php
             foreach ($cinemaList as $cinema) {
             ?>
@@ -25,8 +26,9 @@
                         </div>
                     </div>
                 </td>
-                <td><button type="submit" class="btn btn-secondary">Click Me!</button></td>
-        </tr>
+                <td><button type="submit" value="<?php echo $cinema->getName(); ?>" class="btn btn-secondary">Click Me!</button></td>
+                </form>
+            </tr>
     <?php
             }
     ?>

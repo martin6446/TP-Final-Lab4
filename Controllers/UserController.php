@@ -3,17 +3,16 @@ namespace Controllers;
 
 use DAO\UserDAO as UserDAO;
 use Models\User as User;
+use Controllers\UtilitiesController as UtilitiesController;
 
 class UserController{
     private $userDAO;
+    private $utility;
 
     public function __construct()
     {
         $this->userDAO = new UserDAO();
-    }
-
-    public function notification($notification, $location){
-        require_once(VIEWS_PATH. "notification.php");
+        $this->utility = new UtilitiesController();
     }
 
     public function userRegisterView(){
@@ -71,7 +70,7 @@ class UserController{
             $_SESSION["isAdmin"] = $user->getIsAdmin();
             header("location:".FRONT_ROOT."/landing/loadData");
         }else{
-            $this->notification("Wrong username or password", FRONT_ROOT."index.php");
+            $this->utility->notification("Wrong username or password", FRONT_ROOT."index.php");
         }
         
         /// aca alertariamos de un error en el logeo.

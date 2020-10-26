@@ -25,7 +25,7 @@ class CinemaDAO{
                 $cinema->setName($data["name"]);
                 $cinema->setTicketValue($data["ticketvalue"]);
                 $cinema->setAddress($data["address"]);
-                $cinema->setAddress2($data["address2"]);
+                $cinema->setAddress2($data["address number"]);
                 $cinema->setCity($data["city"]);
                 $cinema->setState($data["state"]);
                 $cinema->setZip($data["zip"]);
@@ -44,7 +44,7 @@ class CinemaDAO{
             $valuesArray["name"] = $cinema->getName();
             $valuesArray["ticketvalue"] = $cinema->getTicketValue();
             $valuesArray["address"] = $cinema->getAddress();
-            $valuesArray["address2"] = $cinema->getAddress2();
+            $valuesArray["address number"] = $cinema->getAddress2();
             $valuesArray["city"] = $cinema->getCity();
             $valuesArray["state"] = $cinema->getState();
             $valuesArray["zip"] = $cinema->getZip();
@@ -68,6 +68,17 @@ class CinemaDAO{
         $this->retrieveData();
         return $this->cinemaList;
     }
+    
+    public function findCinema($name){
+       $cinemaList = $this->getAll(); 
+
+       foreach($cinemaList as $cinema){
+           if($cinema->getName() == $name){
+               return $cinema;
+           }
+       }
+    }
+
 
     public function remove($name){
         

@@ -1,10 +1,11 @@
 <?php
 namespace Controllers;
 
-
 class AdminController{
+
     private $cinemaController;
     private $movieController;
+    private $utility;
 
     public function __construct()
     {

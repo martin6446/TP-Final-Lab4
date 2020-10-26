@@ -8,11 +8,11 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="inputTicketValue">Ticket Price</label>
-                <input type="number" name="ticketvalue" class="form-control" id="inputTicketValue" min="1" max="500" required>
+                <input type="number" name="ticketvalue" class="form-control" id="inputTicketValue" required>
             </div>
             <div class="form-group col-md-4">
                 <label for="inputCapacity">Capacity</label>
-                <input type="number" name="capacity" class="form-control" id="inputCapacity" min="100" max="1000" required>
+                <input type="number" name="capacity" class="form-control" id="inputCapacity" required>
             </div>
         </div>
         <div class="form-row">
@@ -21,8 +21,8 @@
             <input type="text" name="address" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
         </div>
         <div class="form-group col-md-6">
-            <label for="inputAddress2">Address Number</label>
-            <input type="number" name="adrress number" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" min="1" max="99999" required>
+            <label for="inputAddress2">Address 2</label>
+            <input type="text" name="address2" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" required>
         </div>
         </div>
         <div class="form-row">
@@ -42,7 +42,7 @@
             </div>
             <div class="form-group col-md-2">
                 <label for="inputZip">Zip</label>
-                <input type="number" name="zip" class="form-control" id="inputZip" min="100" max="9999" required>
+                <input type="text" name="zip" class="form-control" id="inputZip" required>
             </div>
         </div>
         <div class="form-group">

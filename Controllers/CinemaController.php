@@ -13,6 +13,10 @@ class CinemaController{
         $this->cinemaDAO = new CinemaDAO();
     }
 
+    public function modifyCinema($name){
+        $cinema = $this->cinemaDAO->findCinema($name);
+        require_once(VIEWS_PATH . "edit-cinema.php");
+    }
 
     public function showListView(){
 
