@@ -18,11 +18,11 @@
         <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputAddress">Address</label>
-            <input type="text" name="address" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+            <input type="text" name="address" class="form-control" id="inputAddress" placeholder="Main St" required>
         </div>
         <div class="form-group col-md-6">
             <label for="inputAddress2">Address Number</label>
-            <input type="number" name="adrress number" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" min="1" max="99999" required>
+            <input type="number" name="adrress number" class="form-control" id="inputAddress2" placeholder="2045" min="1" max="99999" required>
         </div>
         </div>
         <div class="form-row">
