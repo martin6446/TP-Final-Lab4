@@ -19,6 +19,13 @@ class UserController{
         require_once(VIEWS_PATH."user-register-view.php");
     }
 
+    public function logout(){
+        session_destroy();
+        unset($_SESSION["loggedUser"]);
+        ///unset($_SESSION["fb_access_token"]);
+        $this->utility->notification("Logged out", FRONT_ROOT."index.php");
+    }
+
     public function userRegister($name, $lastname,$email, $password,$confirmpass){
 
         /* echo "name ".$name. "<br>";
@@ -38,6 +45,8 @@ class UserController{
         }else {
             $this->userRegisterView();
         }
+
+        
 
 
 

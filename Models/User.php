@@ -9,7 +9,7 @@ class User{
     private $password;
     private $isAdmin;
 
-    public function __construct($name="",$lastname="",$email="",$password="",$isAdmin="false")
+    public function __construct($name="",$lastname="",$email="",$password="",$isAdmin= 0)
     {
         $this->name = $name;
         $this->lastname = $lastname;

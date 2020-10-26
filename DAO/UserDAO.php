@@ -25,7 +25,7 @@ class UserDAO{
                 $user->setLastName($data["lastname"]);
                 $user->setEmail($data["email"]);
                 $user->setPassword($data["password"]);
-                $user->setIsAdmin($data["isAdmin"] == "true"? true : false);
+                $user->setIsAdmin($data["isAdmin"]);
 
                 array_push($this->userList,$user);
             }

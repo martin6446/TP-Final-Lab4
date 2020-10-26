@@ -11,16 +11,16 @@
   </thead>
   <tbody>
     <tr>
-        <?php
+    <?php
         foreach($movieList as $movie){
-          
+
           echo "<tr>";
           echo "<td>" . $movie->getName()."</td>";
           echo "<td>". $movie->getReleaseDate() . "</td>";
-    
+
           $strGenres = ""; 
 
-          
+
           foreach($movie->getGenres() as $genre){
             $strGenres = $strGenres . ", " . $genre; 
           }
