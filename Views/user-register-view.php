@@ -22,6 +22,11 @@
                     <button type="submit" class="btn btn-primary">Sign in</button>
                 </form>
     </div>
+
+
+    
+
+
 </nav>
 <h1 class="text-center text-white bg-dark">Registrate</h1>
 <div class="container ">

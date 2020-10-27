@@ -12,12 +12,5 @@
         "email": "facumonte@hotmail.com",
         "password": "123456",
         "isAdmin": 0
-    },
-    {
-        "name": "facundo",
-        "lastname": "monteagudo",
-        "email": "facumonte@hotmail.com",
-        "password": "123456",
-        "isAdmin": 0
     }
 ]
