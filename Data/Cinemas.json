@@ -3,7 +3,7 @@
         "name": "cinema aldrey",
         "ticketvalue": "500",
         "address": "sarmiento",
-        "address number": "alberti",
+        "address number": "1253",
         "city": "mar del plata",
         "state": "Buenos Aires",
         "zip": "7600",
@@ -14,7 +14,7 @@
         "name": "cine",
         "ticketvalue": "100",
         "address": "salta",
-        "address number": "bolivar",
+        "address number": "4562",
         "city": "mar del plata",
         "state": "Buenos Aires",
         "zip": "7600",
@@ -25,11 +25,22 @@
         "name": "cine",
         "ticketvalue": "-100",
         "address": "asdfadf",
-        "address number": "asdfasdf",
+        "address number": "6789",
         "city": "mar del plata",
         "state": "Buenos Aires",
         "zip": "-100",
         "movieplaying": null,
         "capacity": "-500"
+    },
+    {
+        "name": "aldrey",
+        "ticketvalue": "600",
+        "address": "sarmiento",
+        "address number": "1253",
+        "city": "mar del plata",
+        "state": "Corrientes",
+        "zip": "5213",
+        "movieplaying": null,
+        "capacity": "500"
     }
 ]
