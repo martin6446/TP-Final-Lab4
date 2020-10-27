@@ -10,7 +10,7 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Sign In
                 </a>
-                <form action="<?php echo FRONT_ROOT?>user/userLogin"  class="dropdown-menu p-2 dropdown-menu-right">
+                <form action="<?php echo FRONT_ROOT ?>user/userLogin" class="dropdown-menu p-2 dropdown-menu-right">
                     <div class="form-group ">
                         <label for="exampleDropdownFormEmail2">Email address</label>
                         <input type="email" name="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
@@ -23,9 +23,9 @@
                 </form>
     </div>
 </nav>
-<h1 class="text-center text-white bg-dark">Registrate</h1>
+<h1 class="text-center text-white bg-dark p-1">Registrate</h1>
 <div class="container ">
-    <div class="border border-secondary rounded p-4 text-center">
+    <div class="border border-secondary rounded p-1 text-center">
         <form method="POST" action="<?php echo FRONT_ROOT ?>user/userRegister">
             <div class="form-row">
                 <div class="form-group mx-auto col-4">
@@ -61,5 +61,8 @@
             </div>
             <button type="submit" class="btn btn-secondary m-2">Register</button>
         </form>
+        <div class="alert alert-danger" role="alert">
+            A simple danger alert—check it out!
+        </div>
     </div>
 </div>

@@ -26,7 +26,7 @@
                         </div>
                     </div>
                 </td>
-                <td><button type="submit" value="<?php echo $cinema->getName(); ?>" class="btn btn-secondary">Click Me!</button></td>
+                <td><button type="submit" name ="name" value="<?php echo $cinema->getName()?>" class="btn btn-secondary">Click Me!</button></td>
                 </form>
             </tr>
     <?php
