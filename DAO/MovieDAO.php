@@ -23,6 +23,7 @@ class MovieDAO implements IMovieDAO{
         $datos = json_decode($json,true);
         
         //var_dump($datos);
+        
         return $datos;
     }
 

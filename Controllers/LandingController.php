@@ -2,6 +2,8 @@
 namespace Controllers;
 
 use DAO\MovieDAO as MovieDAO;
+use DAO\CinemaDAO as CinemaDAO;
+use Models\Cinema as Cinema;
 
 class LandingController
 {
@@ -14,6 +16,11 @@ class LandingController
 
     public function loadData()
     {
+
+        $cines = new CinemaDAO();
+        $cines->add(new Cinema());
+
+
         $movies = $this->movieDAO->getAll();
         $featuredMovies = array();
         array_push($featuredMovies, $movies[0], $movies[3], $movies[4]);
