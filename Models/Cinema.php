@@ -2,15 +2,12 @@
 namespace Models;
 
 class Cinema{
+    private $id;
     private $name;
     private $address;
-    private $address2;
-    private $city;
-    private $state;
-    private $zip;
-    private $moviePlaying;
-    private $capacity;
-    private $ticketValue;
+    private $idCity;
+    private $rooms = [];
+    
         
 
     public function getName()
@@ -24,27 +21,7 @@ class Cinema{
         $this->name = $name;
     }
 
-    public function getMoviePlaying()
-    {
-        return $this->moviePlaying;
-    }
-
     
-    public function setMoviePlaying($moviePlaying)
-    {
-        $this->moviePlaying = $moviePlaying;
-    }
-
-    public function getCapacity()
-    {
-        return $this->capacity;
-    }
-
-    
-    public function setCapacity($capacity)
-    {
-        $this->capacity = $capacity;
-    }
 
     public function getAddress()
     {
@@ -57,59 +34,38 @@ class Cinema{
         $this->address = $address;
     }
 
-    public function getAddress2()
+
+    public function getRooms()
     {
-        return $this->address2;
+        return $this->rooms;
     }
 
     
-    public function setAddress2($address2)
+    public function setRooms($rooms)
     {
-        $this->address2 = $address2;
+        $this->rooms = $rooms;
     }
 
-    public function getCity()
+    public function getId()
     {
-        return $this->city;
-    }
-
-    
-    public function setCity($city)
-    {
-        $this->city = $city;
-    }
-
-    public function getState()
-    {
-        return $this->state;
+        return $this->id;
     }
 
     
-    public function setState($state)
+    public function setId($id)
     {
-        $this->state = $state;
+        $this->id = $id;
     }
 
-    public function getZip()
+    public function getIdCity()
     {
-        return $this->zip;
-    }
-
-    
-    public function setZip($zip)
-    {
-        $this->zip = $zip;
-    }
-
-    public function getTicketValue()
-    {
-        return $this->ticketValue;
+        return $this->idCity;
     }
 
     
-    public function setTicketValue($ticketValue)
+    public function setIdCity($idCity)
     {
-        $this->ticketValue = $ticketValue;
+        $this->idCity = $idCity;
     }
 }
 
