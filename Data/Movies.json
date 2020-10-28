@@ -51,6 +51,20 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/lA5fOBqTOQBQ1s9lEYYPmNXoYLi.jpg"
     },
     {
+        "Id": 531219,
+        "title": "Roald Dahl's The Witches",
+        "genre": [
+            "Adventure",
+            "Comedy",
+            "Fantasy",
+            "Horror",
+            "Family"
+        ],
+        "release": "2020-10-26",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/betExZlgK0l7CZ9CsCBVcwO1OjL.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/f2rYRh4TmhHZutQR2wL2tm97G6I.jpg"
+    },
+    {
         "Id": 337401,
         "title": "Mulan",
         "genre": [
@@ -64,19 +78,6 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/zzWGRw277MNoCs3zhyG3YmYQsXv.jpg"
     },
     {
-        "Id": 539885,
-        "title": "Ava",
-        "genre": [
-            "Action",
-            "Crime",
-            "Drama",
-            "Thriller"
-        ],
-        "release": "2020-07-02",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/qzA87Wf4jo1h8JMk9GilyIYvwsA.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/54yOImQgj8i85u9hxxnaIQBRUuo.jpg"
-    },
-    {
         "Id": 718444,
         "title": "Rogue",
         "genre": [
@@ -88,6 +89,30 @@
         "release": "2020-08-20",
         "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/uOw5JD8IlD546feZ6oxbIjvN66P.jpg",
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/x4UkhIQuHIJyeeOTdcbZ3t3gBSa.jpg"
+    },
+    {
+        "Id": 613504,
+        "title": "After We Collided",
+        "genre": [
+            "Drama",
+            "Romance"
+        ],
+        "release": "2020-09-02",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/kiX7UYfOpYrMFSAGbI6j1pFkLzQ.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/6hgItrYQEG33y0I7yP2SRl2ei4w.jpg"
+    },
+    {
+        "Id": 539885,
+        "title": "Ava",
+        "genre": [
+            "Action",
+            "Crime",
+            "Drama",
+            "Thriller"
+        ],
+        "release": "2020-07-02",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/qzA87Wf4jo1h8JMk9GilyIYvwsA.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/54yOImQgj8i85u9hxxnaIQBRUuo.jpg"
     },
     {
         "Id": 694919,
@@ -110,17 +135,6 @@
         "release": "2020-07-15",
         "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/sy6DvAu72kjoseZEjocnm2ZZ09i.jpg",
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/2nFzxaAK7JIsk6l7qZ8rFBsa3yW.jpg"
-    },
-    {
-        "Id": 613504,
-        "title": "After We Collided",
-        "genre": [
-            "Drama",
-            "Romance"
-        ],
-        "release": "2020-09-02",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/kiX7UYfOpYrMFSAGbI6j1pFkLzQ.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/6hgItrYQEG33y0I7yP2SRl2ei4w.jpg"
     },
     {
         "Id": 509635,
@@ -156,17 +170,6 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/4gKyQ1McHa8ZKDsYoyKQSevF01J.jpg"
     },
     {
-        "Id": 726739,
-        "title": "Cats & Dogs 3: Paws Unite",
-        "genre": [
-            "Action",
-            "Comedy"
-        ],
-        "release": "2020-10-02",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/4BgSWFMW2MJ0dT5metLzsRWO7IJ.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/t22fWbzdnThPseipsdpwgdPOPCR.jpg"
-    },
-    {
         "Id": 446893,
         "title": "Trolls World Tour",
         "genre": [
@@ -182,30 +185,38 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/qsxhnirlp7y4Ae9bd11oYJSX59j.jpg"
     },
     {
-        "Id": 667141,
-        "title": "12 Hour Shift",
+        "Id": 726739,
+        "title": "Cats & Dogs 3: Paws Unite",
         "genre": [
-            "Comedy",
-            "Crime",
-            "Horror",
-            "Thriller"
+            "Action",
+            "Comedy"
         ],
         "release": "2020-10-02",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/c3SbZPZPOfGMHq7DB7FnTIMQKuY.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/2LL1jHtNKJhTDc3tA1difsAnLui.jpg"
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/4BgSWFMW2MJ0dT5metLzsRWO7IJ.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/t22fWbzdnThPseipsdpwgdPOPCR.jpg"
     },
     {
-        "Id": 604578,
-        "title": "Spontaneous",
+        "Id": 505379,
+        "title": "Rebecca",
         "genre": [
-            "Comedy",
-            "Horror",
-            "Science Fiction",
+            "Drama",
+            "Mystery",
+            "Thriller",
             "Romance"
         ],
-        "release": "2020-10-02",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/22jwKxZf4rcrmh2NS07SZAQYYNY.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/324jDHMRHWZ8HLbjRJNwVPYJZT0.jpg"
+        "release": "2020-10-16",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/bSKVKcCXdKxkbgf0LL8lBTPG02e.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/mY8oTSMlVHgkBtKsvanKnvT8rY9.jpg"
+    },
+    {
+        "Id": 748224,
+        "title": "Reaptown",
+        "genre": [
+            "Horror"
+        ],
+        "release": "2020-09-28",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/zamW7KUYYtAdxMtTuCzukRjHTPO.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/flNp7NdzBC1UGctzuubQveuVSF5.jpg"
     },
     {
         "Id": 531876,
@@ -221,28 +232,16 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/n1RohH2VoK1CdVI2fXvcP19dSlm.jpg"
     },
     {
-        "Id": 556984,
-        "title": "The Trial of the Chicago 7",
+        "Id": 604578,
+        "title": "Spontaneous",
         "genre": [
-            "Drama",
-            "History",
-            "Thriller"
+            "Comedy",
+            "Horror",
+            "Science Fiction",
+            "Romance"
         ],
-        "release": "2020-09-25",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/ahf5cVdooMAlDRiJOZQNuLqa1Is.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/v8Nf6Y1qL1Q3PWTBezXNPPaXqza.jpg"
-    },
-    {
-        "Id": 413518,
-        "title": "Pinocchio",
-        "genre": [
-            "Fantasy",
-            "Family",
-            "Adventure",
-            "Drama"
-        ],
-        "release": "2019-12-19",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/4w1ItwCJCTtSi9nPfJC1vU6NIVg.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/AdqOBPw4PdtzOcfEuQuZ8MNeTKb.jpg"
+        "release": "2020-10-02",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/22jwKxZf4rcrmh2NS07SZAQYYNY.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/324jDHMRHWZ8HLbjRJNwVPYJZT0.jpg"
     }
 ]
