@@ -2,11 +2,12 @@
 namespace Models;
 
 class Cinema{
+    private $id;
     private $name;
     private $address;
     private $city;
-
-
+    private $idCity;
+    private $rooms = [];
 
     public function getName(){
         return $this->name;
@@ -16,7 +17,6 @@ class Cinema{
     public function setName($name){
         $this->name = $name;
     }
-
 
     public function getAddress(){
         return $this->address;
@@ -37,5 +37,38 @@ class Cinema{
         $this->city = $city;
     }
 
+
+    public function getRooms()
+    {
+        return $this->rooms;
+    }
+
+    
+    public function setRooms($rooms)
+    {
+        $this->rooms = $rooms;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function getIdCity()
+    {
+        return $this->idCity;
+    }
+
+    
+    public function setIdCity($idCity)
+    {
+        $this->idCity = $idCity;
+    }
 }
 ?>
