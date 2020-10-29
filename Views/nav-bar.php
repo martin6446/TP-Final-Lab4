@@ -30,6 +30,9 @@
             ?>
           </li>
           <li class="nav-item nav">
+            <a class="nav-link" href="<?php echo FRONT_ROOT?>user/modifyUserView">My Profile</a>
+          </li>
+          <li class="nav-item nav">
             <a href="<?php echo   FRONT_ROOT?>user/logout" class="nav-link">Log Out</a>
           </li>
         </ul>

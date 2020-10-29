@@ -28,60 +28,72 @@ class UserController{
 
     public function userRegister($name, $lastname,$email, $password,$confirmpass){
 
-        /* echo "name ".$name. "<br>";
-        echo "lastname ".$lastname. "<br>";
-        echo "email ".$email. "<br>";
-        echo "password".$password. "<br>";
-        echo "confirm password".$confirmpass. "<br>";
-        die; */
-
         if($password === $confirmpass){
 
             $user = new User($name,$lastname,$email,$password);
 
-            $this->userDAO->add($user);
+            $data = $this->userDAO->createUser($user);
+
+            if($data[0] === false){
+                if($data[1] == 1062){
+                    
+                }
+            }
+            
+
             $_SESSION["isAdmin"] = $user->getIsAdmin();
             header("location:".FRONT_ROOT."/landing/loadData");
         }else {
             $this->userRegisterView();
         }
 
-        
-
-
-
-
-      /*   $user = new User();
-
-        $user->setEmail($email);
-        $user->setPassword($password);
-
-        $_SESSION["loggeduser"] = $user->getEmail();
-
-        $this->userDAO->add($user);
-        #require_once(FRONT_ROOT."index/loadData.php");
-        #require_once(FRONT_ROOT."movie/showListView"); */
-
     }
 
     public function userLogin($email, $password){
-        $userList = $this->userDAO->getAll();
-        $flag = false;
+  
+        $user = $this->userDAO->read($email);
 
-        foreach($userList as $user){
-            if($user->getEmail() == $email && $user->getPassword() == $password){
-                $flag = true;
-                break;
+        if($user){
+            if($user->getPassword() == $password){
+
+                $_SESSION["isAdmin"] = $user->getIsAdmin();
+                $_SESSION["name"] = $user->getName();
+                $_SESSION["lastname"] = $user->getLastName();
+                $_SESSION["password"] = $user->getPassword();
+                $_SESSION["email"] = $user->getEmail();
+                $_SESSION["cityid"] = $user->getCity_id();
+                header("location:".FRONT_ROOT."/landing/loadData");
+
+            }else {
+                $_SESSION["wrongPassword"] = "contraseña incorrecta";
+                $this->utility->notification("Wrong username or password", FRONT_ROOT."index.php");
             }
-        }
-
-        if($flag){
-            $_SESSION["isAdmin"] = $user->getIsAdmin();
-            header("location:".FRONT_ROOT."/landing/loadData");
-        }else{
+        } else {
+            $_SESSION["wrongUser"] = "usuario incorrecto";
             $this->utility->notification("Wrong username or password", FRONT_ROOT."index.php");
         }
-        
+
+
+
         /// aca alertariamos de un error en el logeo.
     }
+
+
+    public function modifyUserView(){
+        require_once(VIEWS_PATH."user-modify-view.php");
+    }
+
+    public function modifyUser(){
+
+        $newUserData = $_GET;
+
+        $oldUser = new User($_SESSION["name"],$_SESSION["lastname"],$_SESSION["email"],$_SESSION["password"],$_SESSION["cityid"],$_SESSION["isAdmin"]);
+
+        $this->userDAO->modifyUser($newUserData,$oldUser);
+
+
+        header("location:".FRONT_ROOT."/landing/loadData");
+
+    }
+
 }

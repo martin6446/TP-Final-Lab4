@@ -147,17 +147,6 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/obExOU9qDnMcxvWPumoD14oxup5.jpg"
     },
     {
-        "Id": 592350,
-        "title": "My Hero Academia: Heroes Rising",
-        "genre": [
-            "Action",
-            "Animation"
-        ],
-        "release": "2019-12-20",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/zGVbrulkupqpbwgiNedkJPyQum4.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/9guoVF7zayiiUq5ulKQpt375VIy.jpg"
-    },
-    {
         "Id": 425001,
         "title": "The War with Grandpa",
         "genre": [
@@ -243,5 +232,18 @@
         "release": "2020-10-02",
         "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/22jwKxZf4rcrmh2NS07SZAQYYNY.jpg",
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/324jDHMRHWZ8HLbjRJNwVPYJZT0.jpg"
+    },
+    {
+        "Id": 667141,
+        "title": "12 Hour Shift",
+        "genre": [
+            "Comedy",
+            "Crime",
+            "Horror",
+            "Thriller"
+        ],
+        "release": "2020-10-02",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/c3SbZPZPOfGMHq7DB7FnTIMQKuY.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/2LL1jHtNKJhTDc3tA1difsAnLui.jpg"
     }
 ]
