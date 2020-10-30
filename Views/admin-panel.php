@@ -10,9 +10,9 @@
       <div class="sidebar-heading">Main Menu </div>
       <div class="list-group list-group-flush">
         <a href="<?php echo FRONT_ROOT?>admin/showAdminAddCinemaView"  class="list-group-item list-group-item-action bg-light">Add Cinema</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Add function</a>
+        <a href="<?php echo FRONT_ROOT?>admin/showAdminAddCinemaFunctionView" class="list-group-item list-group-item-action bg-light">Add function</a>
         <a href="<?php echo FRONT_ROOT?>admin/showAdminRemoveCinemaView" class="list-group-item list-group-item-action bg-light">Manage Cinemas</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Manage functions</a>
+        <a href="" class="list-group-item list-group-item-action bg-light">Manage functions</a>
         
         
       </div>
@@ -22,8 +22,7 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom py-3">
-      </nav>
+
 
       <div class="container-fluid">
         <h1 class="mt-4">Admin View</h1>

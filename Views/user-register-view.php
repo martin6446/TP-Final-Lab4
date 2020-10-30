@@ -2,27 +2,27 @@
   <h1 class="display-4 text-light">Lumiére</h1>
 </nav>
 
-<!-- <h1 class="text-center text-white bg-dark p-1">Registrate</h1> -->
+<h1 class="text-center text-black  p-1">Sign Up</h1>
 <div class="container ">
     <div class="border border-secondary rounded p-1 text-center">
         <form method="POST" action="<?php echo FRONT_ROOT ?>user/userRegister">
             <div class="form-row">
-                <div class="form-group mx-auto col-4">
+                <div class="form-group  col-md-4">
                     <label for="inputCinemaName">Nombre</label>
                     <input type="text" name="name" class="form-control" id="inputCinemaName" required>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group mx-auto col-4">
+                <div class="form-group col-md-4">
                     <label for="inputCinemaName">Apellido</label>
                     <input type="text" name="lastname" class="form-control" id="inputCinemaName" required>
                 </div>
             </div>
+
             <div class="form-row">
                 <div class="form-group mx-auto col-4">
                     <label for="inputAddress">Email</label>
                     <input type="text" name="email" class="form-control" id="inputAddress" placeholder="" required>
                 </div>
+
             </div>
             <div class="form-row">
                 <div class="form-group mx-auto col-4">
@@ -39,9 +39,8 @@
             <div class="form-group">
             </div>
             <button type="submit" class="btn btn-secondary m-2">Register</button>
+            <a class="btn btn-danger" href="<?php echo FRONT_ROOT?>">Return</a>
         </form>
-        <div class="alert alert-danger" role="alert">
-            A simple danger alert—check it out!
-        </div>
+
     </div>
 </div>

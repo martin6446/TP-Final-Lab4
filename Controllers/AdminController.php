@@ -27,6 +27,10 @@ class AdminController{
         require_once(VIEWS_PATH."cinema-list-remove.php");
     }
 
+    public function showAdminAddCinemaFunctionView(){
+        require_once(VIEWS_PATH. "cinemafunction-add-view.php");
+    }
+
     public function addMovie(){
 
     }

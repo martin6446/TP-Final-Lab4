@@ -22,7 +22,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item ">
             <?php
-            if ($_SESSION["isAdmin"] === 1){
+            if ($_SESSION["isAdmin"] == 1){
             ?>
               <a class="nav-link" href="<?php echo FRONT_ROOT ?>admin/showAdminView">Admin View</a>
             <?php

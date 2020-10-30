@@ -66,11 +66,11 @@ class UserController{
 
             }else {
                 $_SESSION["wrongPassword"] = "contraseña incorrecta";
-                $this->utility->notification("Wrong username or password", FRONT_ROOT."index.php");
+                $this->utility->notification("Wrong password", FRONT_ROOT."index.php");
             }
         } else {
             $_SESSION["wrongUser"] = "usuario incorrecto";
-            $this->utility->notification("Wrong username or password", FRONT_ROOT."index.php");
+            $this->utility->notification("Wrong password", FRONT_ROOT."index.php");
         }
 
 
