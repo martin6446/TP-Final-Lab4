@@ -20,13 +20,35 @@
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
-    <div id="page-content-wrapper">
-
-
-
-      <div class="container-fluid">
-        <h1 class="mt-4">Admin View</h1>
+    <div class="container" id="page-content-wrapper">
+      <div>
+        <h1 class=" mt-4">Admin View</h1>
       </div>
+
+
+      <?php 
+/*       var_dump($this->cinemaController);
+      die; */
+      if(isset($valor)){
+        switch($valor){
+          case 1:
+            require_once(VIEWS_PATH."add-cinema-view.php");
+          break;
+          case 2:
+            $this->cinemaController->showListView($valor);
+          break;
+          case 3:
+            $this->cinemaController->showListView($valor);
+          break;
+          default:
+
+        break;
+        }
+      }
+        ?>
+        
+
+
     </div>
     <!-- /#page-content-wrapper -->
 

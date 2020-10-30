@@ -18,7 +18,7 @@ class CinemaController{
         require_once(VIEWS_PATH . "edit-cinema.php");
     }
 
-    public function showListView(){
+    public function showListView($valor=0){
 
         $cinemaList = $this->cinemaDAO->getAll();
 

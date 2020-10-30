@@ -22,7 +22,7 @@ class CinemaDAO{
             foreach($arrayToDecode as $data){
                 $cinema = new Cinema();
 
-                $cinema->setName($data["name"]);
+                /* $cinema->setName($data["name"]);
                 $cinema->setTicketValue($data["ticketvalue"]);
                 $cinema->setAddress($data["address"]);
                 $cinema->setAddress2($data["address number"]);
@@ -30,7 +30,7 @@ class CinemaDAO{
                 $cinema->setState($data["state"]);
                 $cinema->setZip($data["zip"]);
                 $cinema->setMoviePlaying($data["movieplaying"]);
-                $cinema->setCapacity($data["capacity"]);
+                $cinema->setCapacity($data["capacity"]); */
 
                 array_push($this->cinemaList,$cinema);
             }

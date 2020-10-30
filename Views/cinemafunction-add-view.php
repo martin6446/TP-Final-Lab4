@@ -1,8 +1,8 @@
-<?php require_once(VIEWS_PATH . "nav-bar.php") ?>
+<?php /* require_once(VIEWS_PATH . "nav-bar.php") */ ?>
 <div class="container">
-    <form method="POST" action="<?php echo FRONT_ROOT ?>admin/addCinema">
-        <div class="row align-items-center">
-            <div class="col border border-dark rounded m-2 col-6">
+    <form method="POST" action="<?php echo FRONT_ROOT ?>admin/showAdminAddCinemaView">
+        <div class="row ">
+            <div class="col border border-dark rounded m-2 col-6 ">
                 <div class="form-row p-4" >
                     <div class="col border border-dark rounded m-2 p-2">
                         <div>
@@ -36,8 +36,8 @@
                         <option value="">asdf</option>
                     </select>
                 </div>
-                <div class="form-row pt-5 ">
-                    <button type="button" class="btn btn-success m-2">Save Function</button>
+                <div class="form-row pt-5 mt-5">
+                    <button type="submit" class="btn btn-success m-2">Save Function</button>
                     <a type="button" class="btn btn-danger m-2">Cancel</a>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                         <div class="form-row ">
                             <div class="form-group m-2">
                                 <input type="checkbox" id="checkboxInput3" name="weekday[]">
-                                <label for="checkboxInput3">Thursday</label>
+                                <label for="checkboxInput3">Tuesday</label>
                             </div>
                         </div>
                     </li>
@@ -72,7 +72,7 @@
                         <div class="form-row ">
                             <div class="form-group m-2">
                                 <input type="checkbox" id="checkboxInput5" name="weekday[]">
-                                <label for="checkboxInput5">Friday</label>
+                                <label for="checkboxInput5">Thursday</label>
                             </div>
                         </div>
                     </li>
@@ -80,7 +80,15 @@
                         <div class="form-row ">
                             <div class="form-group m-2">
                                 <input type="checkbox" id="checkboxInput6" name="weekday[]">
-                                <label for="checkboxInput6">Saturday</label>
+                                <label for="checkboxInput6">Friday</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-row ">
+                            <div class="form-group m-2">
+                                <input type="checkbox" id="checkboxInput7" name="weekday[]">
+                                <label for="checkboxInput7">Saturday</label>
                             </div>
                         </div>
                     </li>
