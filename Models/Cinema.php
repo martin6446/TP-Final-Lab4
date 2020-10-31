@@ -2,115 +2,68 @@
 namespace Models;
 
 class Cinema{
+    private $id;
     private $name;
     private $address;
-    private $address2;
     private $city;
-    private $state;
-    private $zip;
-    private $moviePlaying;
-    private $capacity;
-    private $ticketValue;
-        
 
-    public function getName()
-    {
+    public function __construct($city = null, $id = 0, $name= "", $address= ""){
+        $this->setId($id);
+        $this->setName($name);
+        $this->setAddress($address);
+        $this->setCity($city);
+    }
+
+
+    public function getName(){
         return $this->name;
     }
 
-    
-    public function setName($name)
-    {
+    public function setName($name){
         $this->name = $name;
     }
 
-    public function getMoviePlaying()
-    {
-        return $this->moviePlaying;
-    }
-
-    
-    public function setMoviePlaying($moviePlaying)
-    {
-        $this->moviePlaying = $moviePlaying;
-    }
-
-    public function getCapacity()
-    {
-        return $this->capacity;
-    }
-
-    
-    public function setCapacity($capacity)
-    {
-        $this->capacity = $capacity;
-    }
-
-    public function getAddress()
-    {
+    public function getAddress(){
         return $this->address;
     }
 
-    
-    public function setAddress($address)
-    {
+
+    public function setAddress($address){
         $this->address = $address;
     }
 
-    public function getAddress2()
-    {
-        return $this->address2;
-    }
 
-    
-    public function setAddress2($address2)
-    {
-        $this->address2 = $address2;
-    }
-
-    public function getCity()
-    {
+    public function getCity(){
         return $this->city;
     }
 
-    
-    public function setCity($city)
-    {
+
+    public function setCity($city){
         $this->city = $city;
     }
 
-    public function getState()
+
+    public function getRooms()
     {
-        return $this->state;
+        return $this->rooms;
     }
 
     
-    public function setState($state)
+    public function setRooms($rooms)
     {
-        $this->state = $state;
+        $this->rooms = $rooms;
     }
 
-    public function getZip()
+    public function getId()
     {
-        return $this->zip;
-    }
-
-    
-    public function setZip($zip)
-    {
-        $this->zip = $zip;
-    }
-
-    public function getTicketValue()
-    {
-        return $this->ticketValue;
+        return $this->id;
     }
 
     
-    public function setTicketValue($ticketValue)
+    public function setId($id)
     {
-        $this->ticketValue = $ticketValue;
+        $this->id = $id;
     }
+
 }
-
 ?>

@@ -13,6 +13,7 @@ class Movie{
     private $releaseDate; 
     private $genres = array();
     private $duration;
+    
 
     public function getName()
     {

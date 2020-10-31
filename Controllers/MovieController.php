@@ -12,8 +12,8 @@ class MovieController{
         $this->movieDAO = new MovieDAO();
     }
 
-    public function showListView($genre = "All"){
-        $allMovies = $this->movieDAO->getAll();
+    public function getMovies($genre = "All"){
+        $allMovies = $this->movieDAO->GetAll();
         $movieList = array();
         if($genre !='All'){
             foreach($allMovies as $movie){
@@ -26,7 +26,11 @@ class MovieController{
             $movieList = $allMovies;
         }
 
-        require_once(VIEWS_PATH."movie-list.php");
+        return $movieList;
+    }
+
+    public function getGenres(){
+        return $this->movieDAO->getGenres();
     }
 
 }

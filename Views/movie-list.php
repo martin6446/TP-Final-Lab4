@@ -1,5 +1,5 @@
 <?php require_once(VIEWS_PATH."nav-bar.php");?>
-<form action="<?php echo FRONT_ROOT?>cinema/showListView" method="POST">
+<form action="<?php echo FRONT_ROOT?>views/movieList" method="POST">
 <table class="table">
   <thead class="thead-dark">
     <tr>

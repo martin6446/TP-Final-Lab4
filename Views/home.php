@@ -20,6 +20,7 @@ require_once(VIEWS_PATH . "nav-bar.php");
 </style>
 
 <header>
+<input type="time" step="900">
     <div id="carouselPelis" class="carousel slide" data-ride="carousel">
     <div id="carouselEx" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -53,7 +54,7 @@ require_once(VIEWS_PATH . "nav-bar.php");
 <section class="py-5">
     <div class="container">
         <h1 class="font-weight-light text-center">Welcome to Lumiere cinemas</h1>
-        <form action="<?php echo FRONT_ROOT ?>movie/showListView" method="POST">
+        <form action="<?php echo FRONT_ROOT ?>views/movieList" method="POST">
             <div class="row">
                 <div class="col-6">
                     <select class="form-control" id="genre" name="genre">

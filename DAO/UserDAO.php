@@ -1,80 +1,99 @@
 <?php
+
 namespace DAO;
 
+use Exception;
 use Models\User as User;
 
-class UserDAO{
-    private $filename;
-    private $userList = array();
+class UserDAO
+{
+    private $conection;
+    private $tablename = "usuarios";
 
-    public function __construct()
+    public function createUser(User $user)
     {
-        $this->filename = dirname(__DIR__)."/Data/Users.json";
+
+
+
+        $sql = "INSERT INTO " . $this->tablename . " (nombre, apellido, email, pwd, id_ciudad, user_type) VALUES (:name, :lastname, :email, :password, :city_id, :user_type);";
+
+        $parameters["name"] = $user->getName();
+        $parameters["lastname"] = $user->getLastname();
+        $parameters["email"] = $user->getEmail();
+        $parameters["password"] = $user->getPassword();
+        $parameters["city_id"] = 1;
+        $parameters["user_type"] = $user->getIsAdmin();
+
+        try {
+
+            $this->conection = Connection::GetInstance();
+
+            $affectedRows = $this->conection->ExecuteNonQuery($sql, $parameters);
+            return [true,$affectedRows];
+        } catch (Exception $e) {
+            return [false, $e->errorInfo[1]];
+        }
     }
 
-    public function retrieveData(){
+    public function read($email)
+    {
 
-        if(file_exists($this->filename)){
-            $jsonContent = file_get_contents($this->filename);
+        $sql = "SELECT * FROM " . $this->tablename . " WHERE email = :email";
 
-            $arrayToDecode = ($jsonContent) ? json_decode($jsonContent,true) : array();
+        $parameters["email"] = $email;
 
-            foreach($arrayToDecode as $data){
-                $user = new User();
-                $user->setName($data["name"]);
-                $user->setLastName($data["lastname"]);
-                $user->setEmail($data["email"]);
-                $user->setPassword($data["password"]);
-                $user->setIsAdmin($data["isAdmin"]);
+        try {
 
-                array_push($this->userList,$user);
+            $this->conection = Connection::GetInstance();
+
+            $result = $this->conection->Execute($sql, $parameters);
+        } catch (Exception $e) {
+            throw $e;
+        }
+
+
+        if (!empty($result)) {
+            return $this->map($result);
+        } else {
+            return false;
+        }
+    }
+
+    protected function map($value)
+    {
+
+        $value = is_array($value) ? $value : [];
+
+        $result = array_map(function ($data) {
+            return new User($data["nombre"], $data["apellido"], $data["email"], $data["pwd"], $data["id_ciudad"], $data["user_type"]);
+        }, $value);
+
+
+        return $result[0];
+    }
+
+
+    public function modifyUser($newUserValues, $oldUserValues)
+    {
+
+        if ($user = $this->read($oldUserValues->getEmail())) {
+
+            $sql = "UPDATE " . $this->tablename . " SET nombre = :name, apellido = :lastname, email = :email, pwd = :password, id_ciudad = :city_id WHERE email = '" . $user->getEmail() . "'";
+
+
+            $parameters["name"] = $newUserValues["name"];
+            $parameters["lastname"] = $newUserValues["lastname"];
+            $parameters["email"] = $newUserValues["email"];
+            $parameters["password"] = $newUserValues["password"];
+            $parameters["city_id"] = 1;
+
+            try {
+                $this->conection = Connection::GetInstance();
+
+                $this->conection->ExecuteNonQuery($sql, $parameters);
+            } catch (Exception $e) {
+                throw $e;
             }
         }
     }
-
-    public function saveData(){
-        $arrayToEncode = array();
-
-        foreach($this->userList as $user){
-            $valuesArray["name"] = $user->getName();
-            $valuesArray["lastname"] = $user->getLastName();
-            $valuesArray["email"] = $user->getEmail();
-            $valuesArray["password"] = $user->getPassword();
-            $valuesArray["isAdmin"] = $user->getIsAdmin();
-
-            array_push($arrayToEncode,$valuesArray);
-        }
-
-        file_put_contents($this->filename,json_encode($arrayToEncode,JSON_PRETTY_PRINT));
-    }
-
-    public function add(User $user){
-
-        $this->retrieveData();
-        array_push($this->userList,$user);
-        $this->saveData();
-    }
-
-    public function getAll(){
-        $this->retrieveData();
-        return $this->userList;
-    }
-
-    public function remove($userid){
-        
-        $this->retrieveData();
-
-        foreach($this->userList as $user){
-            if($user->getId() == $userid){
-                array_splice($this->userList,array_search($user,$this->userList),1);
-            break;
-            }
-        }
-
-        $this->saveData();
-    }
-
-
 }
-
-?>

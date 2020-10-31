@@ -23,15 +23,29 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/5UkzNSOK561c2QRy2Zr4AkADzLT.jpg"
     },
     {
+        "Id": 531219,
+        "title": "Roald Dahl's The Witches",
+        "genre": [
+            "Fantasy",
+            "Family",
+            "Adventure",
+            "Comedy",
+            "Horror"
+        ],
+        "release": "2020-10-26",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/betExZlgK0l7CZ9CsCBVcwO1OjL.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/8rIoyM6zYXJNjzGseT3MRusMPWl.jpg"
+    },
+    {
         "Id": 635302,
         "title": "Demon Slayer: Kimetsu no Yaiba - The Movie: Mugen Train",
         "genre": [
-            "Action",
-            "Adventure",
             "Animation",
-            "Drama",
+            "Action",
+            "History",
+            "Adventure",
             "Fantasy",
-            "History"
+            "Drama"
         ],
         "release": "2020-10-16",
         "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/h8Rb9gBr48ODIwYUttZNYeMWeUU.jpg",
@@ -49,32 +63,6 @@
         "release": "2020-10-16",
         "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/r4Lm1XKP0VsTgHX4LG4syAwYA2I.jpg",
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/lA5fOBqTOQBQ1s9lEYYPmNXoYLi.jpg"
-    },
-    {
-        "Id": 337401,
-        "title": "Mulan",
-        "genre": [
-            "Action",
-            "Adventure",
-            "Drama",
-            "Fantasy"
-        ],
-        "release": "2020-09-04",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/zzWGRw277MNoCs3zhyG3YmYQsXv.jpg"
-    },
-    {
-        "Id": 539885,
-        "title": "Ava",
-        "genre": [
-            "Action",
-            "Crime",
-            "Drama",
-            "Thriller"
-        ],
-        "release": "2020-07-02",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/qzA87Wf4jo1h8JMk9GilyIYvwsA.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/54yOImQgj8i85u9hxxnaIQBRUuo.jpg"
     },
     {
         "Id": 718444,
@@ -100,6 +88,30 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/pq0JSpwyT2URytdFG0euztQPAyR.jpg"
     },
     {
+        "Id": 613504,
+        "title": "After We Collided",
+        "genre": [
+            "Drama",
+            "Romance"
+        ],
+        "release": "2020-09-02",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/kiX7UYfOpYrMFSAGbI6j1pFkLzQ.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/6hgItrYQEG33y0I7yP2SRl2ei4w.jpg"
+    },
+    {
+        "Id": 539885,
+        "title": "Ava",
+        "genre": [
+            "Action",
+            "Crime",
+            "Drama",
+            "Thriller"
+        ],
+        "release": "2020-07-02",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/qzA87Wf4jo1h8JMk9GilyIYvwsA.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/54yOImQgj8i85u9hxxnaIQBRUuo.jpg"
+    },
+    {
         "Id": 581392,
         "title": "Peninsula",
         "genre": [
@@ -112,17 +124,6 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/2nFzxaAK7JIsk6l7qZ8rFBsa3yW.jpg"
     },
     {
-        "Id": 613504,
-        "title": "After We Collided",
-        "genre": [
-            "Drama",
-            "Romance"
-        ],
-        "release": "2020-09-02",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/kiX7UYfOpYrMFSAGbI6j1pFkLzQ.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/6hgItrYQEG33y0I7yP2SRl2ei4w.jpg"
-    },
-    {
         "Id": 509635,
         "title": "Alone",
         "genre": [
@@ -133,38 +134,61 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/obExOU9qDnMcxvWPumoD14oxup5.jpg"
     },
     {
-        "Id": 592350,
-        "title": "My Hero Academia: Heroes Rising",
+        "Id": 560050,
+        "title": "Over the Moon",
+        "genre": [
+            "Animation",
+            "Adventure",
+            "Family",
+            "Fantasy"
+        ],
+        "release": "2020-10-16",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/lQfdytwN7eh0tXWjIiMceFdBBvD.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/htBUhLSS7FfHtydgYxUWjL3J1Q1.jpg"
+    },
+    {
+        "Id": 531499,
+        "title": "The Tax Collector",
         "genre": [
             "Action",
-            "Animation"
+            "Crime",
+            "Drama"
         ],
-        "release": "2019-12-20",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/zGVbrulkupqpbwgiNedkJPyQum4.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/9guoVF7zayiiUq5ulKQpt375VIy.jpg"
+        "release": "2020-08-07",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/3eg0kGC2Xh0vhydJHO37Sp4cmMt.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/zogWnCSztU8xvabaepQnAwsOtOt.jpg"
     },
     {
         "Id": 425001,
         "title": "The War with Grandpa",
         "genre": [
             "Comedy",
-            "Drama",
-            "Family"
+            "Family",
+            "Drama"
         ],
         "release": "2020-08-27",
         "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/ltyARDw2EFXZ2H2ERnlEctXPioP.jpg",
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/4gKyQ1McHa8ZKDsYoyKQSevF01J.jpg"
     },
     {
-        "Id": 726739,
-        "title": "Cats & Dogs 3: Paws Unite",
+        "Id": 748224,
+        "title": "Reaptown",
         "genre": [
-            "Action",
-            "Comedy"
+            "Horror"
         ],
-        "release": "2020-10-02",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/4BgSWFMW2MJ0dT5metLzsRWO7IJ.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/t22fWbzdnThPseipsdpwgdPOPCR.jpg"
+        "release": "2020-09-28",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/zamW7KUYYtAdxMtTuCzukRjHTPO.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/flNp7NdzBC1UGctzuubQveuVSF5.jpg"
+    },
+    {
+        "Id": 499338,
+        "title": "I Believe",
+        "genre": [
+            "Family"
+        ],
+        "release": "2020-11-05",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/j8D3jXHtA9cNb4epzvmA6hymKQ4.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/fUxq6ilPW01roOpqB5g9SOS3zZv.jpg"
     },
     {
         "Id": 446893,
@@ -182,67 +206,40 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/qsxhnirlp7y4Ae9bd11oYJSX59j.jpg"
     },
     {
-        "Id": 667141,
-        "title": "12 Hour Shift",
+        "Id": 741074,
+        "title": "Once Upon a Snowman",
         "genre": [
+            "Animation",
             "Comedy",
-            "Crime",
-            "Horror",
-            "Thriller"
+            "Fantasy",
+            "Family"
         ],
-        "release": "2020-10-02",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/c3SbZPZPOfGMHq7DB7FnTIMQKuY.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/2LL1jHtNKJhTDc3tA1difsAnLui.jpg"
+        "release": "2020-10-23",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/zfdhsR3Y3xw42OHrMpi0oBw0Uk8.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/DA7gzvlBoxMNL0XmGgTZOyv67P.jpg"
     },
     {
-        "Id": 604578,
-        "title": "Spontaneous",
-        "genre": [
-            "Comedy",
-            "Horror",
-            "Science Fiction",
-            "Romance"
-        ],
-        "release": "2020-10-02",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/22jwKxZf4rcrmh2NS07SZAQYYNY.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/324jDHMRHWZ8HLbjRJNwVPYJZT0.jpg"
-    },
-    {
-        "Id": 531876,
-        "title": "The Outpost",
+        "Id": 726739,
+        "title": "Cats & Dogs 3: Paws Unite",
         "genre": [
             "Action",
-            "Drama",
-            "History",
-            "War"
+            "Comedy"
         ],
-        "release": "2020-06-24",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/hPkqY2EMqWUnFEoedukilIUieVG.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/n1RohH2VoK1CdVI2fXvcP19dSlm.jpg"
+        "release": "2020-10-02",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/4BgSWFMW2MJ0dT5metLzsRWO7IJ.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/t22fWbzdnThPseipsdpwgdPOPCR.jpg"
     },
     {
-        "Id": 556984,
-        "title": "The Trial of the Chicago 7",
+        "Id": 505379,
+        "title": "Rebecca",
         "genre": [
             "Drama",
-            "History",
-            "Thriller"
+            "Mystery",
+            "Thriller",
+            "Romance"
         ],
-        "release": "2020-09-25",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/ahf5cVdooMAlDRiJOZQNuLqa1Is.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/v8Nf6Y1qL1Q3PWTBezXNPPaXqza.jpg"
-    },
-    {
-        "Id": 413518,
-        "title": "Pinocchio",
-        "genre": [
-            "Fantasy",
-            "Family",
-            "Adventure",
-            "Drama"
-        ],
-        "release": "2019-12-19",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/4w1ItwCJCTtSi9nPfJC1vU6NIVg.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/AdqOBPw4PdtzOcfEuQuZ8MNeTKb.jpg"
+        "release": "2020-10-16",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/bSKVKcCXdKxkbgf0LL8lBTPG02e.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/rVkptIl9QkhpB5xM6BnUAHOJ43b.jpg"
     }
 ]

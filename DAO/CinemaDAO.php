@@ -1,101 +1,62 @@
 <?php
 namespace DAO;
 
+use Exception;
 use Models\Cinema as Cinema;
+use DAO\CinemaRoomDAO as CinemaRoomDAO;
+use Models\City as City;
 
 class CinemaDAO{
-    private $filename;
-    private $cinemaList = array();
+    private $connection;
+    private $tableName;
+    private $cinemaList;
 
-    public function __construct()
-    {
-        $this->filename = dirname(__DIR__)."/Data/Cinemas.json";
+    public function __construct(){
+        $this->tableName = 'cines';
+        $this->cinemaList = array();
     }
 
-    public function retrieveData(){
+    public function add(Cinema $cine){
+        try{
+            $query = "INSERT INTO ".$this->tableName." (nombre, direccion, id_ciudad) VALUES (:nombre, :direccion, :id_ciudad );";
+            $params["nombre"] = $cine->getName();
+            $params["direccion"] = $cine->getAddress();
+            $params["id_ciudad"] = 1;
 
-        if(file_exists($this->filename)){
-            $jsonContent = file_get_contents($this->filename);
 
-            $arrayToDecode = ($jsonContent) ? json_decode($jsonContent,true) : array();
-
-            foreach($arrayToDecode as $data){
-                $cinema = new Cinema();
-
-                $cinema->setName($data["name"]);
-                $cinema->setTicketValue($data["ticketvalue"]);
-                $cinema->setAddress($data["address"]);
-                $cinema->setAddress2($data["address number"]);
-                $cinema->setCity($data["city"]);
-                $cinema->setState($data["state"]);
-                $cinema->setZip($data["zip"]);
-                $cinema->setMoviePlaying($data["movieplaying"]);
-                $cinema->setCapacity($data["capacity"]);
-
-                array_push($this->cinemaList,$cinema);
+            
+            $this->connection = Connection::GetInstance();
+            $this->connection->ExecuteNonQuery($query, $params);
+            $cinemaRoomDAO = new CinemaRoomDAO();
+            foreach($cine->getRooms() as $cinemaRoom){
+                $cinemaRoomDAO->add($cinemaRoom);
             }
+
+        }
+        catch(Exception $e){
+            throw $e;
         }
     }
 
-    public function saveData(){
-        $arrayToEncode = array();
 
-        foreach($this->cinemaList as $cinema){
-            $valuesArray["name"] = $cinema->getName();
-            $valuesArray["ticketvalue"] = $cinema->getTicketValue();
-            $valuesArray["address"] = $cinema->getAddress();
-            $valuesArray["address number"] = $cinema->getAddress2();
-            $valuesArray["city"] = $cinema->getCity();
-            $valuesArray["state"] = $cinema->getState();
-            $valuesArray["zip"] = $cinema->getZip();
-            $valuesArray["movieplaying"] = $cinema->getMoviePlaying();
-            $valuesArray["capacity"] = $cinema->getCapacity();
+    public function getAll(City $city){
+        try{
+            $query = "SELECT id, nombre, direccion FROM cines WHERE id_ciudad = :city";
 
-            array_push($arrayToEncode,$valuesArray);
-        }
-
-        file_put_contents($this->filename,json_encode($arrayToEncode,JSON_PRETTY_PRINT));
-    }
-
-    public function add(Cinema $cinema){
-
-        $this->retrieveData();
-        array_push($this->cinemaList,$cinema);
-        $this->saveData();
-    }
-
-    public function getAll(){
-        $this->retrieveData();
-        return $this->cinemaList;
-    }
-    
-    public function findCinema($name){
-       $cinemaList = $this->getAll(); 
-
-       foreach($cinemaList as $cinema){
-           if($cinema->getName() == $name){
-               return $cinema;
-           }
-       }
-    }
-
-
-    public function remove($name){
-        
-        $this->retrieveData();
-        $arrayAux = [];
-
-        foreach($this->cinemaList as $cinema){
-            if($cinema->getName() != $name){
-            array_push($arrayAux,$cinema);
+            $params["city"] = $city->getId();
+            $this->connection = Connection::GetInstance();
+            $response = $this->connection->Execute($query, $params);
+            $cinemaList = array();
+            foreach($response as $soonToBeCine){
+                array_push($cinemaList, new Cinema($city, $soonToBeCine['id'], $soonToBeCine['nombre'], $soonToBeCine['direccion']));
             }
+
+            return $cinemaList;
         }
-
-        $this->cinemaList = $arrayAux;
-
-        $this->saveData();
+        catch(Exception $e){
+            throw $e;
+        }
     }
-
 
 }
 

@@ -10,24 +10,27 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ">
           <li class="nav-item active">
-            <a class="nav-link" href="<?php echo FRONT_ROOT ?>landing/loadData">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo FRONT_ROOT ?>views/homeView">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo FRONT_ROOT ?>movie/showListView">Movies</a>
+            <a class="nav-link" href="<?php echo FRONT_ROOT ?>views/movieList">Movies</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo FRONT_ROOT ?>cinema/showListView">Cinemas</a>
+            <a class="nav-link" href="<?php echo FRONT_ROOT ?>views/cinemaList">Cinemas</a>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item ">
             <?php
-            if ($_SESSION["isAdmin"] === 1){
+            if ($_SESSION["isAdmin"] == 1){
             ?>
-              <a class="nav-link" href="<?php echo FRONT_ROOT ?>admin/showAdminView">Admin View</a>
+              <a class="nav-link" href="<?php echo FRONT_ROOT ?>views/adminView">Admin View</a>
             <?php
             }
             ?>
+          </li>
+          <li class="nav-item nav">
+            <a class="nav-link" href="<?php echo FRONT_ROOT?>views/modifyUser">My Profile</a>
           </li>
           <li class="nav-item nav">
             <a href="<?php echo   FRONT_ROOT?>user/logout" class="nav-link">Log Out</a>
