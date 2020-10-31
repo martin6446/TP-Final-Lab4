@@ -8,7 +8,9 @@ class Movie{
     private $moviePoster;
     private $backdrop;
     private $name;
-    private $releaseDate; // date real
+    private $rating;
+    private $trailer;
+    private $releaseDate; 
     private $genres = array();
     private $duration;
     
@@ -93,6 +95,28 @@ class Movie{
         $this->backdrop = $backdrop;
     }
 
+
+    public function getTrailer()
+    {
+        return $this->trailer;
+    }
+
+    
+    public function setTrailer($trailer)
+    {
+        $this->trailer = $trailer;
+    }
+
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+    }
 }
 
 

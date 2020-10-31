@@ -5,6 +5,6 @@
     interface IMovieDAO
     {
         function Add(Movie $movie);
-        function GetAll();
+        function getAll();
     }
 ?>
