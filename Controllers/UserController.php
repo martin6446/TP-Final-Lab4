@@ -4,15 +4,18 @@ namespace Controllers;
 use DAO\UserDAO as UserDAO;
 use Models\User as User;
 use Controllers\UtilitiesController as UtilitiesController;
+use Controllers\LandingController as LandingController;
 
 class UserController{
     private $userDAO;
     private $utility;
+    private $landing;
 
     public function __construct()
     {
         $this->userDAO = new UserDAO();
         $this->utility = new UtilitiesController();
+        $this->landing = new LandingController();
     }
 
     public function userRegisterView(){
@@ -41,14 +44,10 @@ class UserController{
 
             $this->userDAO->add($user);
             $_SESSION["isAdmin"] = $user->getIsAdmin();
-            header("location:".FRONT_ROOT."/landing/loadData");
+            $this->landing->loadData();
         }else {
             $this->userRegisterView();
         }
-
-        
-
-
 
 
       /*   $user = new User();
@@ -77,7 +76,7 @@ class UserController{
 
         if($flag){
             $_SESSION["isAdmin"] = $user->getIsAdmin();
-            header("location:".FRONT_ROOT."/landing/loadData");
+            $this->landing->loadData();
         }else{
             $this->utility->notification("Wrong username or password", FRONT_ROOT."index.php");
         }

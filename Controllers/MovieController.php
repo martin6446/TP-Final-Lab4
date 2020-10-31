@@ -13,7 +13,7 @@ class MovieController{
     }
 
     public function showListView($genre = "All"){
-        $allMovies = $this->movieDAO->GetAll();
+        $allMovies = $this->movieDAO->getAll();
         $movieList = array();
         if($genre !='All'){
             foreach($allMovies as $movie){

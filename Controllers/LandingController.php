@@ -17,8 +17,9 @@ class LandingController
         $movies = $this->movieDAO->getAll();
         $featuredMovies = array();
         array_push($featuredMovies, $movies[0], $movies[3], $movies[4]);
-        $genres = $this->movieDAO->getGenres();
-
+        $this->movieDAO->pushGenres();
+        $this->movieDAO->pushMovies();
+        
         require_once(VIEWS_PATH."landing.php");
         
     }

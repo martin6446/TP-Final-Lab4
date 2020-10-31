@@ -11,7 +11,7 @@ define("IMG_PATH", VIEWS_PATH . "img/");
 
 // BD
 define("DB_HOST", "localhost");
-define("DB_NAME", "MovieDB");
+define("DB_NAME", "TP_nro_1");
 define("DB_USER", "root");
 define("DB_PASS", "");
 

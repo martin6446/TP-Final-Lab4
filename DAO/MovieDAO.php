@@ -1,127 +1,164 @@
 <?php
+
 namespace DAO;
 
-    use DAO\IMovieDAO as IMovieDAO;
-    use Models\Movie as Movie;
+use DAO\IMovieDAO as IMovieDAO;
+use Models\Movie as Movie;
+use \Exception as Exception;
 
-class MovieDAO implements IMovieDAO{
+class MovieDAO
+{
+    private $connection;
+    private $genresTable = "genres";
+    private $gxmTable = "genresxpelicula";
+    private $moviesTable = "peliculas";
 
-    private $movieList = array();
-    private $filename;
-
-    public function __construct()
+    public function getTrailer($id)
     {
-        $this->filename = dirname(__DIR__)."/Data/Movies.json";
-        $this->responseToMovies();
+        $url = "https://api.themoviedb.org/3/movie/" . $id . "/videos?api_key=c0cb585209076897c1f12bc28efc0a20&language=en-US";
+        $json = file_get_contents($url);
+        $response = json_decode($json, true)["results"];
 
+        if ($response != NULL) {
+            return $response[0]["key"];
+        } else { /// si themoviedb no tiene trailer de la pelicula.
+            return "RqJVa0fl01w"; /// Confused jhon Travolta
+        }
     }
-    
-    private function getData(){
 
+    public function getRuntime($id)
+    {
+        $url = "https://api.themoviedb.org/3/movie/" . $id . "?api_key=c0cb585209076897c1f12bc28efc0a20&language=en-US";
+        $json = file_get_contents($url);
+        $response = json_decode($json, true);
+        return $response["runtime"];
+    }
+
+    public function pushMovies()
+    {
         $url = "https://api.themoviedb.org/3/movie/now_playing?api_key=c0cb585209076897c1f12bc28efc0a20";
         $json = file_get_contents($url);
-        $datos = json_decode($json,true);
-        
-        //var_dump($datos);
-        return $datos;
+        $datos = json_decode($json, true);
+         
+
+         foreach ($datos["results"] as $movie) {
+
+            try {
+                $query = "INSERT INTO " . $this->moviesTable . " 
+                (nombre, movieDB_ID, poster, backdrop, trailer, releaseDate, rating, duration) 
+                VALUES 
+                (:nombre, :idMovie, :poster, :backdrop, :trailer, :releaseDate, :rating, :duration);";
+
+                $parameters["nombre"] = $movie["title"];
+                $parameters["idMovie"] = $movie["id"];
+                $parameters["poster"] = $movie["poster_path"];
+                $parameters["backdrop"] = $movie["backdrop_path"];
+                $parameters["trailer"] = $this->getTrailer($movie["id"]);
+                $parameters["releaseDate"] = $movie["release_date"];
+                $parameters["rating"] = $movie["vote_average"];
+                $parameters["duration"] = $this->getRuntime($movie["id"]);
+
+                $this->connection = Connection::GetInstance();
+
+                $this->connection->ExecuteNonQuery($query, $parameters);
+
+                $this->gxm($movie);
+            } catch (Exception $ex) {
+                throw $ex;
+            }
+        }  
     }
 
-    public function getGenres(){
-        $url = "https://api.themoviedb.org/3/genre/movie/list?api_key=c0cb585209076897c1f12bc28efc0a20&language=en-US";
-        $json = file_get_contents($url);
-        return json_decode($json,true)["genres"];
+    public function gxm($movie)
+    {
+        foreach($movie["genre_ids"] as $genredb_id){
+            $query = "INSERT INTO " . $this->gxmTable . " (id_pelicula, id_genre) VALUES (:id_pelicula, :id_genre);";
+            
+            $parameters["id_genre"] = $this->getGenreid($genredb_id);
+            $parameters["id_pelicula"] = $this->getMovieid($movie);
+
+            $this->connection = Connection::GetInstance();
+
+            $this->connection->ExecuteNonQuery($query, $parameters);
+        }
+        
     }
 
-
-    private function responseToMovies(){
-        
-
-        $response = $this->getData();
+    public function getGenreid($genre_id){ /// obtiene la id de generos dada por la base de datos.
         $genres = $this->getGenres();
-        
-        $this->clearJson();
-        
-        foreach($response["results"] as $movies){
-        
-            $movie = new Movie();
-            $movie->setIdMovie($movies["id"]);
-            $movie->setName($movies["title"]);
-            $movie->setReleaseDate($movies["release_date"]);
-            $movie->setMoviePoster("https://image.tmdb.org/t/p/original/" . $movies["poster_path"]);
-            $movie->setBackdrop("https://image.tmdb.org/t/p/original/" . $movies["backdrop_path"]);
-
-            foreach($movies["genre_ids"] as $genre_id){
-                foreach($genres as $genre){
-      
-                if($genre_id == $genre["id"]){
-                    $movie->addGenre($genre["name"]);
-                  }
-                }
-              } 
-            /// Por ahora persisten en un json....
-            $this->Add($movie);
+        foreach($genres as $genre){
+            if($genre["genreDB_ID"] == $genre_id){
+                return $genre["id"];
+            }
         }
-        
-        return $this->movieList;
-
     }
 
-
-    public function Add(Movie $movie){
-        $this->RetrieveData();
-        array_push($this->movieList, $movie);
-        $this->SaveData();
-    }
-
-    public function GetAll(){
-        $this->RetrieveData();
-        return $this->movieList;
-    }
-
-    public function clearJson(){
-        file_put_contents($this->filename, array());
-    }
-
-    private function SaveData(){
-        $arrayToEncode = array();
-
-        foreach($this->movieList as $movie){
-            $valuesArray["Id"] = $movie->getIdMovie();
-            $valuesArray["title"] = $movie->getName();
-            $valuesArray["genre"] = $movie->getGenres();
-            $valuesArray["release"] = $movie->getReleaseDate();
-            $valuesArray["poster"] = $movie->getMoviePoster();
-            $valuesArray["backdrop"] = $movie->getBackdrop();
-            array_push($arrayToEncode, $valuesArray);
-        }
-        $jsonContent = json_encode($arrayToEncode, JSON_PRETTY_PRINT);
-        file_put_contents($this->filename, $jsonContent);
-    }
-
-    private function RetrieveData(){
-        
-        $this->movieList = array();
-
-        if(file_exists($this->filename)){
-            $jsonContent = file_get_contents($this->filename);
-            $arrayToDecode = ($jsonContent) ? json_decode($jsonContent, true) : array();
-
-            foreach($arrayToDecode as $valuesArray){
-                $movie = new Movie();
-                $movie->setIdMovie($valuesArray["Id"]);
-                $movie->setName($valuesArray["title"]);
-                $movie->setGenres($valuesArray["genre"]);
-                $movie->setReleaseDate($valuesArray["release"]);
-                $movie->setMoviePoster($valuesArray["poster"]);
-                $movie->setBackdrop($valuesArray["backdrop"]);
-                array_push($this->movieList, $movie);
+    public function getMovieid($movie){ /// obtiene la id de peliculas dada por la base de datos.
+        $moviesdb = $this->getMovies();
+        foreach($moviesdb as $moviedb){
+            if($moviedb["movieDB_ID"] == $movie["id"]){
+                return $moviedb["id"];
             }
         }
     }
 
     
 
+    public function getMovies()
+    {
+        try {
+            $query = "SELECT * FROM " . $this->moviesTable;
+
+            $this->connection = Connection::GetInstance();
+
+            $result = $this->connection->Execute($query);
+
+            return $result;
+
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+    }
+
+    public function getGenres()
+    {
+        try {
+            $query = "SELECT * FROM " . $this->genresTable;
+
+            $this->connection = Connection::GetInstance();
+
+            $result = $this->connection->Execute($query);
+
+            return $result;
+
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+    }
+
+    public function pushGenres()
+    {
+        $url = "https://api.themoviedb.org/3/genre/movie/list?api_key=c0cb585209076897c1f12bc28efc0a20&language=en-US";
+        $json = file_get_contents($url);
+        $genres = json_decode($json, true)["genres"];
+
+        foreach ($genres as $genre) {
+            try {
+                $query = "INSERT INTO " . $this->genresTable . " (genreDB_ID, nombre) VALUES (:id,:name);";
+
+                $parameters["id"] = $genre["id"];
+                $parameters["name"] = $genre["name"];
+
+                $this->connection = Connection::GetInstance();
+
+                $this->connection->ExecuteNonQuery($query, $parameters);
+            } catch (Exception $ex) {
+                throw $ex;
+            }
+        }
+    }
+
+    public function getAll()
+    {
+    }
 }
-
-
-?>
