@@ -20,6 +20,7 @@ require_once(VIEWS_PATH . "nav-bar.php");
 </style>
 
 <header>
+<input type="time" step="900">
     <div id="carouselPelis" class="carousel slide" data-ride="carousel">
     <div id="carouselEx" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">

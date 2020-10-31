@@ -4,18 +4,18 @@ namespace Models;
 
 class CinemaRoom{
     private $id;
-    private $idCinema;
+    private $cinema;
     private $name;
     private $price;
     private $capacity;
     
-    public function __construct($id=0,$idCinema=0,$name="",$price=0,$capacity=0)
+    public function __construct($id=0,$cinema=0,$name="",$price=0,$capacity=0)
     {
-        $this->id = $id;
-        $this->idCinema = $idCinema;
-        $this->name = $name;
-        $this->price = $price;
-        $this->capacity = $capacity;
+        $this->setId($id);
+        $this->setCinema($cinema);
+        $this->setName($name);
+        $this->setPrice($price);
+        $this->setCapacity($capacity);
     }
 
     public function getId()
@@ -27,17 +27,6 @@ class CinemaRoom{
     public function setId($id)
     {
         $this->id = $id;
-    }
-
-    public function getIdCinema()
-    {
-        return $this->idCinema;
-    }
-
-    
-    public function setIdCinema($idCinema)
-    {
-        $this->idCinema = $idCinema;
     }
 
     public function getName()
@@ -72,6 +61,16 @@ class CinemaRoom{
     {
         $this->capacity = $capacity;
     }
+
+    public function getCinema(){
+        return $this->cinema;
+    }
+
+
+    public function setCinema($Cinema){
+        $this->cinema = $Cinema;
+    }
+
 }
 
 ?>

@@ -4,8 +4,16 @@ namespace Models;
 class City{
     private $id;
     private $idProvincia;
-    private $nombre;
+    private $name;
     
+
+    public function __construct($id = 0, $idProvincia = 0, $name = "")
+    {
+        $this->setId($id);
+        $this->setIdProvincia($idProvincia);
+        $this->setName($name);
+    }
+
 
     public function getId()
     {
@@ -29,16 +37,17 @@ class City{
         $this->idProvincia = $idProvincia;
     }
 
-    public function getNombre()
-    {
-        return $this->nombre;
+  
+
+    public function getName(){
+        return $this->name;
     }
 
-    
-    public function setNombre($nombre)
-    {
-        $this->nombre = $nombre;
+
+    public function setName($name){
+        $this->name = $name;
     }
+
 }
 
 ?>
