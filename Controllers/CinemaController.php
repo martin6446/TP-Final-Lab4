@@ -18,11 +18,8 @@ class CinemaController{
         require_once(VIEWS_PATH . "edit-cinema.php");
     }
 
-    public function showListView(){
-
-        $cinemaList = $this->cinemaDAO->getAll();
-
-        require_once(VIEWS_PATH."cinema-list.php");
+    public function getMovies(){
+        return $this->cinemaDAO->getAll();
     }
 
     public function retrieveCinemas(){

@@ -16,7 +16,7 @@
             foreach ($cinemaList as $cinema) {
             ?>
                 <td><?php echo $cinema->getName() ?></td>
-                <td><?php echo $cinema->getCity() ?></td>
+                <!-- <td><?php echo $cinema->getCity() ?></td> -->
                 <td><?php echo $cinema->getState() ?></td>
                 <td><?php echo $cinema->getCapacity() ?></td>
                 <td><button type="submit" name="name" class="btn btn-secondary" value="<?php echo $cinema->getName()?>">Remove!</button></td>

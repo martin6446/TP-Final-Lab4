@@ -8,14 +8,16 @@ class User{
     private $email;
     private $password;
     private $isAdmin;
+    private $city_id;
 
-    public function __construct($name="",$lastname="",$email="",$password="",$isAdmin= 0)
+    public function __construct($name="",$lastname="",$email="",$password="",$city_id="",$isAdmin= 0)
     {
         $this->name = $name;
         $this->lastname = $lastname;
         $this->email = $email;
         $this->password = $password;
         $this->isAdmin = $isAdmin;
+        $this->city_id = $city_id;
     }
 
     public function getEmail()
@@ -71,6 +73,17 @@ class User{
     public function setIsAdmin($isAdmin)
     {
         $this->isAdmin = $isAdmin;
+    }
+
+    public function getCity_id()
+    {
+        return $this->city_id;
+    }
+
+    
+    public function setCity_id($city_id)
+    {
+        $this->city_id = $city_id;
     }
 }
 
