@@ -14,7 +14,7 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="inputEmail">Email</label>
-                <input type="text" name="email" class="form-control" id="inputEmail" value="<?php echo $_SESSION["email"]?>" required disabled>
+                <input type="text" name="email" class="form-control" id="inputEmail" value="<?php echo $_SESSION["email"]?>" required readonly>
             </div>
             <div class="form-group col-md-6">
                 <label for="inputPassword">Password</label>

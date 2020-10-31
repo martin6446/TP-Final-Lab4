@@ -40,7 +40,7 @@
             <button class="btn btn-md btn-secondary btn-block text-uppercase" name="button" type="submit">Sign in</button>
 
             <div class="form-label-group">
-              <a href="<?php echo FRONT_ROOT ?>user/userRegisterView" class="btn btn-link btn-sm btn-block">Not an User? Sign Up</a>
+              <a href="<?php echo FRONT_ROOT ?>views/registerView" class="btn btn-link btn-sm btn-block">Not an User? Sign Up</a>
             </div>
             <hr class="my-4">
             <button class="btn btn-md btn-primary btn-block text-uppercase" type="submit">Sign in with Facebook</button>

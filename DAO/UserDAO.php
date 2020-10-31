@@ -76,7 +76,6 @@ class UserDAO
     public function modifyUser($newUserValues, $oldUserValues)
     {
 
-
         if ($user = $this->read($oldUserValues->getEmail())) {
 
             $sql = "UPDATE " . $this->tablename . " SET nombre = :name, apellido = :lastname, email = :email, pwd = :password, id_ciudad = :city_id WHERE email = '" . $user->getEmail() . "'";

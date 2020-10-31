@@ -13,27 +13,6 @@ class AdminController{
         $this->movieController = new MovieController();
     }
 
-    public function showAdminView($valor=0){
-        require_once(VIEWS_PATH."admin-panel.php");
-    }
-
-    public function showAdminAddCinemaView(){
-        /* require_once(VIEWS_PATH."add-cinema-view.php"); */
-        $valor = 1;
-        $this->showAdminView($valor);
-    }
-
-    public function showAdminRemoveCinemaView(){
-        $cinemaList = $this->cinemaController->retrieveCinemas();
-
-        require_once(VIEWS_PATH."cinema-list-remove.php");
-    }
-
-    public function showAdminAddCinemaFunctionView(){
-        $valor = 2;
-        $this->showAdminView($valor);
-    }
-
     public function addMovie(){
 
     }

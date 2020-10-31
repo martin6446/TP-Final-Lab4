@@ -1,3 +1,8 @@
+<?php
+if ($valor != 2) {
+    require_once(VIEWS_PATH . "nav-bar.php");
+} ?>
+
 <table class="table table-striped">
     <thead class="thead-dark">
         <tr>
@@ -13,17 +18,17 @@
                     <form action="<?php echo FRONT_ROOT ?>cinema/modifyCinema" method="GET">
                     <?php } ?>
 
-                    <?php  
-                        foreach ($cinemaList as $cinema) {
+                    <?php
+                    foreach ($cinemaList as $cinema) {
                     ?>
-                            <td><?php echo $cinema->getName() ?></td>
+                        <td><?php echo $cinema->getName() ?></td>
 
-                            <td><button type="submit" name="name" value="<?php echo $cinema->getName() ?>" class="btn btn-secondary">Click Me!</button></td>
+                        <td><button type="submit" name="name" value="<?php echo $cinema->getName() ?>" class="btn btn-secondary">Click Me!</button></td>
 
         </tr>
-<?php
-                        }
-?>
-</form>
+    <?php
+                    }
+    ?>
+    </form>
     </tbody>
 </table>
