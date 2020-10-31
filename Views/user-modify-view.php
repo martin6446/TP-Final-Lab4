@@ -26,7 +26,9 @@
                 <label for="inputState">City</label>
                 <select id="inputState" name="city" class="form-control" required>
                     <option disabled>Choose...</option>
-                    <option selected>mar del plata</option>
+                    <?php foreach($cities as $city){?>
+                    <option><?php echo $city->getName()?></option>
+                    <?php } ?>
                 </select>
             </div>
         </div>

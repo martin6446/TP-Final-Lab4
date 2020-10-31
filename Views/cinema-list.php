@@ -13,7 +13,7 @@ if ($valor != 2) {
     <tbody>
         <tr>
             <?php if ($valor == 2) { ?>
-                <form action="<?php echo FRONT_ROOT ?>admin/showAdminAddCinemaFunctionView" method="GET">
+                <form action="<?php echo FRONT_ROOT ?>views/addCinemaFunctionView" method="GET">
                 <?php } else { ?>
                     <form action="<?php echo FRONT_ROOT ?>cinema/modifyCinema" method="GET">
                     <?php } ?>

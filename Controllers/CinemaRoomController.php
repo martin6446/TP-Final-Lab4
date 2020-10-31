@@ -2,7 +2,7 @@
 namespace Controllers;
 
 
-class RoomController{
+class CinemaRoomController{
     public function addRoom(){}
 
     public function showRoomView(){}

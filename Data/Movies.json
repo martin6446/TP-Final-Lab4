@@ -11,6 +11,19 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/86L8wqGMDbwURPni2t7FQ0nDjsH.jpg"
     },
     {
+        "Id": 531219,
+        "title": "Roald Dahl's The Witches",
+        "genre": [
+            "Fantasy",
+            "Family",
+            "Adventure",
+            "Comedy"
+        ],
+        "release": "2020-10-26",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/betExZlgK0l7CZ9CsCBVcwO1OjL.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/8rIoyM6zYXJNjzGseT3MRusMPWl.jpg"
+    },
+    {
         "Id": 528085,
         "title": "2067",
         "genre": [
@@ -21,20 +34,6 @@
         "release": "2020-10-01",
         "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/7D430eqZj8y3oVkLFfsWXGRcpEG.jpg",
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/5UkzNSOK561c2QRy2Zr4AkADzLT.jpg"
-    },
-    {
-        "Id": 531219,
-        "title": "Roald Dahl's The Witches",
-        "genre": [
-            "Fantasy",
-            "Family",
-            "Adventure",
-            "Comedy",
-            "Horror"
-        ],
-        "release": "2020-10-26",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/betExZlgK0l7CZ9CsCBVcwO1OjL.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/8rIoyM6zYXJNjzGseT3MRusMPWl.jpg"
     },
     {
         "Id": 635302,
@@ -78,27 +77,6 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/x4UkhIQuHIJyeeOTdcbZ3t3gBSa.jpg"
     },
     {
-        "Id": 694919,
-        "title": "Money Plane",
-        "genre": [
-            "Action"
-        ],
-        "release": "2020-09-29",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/pq0JSpwyT2URytdFG0euztQPAyR.jpg"
-    },
-    {
-        "Id": 613504,
-        "title": "After We Collided",
-        "genre": [
-            "Drama",
-            "Romance"
-        ],
-        "release": "2020-09-02",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/kiX7UYfOpYrMFSAGbI6j1pFkLzQ.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/6hgItrYQEG33y0I7yP2SRl2ei4w.jpg"
-    },
-    {
         "Id": 539885,
         "title": "Ava",
         "genre": [
@@ -124,14 +102,25 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/2nFzxaAK7JIsk6l7qZ8rFBsa3yW.jpg"
     },
     {
-        "Id": 509635,
-        "title": "Alone",
+        "Id": 613504,
+        "title": "After We Collided",
         "genre": [
-            "Thriller"
+            "Romance",
+            "Drama"
         ],
-        "release": "2020-09-10",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/n9OzZmPMnVrV0cMQ7amX0DtBkQH.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/obExOU9qDnMcxvWPumoD14oxup5.jpg"
+        "release": "2020-09-02",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/kiX7UYfOpYrMFSAGbI6j1pFkLzQ.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/6hgItrYQEG33y0I7yP2SRl2ei4w.jpg"
+    },
+    {
+        "Id": 694919,
+        "title": "Money Plane",
+        "genre": [
+            "Action"
+        ],
+        "release": "2020-09-29",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/pq0JSpwyT2URytdFG0euztQPAyR.jpg"
     },
     {
         "Id": 560050,
@@ -145,6 +134,54 @@
         "release": "2020-10-16",
         "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/lQfdytwN7eh0tXWjIiMceFdBBvD.jpg",
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/htBUhLSS7FfHtydgYxUWjL3J1Q1.jpg"
+    },
+    {
+        "Id": 509635,
+        "title": "Alone",
+        "genre": [
+            "Thriller"
+        ],
+        "release": "2020-09-10",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/n9OzZmPMnVrV0cMQ7amX0DtBkQH.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/obExOU9qDnMcxvWPumoD14oxup5.jpg"
+    },
+    {
+        "Id": 499338,
+        "title": "I Believe",
+        "genre": [
+            "Family"
+        ],
+        "release": "2020-11-05",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/j8D3jXHtA9cNb4epzvmA6hymKQ4.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/fUxq6ilPW01roOpqB5g9SOS3zZv.jpg"
+    },
+    {
+        "Id": 741074,
+        "title": "Once Upon a Snowman",
+        "genre": [
+            "Animation",
+            "Comedy",
+            "Fantasy",
+            "Family"
+        ],
+        "release": "2020-10-23",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/zfdhsR3Y3xw42OHrMpi0oBw0Uk8.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/DA7gzvlBoxMNL0XmGgTZOyv67P.jpg"
+    },
+    {
+        "Id": 446893,
+        "title": "Trolls World Tour",
+        "genre": [
+            "Adventure",
+            "Animation",
+            "Comedy",
+            "Fantasy",
+            "Music",
+            "Family"
+        ],
+        "release": "2020-03-12",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/7W0G3YECgDAfnuiHG91r8WqgIOe.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/qsxhnirlp7y4Ae9bd11oYJSX59j.jpg"
     },
     {
         "Id": 531499,
@@ -171,54 +208,6 @@
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/4gKyQ1McHa8ZKDsYoyKQSevF01J.jpg"
     },
     {
-        "Id": 748224,
-        "title": "Reaptown",
-        "genre": [
-            "Horror"
-        ],
-        "release": "2020-09-28",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/zamW7KUYYtAdxMtTuCzukRjHTPO.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/flNp7NdzBC1UGctzuubQveuVSF5.jpg"
-    },
-    {
-        "Id": 499338,
-        "title": "I Believe",
-        "genre": [
-            "Family"
-        ],
-        "release": "2020-11-05",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/j8D3jXHtA9cNb4epzvmA6hymKQ4.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/fUxq6ilPW01roOpqB5g9SOS3zZv.jpg"
-    },
-    {
-        "Id": 446893,
-        "title": "Trolls World Tour",
-        "genre": [
-            "Adventure",
-            "Animation",
-            "Comedy",
-            "Fantasy",
-            "Music",
-            "Family"
-        ],
-        "release": "2020-03-12",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/7W0G3YECgDAfnuiHG91r8WqgIOe.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/qsxhnirlp7y4Ae9bd11oYJSX59j.jpg"
-    },
-    {
-        "Id": 741074,
-        "title": "Once Upon a Snowman",
-        "genre": [
-            "Animation",
-            "Comedy",
-            "Fantasy",
-            "Family"
-        ],
-        "release": "2020-10-23",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/zfdhsR3Y3xw42OHrMpi0oBw0Uk8.jpg",
-        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/DA7gzvlBoxMNL0XmGgTZOyv67P.jpg"
-    },
-    {
         "Id": 726739,
         "title": "Cats & Dogs 3: Paws Unite",
         "genre": [
@@ -228,6 +217,16 @@
         "release": "2020-10-02",
         "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/4BgSWFMW2MJ0dT5metLzsRWO7IJ.jpg",
         "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/t22fWbzdnThPseipsdpwgdPOPCR.jpg"
+    },
+    {
+        "Id": 748224,
+        "title": "Reaptown",
+        "genre": [
+            "Horror"
+        ],
+        "release": "2020-09-28",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/\/zamW7KUYYtAdxMtTuCzukRjHTPO.jpg",
+        "backdrop": "https:\/\/image.tmdb.org\/t\/p\/original\/\/flNp7NdzBC1UGctzuubQveuVSF5.jpg"
     },
     {
         "Id": 505379,
