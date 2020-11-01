@@ -17,6 +17,16 @@ class CityController{
     public function getProvinces(){
         return $this->cityDAO->getProvinces();
     }
+
+    public function getCity($idCity){
+        $cities = $this->getCities();
+
+        foreach($cities as $city){
+            if($city->getId() == $idCity){
+                return $city;
+            }
+        }
+    }
 }
 
 ?>

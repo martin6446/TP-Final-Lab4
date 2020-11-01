@@ -28,7 +28,7 @@ require_once(VIEWS_PATH . "nav-bar.php");
                 <li data-target="#carouselEx" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active" style="background-image: url(<?php echo $featuredMovies[0]->getBackdrop(); ?>)">
+                <div class="carousel-item active" style="background-image: url(<?php echo $featuredMovies[0]->getBackdrop();?>)">
                     <div class="carousel-caption d-none d-md-block">
                         <h3 class="display-4"><?php echo $featuredMovies[0]->getName(); ?></h3>
                         <p class="lead">Featured movie</p>
@@ -60,7 +60,7 @@ require_once(VIEWS_PATH . "nav-bar.php");
                         <?php
                         echo "<option value='All'>All genres</option>";
                         foreach ($genres as $genre) {
-                            echo "<option value='" . $genre['name'] . "'>" . $genre['name'] . "</option>";
+                            echo "<option value='" . $genre['nombre'] . "'>" . $genre['nombre'] . "</option>";
                         }
                         ?>
                     </select>

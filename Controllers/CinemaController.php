@@ -18,8 +18,8 @@ class CinemaController{
         require_once(VIEWS_PATH . "edit-cinema.php");
     }
 
-    public function getMovies(){
-        return $this->cinemaDAO->getAll();
+    public function getCinemas($city){
+        return $this->cinemaDAO->getAll($city);
     }
 
     public function retrieveCinemas(){

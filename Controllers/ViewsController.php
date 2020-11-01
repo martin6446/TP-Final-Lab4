@@ -21,8 +21,11 @@ class ViewsController{
     }
 
     public function homeView(){
+        #$this->movieController->updateDataBase();
+
         $movies = $this->movieController->getMovies();
         $featuredMovies = array();
+
         array_push($featuredMovies, $movies[0], $movies[3], $movies[4]);
         $genres = $this->movieController->getGenres();
 
@@ -38,7 +41,7 @@ class ViewsController{
 
     public function cinemaList($valor=0){
 
-        $cinemaList = $this->cinemaController->getMovies();
+        $cinemaList = $this->cinemaController->getCinemas($this->cityController->getCity($_SESSION["cityid"]));
 
         require_once(VIEWS_PATH."cinema-list.php");
     }

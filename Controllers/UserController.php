@@ -5,7 +5,6 @@ namespace Controllers;
 use DAO\UserDAO as UserDAO;
 use Models\User as User;
 use Controllers\UtilitiesController as UtilitiesController;
-use Controllers\LandingController as LandingController;
 
 class UserController
 {
@@ -17,7 +16,6 @@ class UserController
     {
         $this->userDAO = new UserDAO();
         $this->utility = new UtilitiesController();
-        $this->landing = new LandingController();
     }
 
     public function logout()
@@ -44,23 +42,15 @@ class UserController
 
 
             $_SESSION["isAdmin"] = $user->getIsAdmin();
-<<<<<<< HEAD
-            $this->landing->loadData();
-        }else {
-            $this->userRegisterView();
-=======
             header("location:" . FRONT_ROOT . "views/homeview");
         } else {
             header("location:" . FRONT_ROOT . "views/registerView");
->>>>>>> 3a12a0bbfc7b96fa86eb31b031981de9128be675
         }
     }
 
     public function userLogin($email, $password)
     {
 
-<<<<<<< HEAD
-=======
         $user = $this->userDAO->read($email);
 
         if ($user) {
@@ -86,7 +76,6 @@ class UserController
 
         /// aca alertariamos de un error en el logeo.
     }
->>>>>>> 3a12a0bbfc7b96fa86eb31b031981de9128be675
 
 
     public function modifyUser()
@@ -104,17 +93,6 @@ class UserController
         $_SESSION["cityid"] = $newUserData["cityid"];
 
 
-<<<<<<< HEAD
-        if($flag){
-            $_SESSION["isAdmin"] = $user->getIsAdmin();
-            $this->landing->loadData();
-        }else{
-            $this->utility->notification("Wrong username or password", FRONT_ROOT."index.php");
-        }
-        
-        /// aca alertariamos de un error en el logeo.
-=======
         header("location:" . FRONT_ROOT . "views/homeview");
->>>>>>> 3a12a0bbfc7b96fa86eb31b031981de9128be675
     }
 }
