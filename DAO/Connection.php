@@ -4,8 +4,9 @@
     use \PDO as PDO;
     use \Exception as Exception;
     use DAO\QueryType as QueryType;
+use PDOException;
 
-    class Connection
+class Connection
     {
         private $pdo = null;
         private $pdoStatement = null;

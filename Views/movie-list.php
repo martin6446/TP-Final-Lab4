@@ -6,6 +6,7 @@
       <th scope="col">Movie Name</th>
       <th scope="col">Release Date</th>
       <th scope="col">Genre</th>
+      <th scope="col">Duration</th>
       <th scope="col">Select</th>
     </tr>
   </thead>
@@ -19,12 +20,11 @@
           echo "<td>". $movie->getReleaseDate() . "</td>";
 
           $strGenres = ""; 
-
-
           foreach($movie->getGenres() as $genre){
             $strGenres = $strGenres . ", " . $genre; 
           }
           echo "<td>". substr($strGenres, 1) . "</td>";
+          echo "<td>". $movie->getDuration() ." - Min </td>";
           echo "<td><button type='submit' class='btn btn-secondary'>Select</button></td>";
           echo "</tr>";
           }

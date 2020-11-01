@@ -2,11 +2,10 @@
 
 namespace DAO;
 
-use DAO\IMovieDAO as IMovieDAO;
 use Models\Movie as Movie;
 use \Exception as Exception;
 
-class MovieDAO
+class MovieDAO 
 {
     private $connection;
     private $genresTable = "genres";
@@ -201,8 +200,8 @@ class MovieDAO
         foreach($movies as $movie){
             $oMovie = new Movie();
             $oMovie->setIdMovie($movie["id"]);
-            $oMovie->setMoviePoster($movie["poster"]);
-            $oMovie->setBackdrop($movie["backdrop"]);
+            $oMovie->setMoviePoster("https://image.tmdb.org/t/p/original/".$movie["poster"]);
+            $oMovie->setBackdrop("https://image.tmdb.org/t/p/original/".$movie["backdrop"]);
             $oMovie->setName($movie["nombre"]);
             $oMovie->setRating($movie["rating"]);
             $oMovie->setTrailer($movie["trailer"]);
