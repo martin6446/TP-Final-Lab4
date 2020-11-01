@@ -15,9 +15,9 @@
           <li class="nav-item">
             <a class="nav-link" href="<?php echo FRONT_ROOT ?>views/movieList">Movies</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="<?php echo FRONT_ROOT ?>views/cinemaList">Cinemas</a>
-          </li>
+          </li> -->
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item ">
@@ -33,7 +33,7 @@
             <a class="nav-link" href="<?php echo FRONT_ROOT?>views/modifyUser">My Profile</a>
           </li>
           <li class="nav-item nav">
-            <a href="<?php echo   FRONT_ROOT?>user/logout" class="nav-link">Log Out</a>
+            <a href="<?php echo FRONT_ROOT?>user/logout" class="nav-link">Log Out</a>
           </li>
         </ul>
       </div>

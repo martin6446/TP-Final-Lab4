@@ -1,65 +1,27 @@
-<?php require_once(VIEWS_PATH."nav-bar.php");?>
+<?php require_once(VIEWS_PATH . "nav-bar.php"); ?>
 
+<div class="d-flex" id="wrapper">
 
-
-
-  <div class="d-flex" id="wrapper">
-
-    <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Main Menu </div>
-      <div class="list-group list-group-flush">
-        <a href="<?php echo FRONT_ROOT?>views/addCinemaView" class="list-group-item list-group-item-action bg-light">Add Cinema</a>
-        <a href="<?php echo FRONT_ROOT?>views/addCinemaFunctionView" class="list-group-item list-group-item-action bg-light">Add function</a>
-        <a href="<?php echo FRONT_ROOT?>views/removeCinemaView" class="list-group-item list-group-item-action bg-light">Manage Cinemas</a>
-        <a href="" class="list-group-item list-group-item-action bg-light">Manage functions</a>
-        
-        
-      </div>
-    </div>
-    <!-- /#sidebar-wrapper -->
-
-    <!-- Page Content -->
-    <div class="container" id="page-content-wrapper">
-      <div>
-        <h1 class=" mt-4">Admin View</h1>
-      </div>
-
-
-      <?php 
-/*       var_dump($this->cinemaController);
-      die; */
-      if(isset($valor)){
-        switch($valor){
-          case 1:
-            require_once(VIEWS_PATH."add-cinema-view.php");
-          break;
-          case 2:
-            $this->cinemaList($valor);
-          break;
-          case 3:
-            $this->cinemaListRemove();
-          break;
-          case 4:
-            require_once(VIEWS_PATH."cinemafunction-add-view.php");
-          break;
-          default:
-
-        break;
-        }
-      }
-        ?>
-        
+  <!-- Sidebar -->
+  <div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading">Main Menu </div>
+    <div class="list-group list-group-flush">
+      <a href="<?php echo FRONT_ROOT ?>views/addCinemaView" class="list-group-item list-group-item-action bg-light">Add Cinema</a>
+      <a href="<?php echo FRONT_ROOT ?>views/cinemaList" class="list-group-item list-group-item-action bg-light">Add function</a>
+      <a href="<?php echo FRONT_ROOT ?>views/cinemaListRemove" class="list-group-item list-group-item-action bg-light">Manage Cinemas</a>
+      <a href="" class="list-group-item list-group-item-action bg-light">Manage functions</a>
 
 
     </div>
-    <!-- /#page-content-wrapper -->
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div class="container" id="page-content-wrapper">
+    <div>
+      <h1 class=" mt-4">Admin View</h1>
+    </div>
 
   </div>
-  <!-- Menu Toggle Script -->
-  <script>
-    $("#menu-toggle").click(function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    });
-  </script>
+
+</div>

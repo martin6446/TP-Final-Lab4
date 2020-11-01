@@ -29,6 +29,7 @@ class ViewsController{
         array_push($featuredMovies, $movies[0], $movies[3], $movies[4]);
         $genres = $this->movieController->getGenres();
 
+
         require_once(VIEWS_PATH."home.php");
         
     }
@@ -39,7 +40,7 @@ class ViewsController{
         require_once(VIEWS_PATH."movie-list.php");
     }
 
-    public function cinemaList($valor=0){
+    public function cinemaList(){
 
         $cinemaList = $this->cinemaController->getCinemas($this->cityController->getCity($_SESSION["cityid"]));
 
@@ -47,38 +48,23 @@ class ViewsController{
     }
 
     public function cinemaListRemove(){
-        $cinemaList = $this->cinemaController->retrieveCinemas();
+        $cinemaList = $this->cinemaController->getCinemas($this->cityController->getCity($_SESSION["cityid"]));
 
         require_once(VIEWS_PATH."cinema-list-remove.php");
     }
 
-    public function adminView($valor=0){
+    public function adminView(){
         require_once(VIEWS_PATH."admin-panel.php");
     }
 
     public function addCinemaView(){
-        $valor = 1;
-
-        $this->adminView($valor);
-    }
-
-    public function removeCinemaView(){
-        $valor = 3;
-
-        $this->adminView($valor);
-        
+        require_once(VIEWS_PATH."add-cinema-view.php");
     }
 
     public function addCinemaFunctionView(){
-    
-        if(!empty($_GET)){
+        $cinema = $this->cinemaController->retrieveCinema($_GET["id"],$this->cityController->getCity($_SESSION["cityid"]));
 
-            $valor = 4;
-        } else {
-            $valor = 2;
-        }
-
-        $this->adminView($valor);
+        require_once(VIEWS_PATH."cinemafunction-add-view.php");
     }
 
     public function modifyUser(){

@@ -65,5 +65,13 @@ class Cinema{
         $this->id = $id;
     }
 
+    public function __toString()
+    {
+        return "id: ". $this->id . 
+                " name: ". $this->name . 
+                " address: ". $this->address . 
+                " city: ". $this->city->getName();
+    }
+
 }
 ?>

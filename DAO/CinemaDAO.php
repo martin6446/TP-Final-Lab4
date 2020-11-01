@@ -38,6 +38,19 @@ class CinemaDAO{
         }
     }
 
+    public function getCinema($id, City $city){
+        $query = "SELECT id, nombre, direccion FROM cines WHERE id = ". $id;
+
+        try{
+            $this->connection = Connection::GetInstance();
+            $response = $this->connection->Execute($query);
+
+            return new Cinema($city,$response[0]["id"],$response[0]["nombre"],$response[0]["direccion"]);
+        }catch(Exception $e){
+            throw $e;
+        }
+    }
+
 
     public function getAll(City $city){
         try{
