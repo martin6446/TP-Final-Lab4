@@ -1,4 +1,5 @@
-<?php namespace Config;
+<?php 
+namespace Config;
 
 define("ROOT", dirname(__DIR__) . "/");
 //Path to your project's root folder
@@ -7,7 +8,8 @@ define("VIEWS_PATH", "Views/");
 define("CSS_PATH", FRONT_ROOT.VIEWS_PATH . "layout/css/");
 define("JS_PATH", FRONT_ROOT.VIEWS_PATH . "layout/js/");
 define("JQUERY_PATH", FRONT_ROOT.VIEWS_PATH . "layout/jquery/");
-define("IMG_PATH", VIEWS_PATH . "images/");
+define("IMG_PATH", VIEWS_PATH . "img/");
+
 // BD
 define("DB_HOST", "bynkngfdva4yi0d8omqu-mysql.services.clever-cloud.com");
 define("DB_NAME", "bynkngfdva4yi0d8omqu");

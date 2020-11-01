@@ -27,7 +27,6 @@ class CinemaDAO{
             
             $this->connection = Connection::GetInstance();
             $this->connection->ExecuteNonQuery($query, $params);
-
         }
         catch(Exception $e){
             throw $e;

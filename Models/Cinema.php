@@ -42,18 +42,6 @@ class Cinema{
         $this->city = $city;
     }
 
-
-    public function getRooms()
-    {
-        return $this->rooms;
-    }
-
-    
-    public function setRooms($rooms)
-    {
-        $this->rooms = $rooms;
-    }
-
     public function getId()
     {
         return $this->id;

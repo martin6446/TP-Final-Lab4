@@ -1,5 +1,6 @@
 <?php
 namespace Models;
+use Models\Cinema;
 
 
 class CinemaRoom{
@@ -9,7 +10,7 @@ class CinemaRoom{
     private $price;
     private $capacity;
     
-    public function __construct($id=0,$cinema=0,$name="",$price=0,$capacity=0)
+    public function __construct($id=0,$cinema= null,$name="",$price=0,$capacity=0)
     {
         $this->setId($id);
         $this->setCinema($cinema);
@@ -67,7 +68,7 @@ class CinemaRoom{
     }
 
 
-    public function setCinema($Cinema){
+    public function setCinema(Cinema $Cinema){
         $this->cinema = $Cinema;
     }
 

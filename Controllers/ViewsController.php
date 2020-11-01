@@ -23,6 +23,7 @@ class ViewsController{
     public function homeView(){
 
         $movies = $this->movieController->getMovies();
+        var_dump($movies);
         $featuredMovies = array();
 
         array_push($featuredMovies, $movies[0], $movies[3], $movies[4]);
