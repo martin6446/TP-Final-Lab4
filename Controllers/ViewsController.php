@@ -21,7 +21,6 @@ class ViewsController{
     }
 
     public function homeView(){
-        #$this->movieController->updateDataBase();
 
         $movies = $this->movieController->getMovies();
         $featuredMovies = array();
@@ -58,6 +57,25 @@ class ViewsController{
     }
 
     public function addCinemaView(){
+
+        $_SESSION["roomNumber"] = 1;
+        
+        if(isset($_GET["button"])){
+
+            if($_GET["button"] != "save"){
+                $_SESSION["roomNumber"] = $_GET["button"] + 1;
+            }else {
+
+                $city = $this->cityController->getCity($_GET["cinema"]["city"]);
+
+
+                $this->cinemaController->addCinema($city,$_GET["cinema"]);
+            }
+
+        }
+
+        $provinces = $this->cityController->getProvinces();
+        $cities = $this->cityController->getCities();
         require_once(VIEWS_PATH."add-cinema-view.php");
     }
 
@@ -78,4 +96,3 @@ class ViewsController{
         require_once(VIEWS_PATH."user-register-view.php");
     }
 }
-?>

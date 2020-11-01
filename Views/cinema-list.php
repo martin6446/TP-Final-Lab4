@@ -2,7 +2,7 @@
     <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
-          <th scope="col">Cinema Name</th>
+          <th scope="col">Cinema Name </th>
           <th scope="col">Cinema Address</th>
           <th scope="col">Cinema City</th>
           <th scope="col">Select Cinema</th>
