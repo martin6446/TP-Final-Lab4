@@ -27,11 +27,6 @@ class CinemaDAO{
             
             $this->connection = Connection::GetInstance();
             $this->connection->ExecuteNonQuery($query, $params);
-            $cinemaRoomDAO = new CinemaRoomDAO();
-            foreach($cine->getRooms() as $cinemaRoom){
-                $cinemaRoomDAO->add($cinemaRoom);
-            }
-
         }
         catch(Exception $e){
             throw $e;
