@@ -4,8 +4,12 @@ namespace Models;
 class State{
     private $id;
     private $nombre;
-    private $cities = [];
     
+    public function __construct($id=0,$nombre="")
+    {
+        $this->id = $id;
+        $this->nombre = $nombre;
+    }
 
     public function getId()
     {
@@ -18,26 +22,16 @@ class State{
         $this->id = $id;
     }
 
-    public function getNombre()
+    public function getName()
     {
         return $this->nombre;
     }
 
     
-    public function setNombre($nombre)
+    public function setName($nombre)
     {
         $this->nombre = $nombre;
     }
 
-    public function getCities()
-    {
-        return $this->cities;
-    }
-
-    
-    public function setCities($cities)
-    {
-        $this->cities = $cities;
-    }
 }
 ?>

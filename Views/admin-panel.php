@@ -40,6 +40,9 @@
           case 3:
             $this->cinemaListRemove();
           break;
+          case 4:
+            require_once(VIEWS_PATH."cinemafunction-add-view.php");
+          break;
           default:
 
         break;

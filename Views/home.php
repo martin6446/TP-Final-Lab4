@@ -20,35 +20,34 @@ require_once(VIEWS_PATH . "nav-bar.php");
 </style>
 
 <header>
-<input type="time" step="900">
     <div id="carouselPelis" class="carousel slide" data-ride="carousel">
-    <div id="carouselEx" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselEx" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselEx" data-slide-to="1"></li>
-            <li data-target="#carouselEx" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active" style="background-image: url(<?php echo $featuredMovies[0]->getBackdrop(); ?>)">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3 class="display-4"><?php echo $featuredMovies[0]->getName(); ?></h3>
-                    <p class="lead">Featured movie</p>
+        <div id="carouselEx" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselEx" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselEx" data-slide-to="1"></li>
+                <li data-target="#carouselEx" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active" style="background-image: url(<?php echo $featuredMovies[0]->getBackdrop();?>)">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="display-4"><?php echo $featuredMovies[0]->getName(); ?></h3>
+                        <p class="lead">Featured movie</p>
+                    </div>
                 </div>
-            </div>
-            <div class="carousel-item" style="background-image: url(<?php echo $featuredMovies[1]->getBackdrop(); ?>)">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3 class="display-4"><?php echo $featuredMovies[1]->getName(); ?></h3>
-                    <p class="lead">Featured movie</p>
+                <div class="carousel-item" style="background-image: url(<?php echo $featuredMovies[1]->getBackdrop(); ?>)">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="display-4"><?php echo $featuredMovies[1]->getName(); ?></h3>
+                        <p class="lead">Featured movie</p>
+                    </div>
                 </div>
-            </div>
-            <div class="carousel-item" style="background-image: url(<?php echo $featuredMovies[2]->getBackdrop(); ?>)">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3 class="display-4"><?php echo $featuredMovies[2]->getName(); ?></h3>
-                    <p class="lead">Featured movie</p>
+                <div class="carousel-item" style="background-image: url(<?php echo $featuredMovies[2]->getBackdrop(); ?>)">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="display-4"><?php echo $featuredMovies[2]->getName(); ?></h3>
+                        <p class="lead">Featured movie</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </header>
 
 <section class="py-5">
@@ -58,11 +57,11 @@ require_once(VIEWS_PATH . "nav-bar.php");
             <div class="row">
                 <div class="col-6">
                     <select class="form-control" id="genre" name="genre">
-                        <?php 
-                            echo "<option value='All'>All genres</option>";
-                            foreach($genres as $genre){
-                                echo "<option value='".$genre['name']."'>".$genre['name']."</option>";
-                            }                    
+                        <?php
+                        echo "<option value='All'>All genres</option>";
+                        foreach ($genres as $genre) {
+                            echo "<option value='" . $genre['nombre'] . "'>" . $genre['nombre'] . "</option>";
+                        }
                         ?>
                     </select>
                 </div>

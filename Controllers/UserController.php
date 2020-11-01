@@ -10,6 +10,7 @@ class UserController
 {
     private $userDAO;
     private $utility;
+    private $landing;
 
     public function __construct()
     {
@@ -25,7 +26,7 @@ class UserController
         $this->utility->notification("Logged out", FRONT_ROOT . "index.php");
     }
 
-    public function userRegister($name, $lastname, $email, $password, $confirmpass)
+    public function userRegister($name, $lastname, $email, $password, $confirmpass, $city, $province)
     {
 
         if ($password === $confirmpass) {

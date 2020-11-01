@@ -12,8 +12,12 @@ class MovieController{
         $this->movieDAO = new MovieDAO();
     }
 
+    public function updateDataBase(){
+        $this->movieDAO->pushMovies();
+    }
+
     public function getMovies($genre = "All"){
-        $allMovies = $this->movieDAO->GetAll();
+        $allMovies = $this->movieDAO->getAll();
         $movieList = array();
         if($genre !='All'){
             foreach($allMovies as $movie){
@@ -27,6 +31,10 @@ class MovieController{
         }
 
         return $movieList;
+    }
+
+    public function getMovieGenre(){
+        var_dump($this->movieDAO->getMovieGrenres(1));
     }
 
     public function getGenres(){
