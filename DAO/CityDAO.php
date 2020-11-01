@@ -2,8 +2,8 @@
 namespace DAO;
 
 use Exception;
-use Models\City;
-use Models\State;
+use Models\City as City;
+use Models\Province as Province;
 
 class CityDAO{
     private $connection;
@@ -43,7 +43,7 @@ class CityDAO{
             $response = $this->connection->Execute($query);
             $this->provinceList;
             foreach($response as $soonToBeProvince){
-                array_push($this->provinceList,new State($soonToBeProvince["id"],$soonToBeProvince["nombre"]));
+                array_push($this->provinceList,new Province($soonToBeProvince["id"],$soonToBeProvince["nombre"]));
             }
 
 
