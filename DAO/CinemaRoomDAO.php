@@ -12,22 +12,30 @@ class CinemaRoomDAO{
             $this->tableName = 'salas';
         }
     
-        public function add(CinemaRoom $sala){
-    
+        
+        public function add(CinemaRoom ...$salas){
             try{
-                $query = "INSERT INTO ".$this->tableName." (nombre, id_cine, precio, capacidad) VALUES (:nombre, :id_cine,
-                :precio, :capacidad);";
-                $params["nombre"] = $sala->getName();
-                $params["precio"] = $sala->getPrice();
-                $params["capacidad"] = $sala->getCapacity();
-    
+                $query = "INSERT INTO ".$this->tableName." (nombre, id_cine, precio, capacidad) VALUES";
+                $i = 1;
+                foreach($salas as $sala){
+                    $query = $query . "(:nombre" . $i .", :id_cine" . $i . ", :precio" . $i . ", :capacidad" . $i . "), ";
+                    $params["nombre" . $i] = $sala->getName();
+                    $params["id_cine" . $i] = $sala->getCinema()->getId();
+                    $params["precio" . $i] = $sala->getPrice();
+                    $params["capacidad" . $i] = $sala->getCapacity();
+
+                    $i++;
+                }
+                
+                $query = substr($query, 0, -2) . ";";
                 $this->connection = Connection::GetInstance();
-                $this->connection->ExecuteNonQuery($query, $params);
-    
+                return $this->connection->ExecuteNonQuery($query, $params);
+
             }
             catch(Exception $e){
                 throw $e;
             }
+
         }
 
         public function getAll(City $city){
