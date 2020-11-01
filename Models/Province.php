@@ -1,7 +1,7 @@
 <?php
 namespace Models;
 
-class State{
+class Province{
     private $id;
     private $nombre;
     

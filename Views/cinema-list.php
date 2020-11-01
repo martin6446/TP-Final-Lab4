@@ -1,34 +1,33 @@
-<?php
-if ($valor != 2) {
-    require_once(VIEWS_PATH . "nav-bar.php");
-} ?>
-
-<table class="table table-striped">
-    <thead class="thead-dark">
+<?php require_once("admin-panel.php")?>
+    <table class="table table-striped">
+      <thead class="thead-dark">
         <tr>
-            <th scope="col">Cinema Name</th>
-            <th scope="col">Click Me!</th>
+          <th scope="col">Cinema Name</th>
+          <th scope="col">Cinema Address</th>
+          <th scope="col">Cinema City</th>
+          <th scope="col">Select Cinema</th>
         </tr>
-    </thead>
-    <tbody>
+      </thead>
+      <tbody>
         <tr>
-            <?php if ($valor == 2) { ?>
-                <form action="<?php echo FRONT_ROOT ?>views/addCinemaFunctionView" method="GET">
-                <?php } else { ?>
-                    <form action="<?php echo FRONT_ROOT ?>cinema/modifyCinema" method="GET">
-                    <?php } ?>
+          <form action="<?php echo FRONT_ROOT ?>views/addCinemaFunctionView" method="GET">
+            <?php
+            foreach ($cinemaList as $cinema) {
+            ?>
+              <td><?php echo $cinema->getName() ?></td>
+              <td><?php echo $cinema->getAddress() ?></td>
+              <td><?php echo $cinema->getCity()->getName() ?></td>
 
-                    <?php
-                    foreach ($cinemaList as $cinema) {
-                    ?>
-                        <td><?php echo $cinema->getName() ?></td>
-
-                        <td><button type="submit" name="name" value="<?php echo $cinema->getName() ?>" class="btn btn-secondary">Click Me!</button></td>
+              <td><button type="submit" name="id" value="<?php echo $cinema->getId() ?>" class="btn btn-secondary">Select</button></td>
 
         </tr>
-    <?php
-                    }
-    ?>
-    </form>
-    </tbody>
-</table>
+      <?php
+            }
+      ?>
+      </form>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>

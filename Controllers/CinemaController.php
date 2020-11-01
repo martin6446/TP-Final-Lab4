@@ -22,8 +22,8 @@ class CinemaController{
         return $this->cinemaDAO->getAll($city);
     }
 
-    public function retrieveCinemas(){
-        return $this->cinemaDAO->getAll();
+    public function retrieveCinema($id, $city){
+        return $this->cinemaDAO->getCinema($id, $city);
     }
 
     public function addCinema($name,$ticketvalue,$capacity,$address,$address2,$city,$state,$zip){
