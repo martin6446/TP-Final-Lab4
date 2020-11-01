@@ -5,7 +5,6 @@ namespace Controllers;
 use DAO\UserDAO as UserDAO;
 use Models\User as User;
 use Controllers\UtilitiesController as UtilitiesController;
-use Controllers\LandingController as LandingController;
 
 class UserController
 {
@@ -17,7 +16,6 @@ class UserController
     {
         $this->userDAO = new UserDAO();
         $this->utility = new UtilitiesController();
-        $this->landing = new LandingController();
     }
 
     public function logout()
@@ -28,7 +26,7 @@ class UserController
         $this->utility->notification("Logged out", FRONT_ROOT . "index.php");
     }
 
-    public function userRegister($name, $lastname, $email, $password, $confirmpass)
+    public function userRegister($name, $lastname, $email, $password, $confirmpass, $city, $province)
     {
 
         if ($password === $confirmpass) {

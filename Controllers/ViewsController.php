@@ -1,7 +1,6 @@
 <?php
 namespace Controllers;
 
-use Models\Room;
 
 class ViewsController{
     private $cinemaController;
@@ -9,6 +8,7 @@ class ViewsController{
     private $functionController;
     private $movieController;
     private $userController;
+    private $cityController;
 
     public function __construct()
     {
@@ -17,11 +17,15 @@ class ViewsController{
         #$this->functionController = new FunctionController();
         $this->movieController = new MovieController();
         $this->userController = new UserController();
+        $this->cityController = new CityController();
     }
 
     public function homeView(){
+        #$this->movieController->updateDataBase();
+
         $movies = $this->movieController->getMovies();
         $featuredMovies = array();
+
         array_push($featuredMovies, $movies[0], $movies[3], $movies[4]);
         $genres = $this->movieController->getGenres();
 
@@ -37,7 +41,7 @@ class ViewsController{
 
     public function cinemaList($valor=0){
 
-        $cinemaList = $this->cinemaController->getMovies();
+        $cinemaList = $this->cinemaController->getCinemas($this->cityController->getCity($_SESSION["cityid"]));
 
         require_once(VIEWS_PATH."cinema-list.php");
     }
@@ -66,16 +70,25 @@ class ViewsController{
     }
 
     public function addCinemaFunctionView(){
-        $valor = 2;
+    
+        if(!empty($_GET)){
+
+            $valor = 4;
+        } else {
+            $valor = 2;
+        }
 
         $this->adminView($valor);
     }
 
     public function modifyUser(){
+        $cities = $this->cityController->getCities();
         require_once(VIEWS_PATH."user-modify-view.php");
     }
 
     public function registerView(){
+        $provinces = $this->cityController->getProvinces();
+        $cities = $this->cityController->getCities();
         require_once(VIEWS_PATH."user-register-view.php");
     }
 }

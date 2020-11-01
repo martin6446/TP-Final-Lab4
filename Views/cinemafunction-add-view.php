@@ -1,4 +1,8 @@
-<?php /* require_once(VIEWS_PATH . "nav-bar.php") */ ?>
+<?php /* require_once(VIEWS_PATH . "nav-bar.php") */ 
+
+var_dump($_GET);
+die;
+?>
 <div class="container">
     <form method="POST" action="<?php echo FRONT_ROOT ?>admin/showAdminAddCinemaView">
         <div class="row ">
