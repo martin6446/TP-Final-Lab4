@@ -13,7 +13,7 @@ class ViewsController{
     public function __construct()
     {
         $this->cinemaController = new CinemaController();
-        $this->cinemaRoomController = new RoomController();
+        $this->cinemaRoomController = new CinemaRoomController();
         #$this->functionController = new FunctionController();
         $this->movieController = new MovieController();
         $this->userController = new UserController();
