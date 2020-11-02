@@ -1,6 +1,7 @@
 <?php
 namespace Controllers;
 
+use DAO\Connection;
 
 class ViewsController{
     private $cinemaController;
@@ -21,17 +22,24 @@ class ViewsController{
     }
 
     public function homeView(){
-        #$this->movieController->updateDataBase();
 
+        //var_dump((Connection::GetInstance())->Execute("Select ciudades.id, id_provincia, ciudades.nombre as Ciudad, provincias.nombre as Provincia FrOM ciudades INNER JOIN provincias ON ciudades.id_provincia = provincias.id;"));
+        
         $movies = $this->movieController->getMovies();
-        $featuredMovies = array();
-
-        array_push($featuredMovies, $movies[0], $movies[1], $movies[2]);
         $genres = $this->movieController->getGenres();
+
+        $featuredMovies = array();
+        array_push($featuredMovies, $movies[0], $movies[3], $movies[4]);
+        
 
 
         require_once(VIEWS_PATH."home.php");
         
+    }
+
+    public function Login()
+    {
+        require_once(VIEWS_PATH."login.php");
     }
 
     public function movieList($genre="All"){
@@ -58,11 +66,39 @@ class ViewsController{
     }
 
     public function addCinemaView(){
+
+        $_SESSION["roomNumber"] = 1;
+        
+        if(isset($_GET["button"])){
+
+            if($_GET["button"] != "save"){
+                $_SESSION["roomNumber"] = $_GET["button"] + 1;
+            }else {
+
+                $city = $this->cityController->getCity($_GET["cinema"]["city"]);
+
+
+                #$this->cinemaController->addCinema($city,$_GET["cinema"]);
+
+                $cinema = $this->cinemaController->getCinemaByCityAndName($city,"Oestherheld");
+
+
+                array_shift($_GET);
+                array_pop($_GET);
+
+                $this->cinemaRoomController->addRoom($cinema,$_GET);
+                
+            }
+
+        }
+
+        $provinces = $this->cityController->getProvinces();
+        $cities = $this->cityController->getCities();
         require_once(VIEWS_PATH."add-cinema-view.php");
     }
 
     public function addCinemaFunctionView(){
-        $cinema = $this->cinemaController->retrieveCinema($_GET["id"],$this->cityController->getCity($_SESSION["cityid"]));
+        $cinema = $this->cinemaController->getCinemaById($_GET["id"],$this->cityController->getCity($_SESSION["cityid"]));
 
         require_once(VIEWS_PATH."cinemafunction-add-view.php");
     }
@@ -77,5 +113,8 @@ class ViewsController{
         $cities = $this->cityController->getCities();
         require_once(VIEWS_PATH."user-register-view.php");
     }
+
+    public function moviePreview(){
+        require_once(VIEWS_PATH."movie-preview.php");
+    }
 }
-?>

@@ -11,7 +11,7 @@ use Models\Movie as Movie;
         private $endTime;
         private $cinemaRoom;
         
-        public function __construct($id=0, $movie = null, $startTime = null, $endTime = null, $cinemaRoom = null){
+        public function __construct($movie = null, $startTime = null, $endTime = null, $cinemaRoom = null, $id=0){
           $this->setId($id);  
           $this->setMovie($movie);  
           $this->setStartTime($startTime);  

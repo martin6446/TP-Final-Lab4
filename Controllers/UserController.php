@@ -42,6 +42,8 @@ class UserController
 
 
             $_SESSION["isAdmin"] = $user->getIsAdmin();
+            $_SESSION["loggedUser"] = $user;
+
             header("location:" . FRONT_ROOT . "views/homeview");
         } else {
             header("location:" . FRONT_ROOT . "views/registerView");
@@ -62,6 +64,8 @@ class UserController
                 $_SESSION["password"] = $user->getPassword();
                 $_SESSION["email"] = $user->getEmail();
                 $_SESSION["cityid"] = $user->getCity_id();
+                $_SESSION["loggedUser"]= $user;
+
                 header("location:" . FRONT_ROOT . "views/homeview");
             } else {
                 $_SESSION["wrongPassword"] = "contraseña incorrecta";
@@ -71,9 +75,6 @@ class UserController
             $_SESSION["wrongUser"] = "usuario incorrecto";
             $this->utility->notification("Wrong password", FRONT_ROOT . "index.php");
         }
-
-
-
         /// aca alertariamos de un error en el logeo.
     }
 

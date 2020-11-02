@@ -60,7 +60,7 @@ class CinemaRoomDAO{
                        } 
                     }
                     if($matchingCine){
-                        array_push($cinemaRoomList, new CinemaRoom($soonToBeSala['id'], $matchingCine, $soonToBeSala['nombre'], $soonToBeSala['precio'], $soonToBeSala['capacidad']));
+                        array_push($cinemaRoomList, new CinemaRoom($matchingCine, $soonToBeSala['nombre'], $soonToBeSala['precio'], $soonToBeSala['capacidad'],$soonToBeSala['id']));
                     }
                 }
     

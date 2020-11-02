@@ -10,7 +10,7 @@ class CinemaRoom{
     private $price;
     private $capacity;
     
-    public function __construct($id=0,$cinema= null,$name="",$price=0,$capacity=0)
+    public function __construct($cinema= null,$name="",$price=0,$capacity=0, $id=0)
     {
         $this->setId($id);
         $this->setCinema($cinema);
