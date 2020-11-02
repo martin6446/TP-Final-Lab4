@@ -79,8 +79,30 @@ use Exception;
                 throw $e;
             }
         }
+    
+        public function validate($idSala, CinemaFunction ...$functions){
+            try{
+                $query = "SELECT * FROM funciones WHERE id_sala = :id_sala AND ";
+                $params["id_sala"] = $idSala;
+                //(horario_inicio < ADDTIME(:horario_finalizacion, "0:15:00") AND ADDTIME(horario_finalizacion, "0:15:00")  > :horario_inicio);
+                $i = 1;
+                foreach($functions as $function){
+                    $query = $query . "(horario_inicio < ADDTIME(:horario_finalizacion". $i . ", '0:15:00') AND ADDTIME(horario_finalizacion, '0:15:00')  > :horario_inicio".$i.") OR ";
+                    $params["horario_inicio" . $i] = $function->getStartTime();
+                    $params["horario_finalizacion" . $i] = $function->getEndTime();
+
+                }
+                $query = substr($query, 0, -4) . ";";
+
+                echo $query;
+                die();
+
+            }
+            catch(Exception $e){
+                throw $e;
+            }
+        }
+
+    
     }
-
-
-
 ?>

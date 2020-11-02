@@ -46,6 +46,27 @@ class CinemaDAO{
         }
     }
 
+    public function getCinemaByCityAndName(City $city, $name){
+        try{
+            $query = "SELECT id, nombre, direccion FROM cines WHERE id_ciudad = :city AND nombre = :name";
+
+            $params["city"] = $city->getId();
+            $params["name"] = $name;
+            $this->connection = Connection::GetInstance();
+            $response = $this->connection->Execute($query, $params);
+            $cinemaList = array();
+            foreach($response as $soonToBeCine){
+                array_push($cinemaList, new Cinema($city, $soonToBeCine['id'], $soonToBeCine['nombre'], $soonToBeCine['direccion']));
+            }
+
+            return $cinemaList;
+        }
+        catch(Exception $e){
+            throw $e;
+        }
+    }
+    
+
 
     public function getAll(City $city){
         try{

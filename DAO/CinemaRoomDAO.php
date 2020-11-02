@@ -1,7 +1,8 @@
 <?php
     namespace DAO;
     use Exception;
-    use Models\CinemaRoom as CinemaRoom;
+use Models\Cinema;
+use Models\CinemaRoom as CinemaRoom;
 use Models\City;
 
 class CinemaRoomDAO{
@@ -69,6 +70,28 @@ class CinemaRoomDAO{
                 throw $e;
             }
         }
+
+        public function getByCinema(Cinema $cinema){
+            try{
+                $query = "SELECT s.id, s.nombre, s.precio, s.capacidad FROM salas s
+                WHERE s.id_cine = :id_cine";
+    
+                $params["id_cine"] = $cinema->getId();
+                $this->connection = Connection::GetInstance();
+                $response = $this->connection->Execute($query, $params);
+                $cinemaRoomList = array();
+                foreach($response as $soonToBeSala){
+            
+                    array_push($cinemaRoomList, new CinemaRoom($cinema, $soonToBeSala['nombre'], $soonToBeSala['precio'], $soonToBeSala['capacidad'], $soonToBeSala['id']));
+                }
+    
+                return $cinemaRoomList;
+            }
+            catch(Exception $e){
+                throw $e;
+            }
+        }
+
     
     }
 
