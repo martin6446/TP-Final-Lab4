@@ -27,9 +27,13 @@ class CinemaController
         return $this->cinemaDAO->getAll($city);
     }
 
-    public function retrieveCinema($id, $city)
+    public function getCinemaById($id, $city)
     {
-        return $this->cinemaDAO->getCinema($id, $city);
+        return $this->cinemaDAO->getCinemaById($id, $city);
+    }
+
+    public function getCinemaByCityAndName($city, $name){
+        return $this->cinemaDAO->getCinemaByCityAndName($city,$name);
     }
 
     public function addCinema($city, $cinemaData){

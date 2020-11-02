@@ -41,7 +41,7 @@
             </div>
         </div>
         <div>
-            <h3>Add cinema Rooms</h3>
+            <h3>Add Cinema Rooms</h3>
         </div>
         <?php for($x = 0; $x < $_SESSION["roomNumber"]; $x++){?>
         <div class="form-row">

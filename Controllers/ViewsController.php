@@ -23,7 +23,6 @@ class ViewsController{
     public function homeView(){
 
         $movies = $this->movieController->getMovies();
-        var_dump($movies);
         $featuredMovies = array();
 
         array_push($featuredMovies, $movies[0], $movies[3], $movies[4]);
@@ -70,7 +69,16 @@ class ViewsController{
                 $city = $this->cityController->getCity($_GET["cinema"]["city"]);
 
 
-                $this->cinemaController->addCinema($city,$_GET["cinema"]);
+                #$this->cinemaController->addCinema($city,$_GET["cinema"]);
+
+                $cinema = $this->cinemaController->getCinemaByCityAndName($city,"Oestherheld");
+
+
+                array_shift($_GET);
+                array_pop($_GET);
+
+                $this->cinemaRoomController->addRoom($cinema,$_GET);
+                
             }
 
         }
@@ -81,7 +89,7 @@ class ViewsController{
     }
 
     public function addCinemaFunctionView(){
-        $cinema = $this->cinemaController->retrieveCinema($_GET["id"],$this->cityController->getCity($_SESSION["cityid"]));
+        $cinema = $this->cinemaController->getCinemaById($_GET["id"],$this->cityController->getCity($_SESSION["cityid"]));
 
         require_once(VIEWS_PATH."cinemafunction-add-view.php");
     }
