@@ -9,15 +9,11 @@ class MovieController{
     private $movieDAO;
 
     public function __construct(){
-        $this->movieDAO = new MovieDAO();
-    }
-
-    public function updateDataBase(){
-        $this->movieDAO->pushMovies();
+        $this->movieDAO = MovieDAO::getInstance();
     }
 
     public function getMovies($genre = "All"){
-        $allMovies = $this->movieDAO->getAll();
+        $allMovies = $this->movieDAO->getMovieList();
         $movieList = array();
         if($genre !='All'){
             foreach($allMovies as $movie){
@@ -38,7 +34,8 @@ class MovieController{
     }
 
     public function getGenres(){
-        return $this->movieDAO->getGenres();
+        return $this->movieDAO->getGenreList();
     }
+
 
 }

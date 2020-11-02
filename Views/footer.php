@@ -7,7 +7,7 @@
 </div>
 
 <!-- JAVASCRIPTS -->
-<script src="<?php echo JQUERY_PATH?>jquery.min.js"></script>
-<script src="<?php echo JS_PATH?>bootstrap.bundle.min.js"></script>
+<!-- <script src="<?php // echo JQUERY_PATH?>jquery.min.js"></script>
+<script src="<?php// echo JS_PATH?>bootstrap.bundle.min.js"></script> -->
 </body>
 </html>
