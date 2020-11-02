@@ -68,8 +68,8 @@ use Exception;
                        } 
                     }
                     if($matchingSala){
-                        array_push($funciones, new CinemaFunction($soonToBeFunction['id'], $soonToBeFunction["id_pelicula"], $soonToBeFunction["horario_inicio"],
-                        $soonToBeFunction["horario_finalizacion"], $matchingSala));
+                        array_push($funciones, new CinemaFunction( $soonToBeFunction["id_pelicula"], $soonToBeFunction["horario_inicio"],
+                        $soonToBeFunction["horario_finalizacion"], $matchingSala, $soonToBeFunction['id']));
                     }
                 }
             

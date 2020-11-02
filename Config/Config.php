@@ -1,4 +1,5 @@
-<?php namespace Config;
+<?php 
+namespace Config;
 
 define("ROOT", dirname(__DIR__) . "/");
 //Path to your project's root folder

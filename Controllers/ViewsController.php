@@ -66,11 +66,39 @@ class ViewsController{
     }
 
     public function addCinemaView(){
+
+        $_SESSION["roomNumber"] = 1;
+        
+        if(isset($_GET["button"])){
+
+            if($_GET["button"] != "save"){
+                $_SESSION["roomNumber"] = $_GET["button"] + 1;
+            }else {
+
+                $city = $this->cityController->getCity($_GET["cinema"]["city"]);
+
+
+                #$this->cinemaController->addCinema($city,$_GET["cinema"]);
+
+                $cinema = $this->cinemaController->getCinemaByCityAndName($city,"Oestherheld");
+
+
+                array_shift($_GET);
+                array_pop($_GET);
+
+                $this->cinemaRoomController->addRoom($cinema,$_GET);
+                
+            }
+
+        }
+
+        $provinces = $this->cityController->getProvinces();
+        $cities = $this->cityController->getCities();
         require_once(VIEWS_PATH."add-cinema-view.php");
     }
 
     public function addCinemaFunctionView(){
-        $cinema = $this->cinemaController->retrieveCinema($_GET["id"],$this->cityController->getCity($_SESSION["cityid"]));
+        $cinema = $this->cinemaController->getCinemaById($_GET["id"],$this->cityController->getCity($_SESSION["cityid"]));
 
         require_once(VIEWS_PATH."cinemafunction-add-view.php");
     }
@@ -90,4 +118,3 @@ class ViewsController{
         require_once(VIEWS_PATH."movie-preview.php");
     }
 }
-?>

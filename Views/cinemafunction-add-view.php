@@ -1,11 +1,5 @@
 <?php require_once("admin-panel.php")?>
 
-
-    <div class="container" id="page-content-wrapper">
-        <div>
-            <h1 class=" mt-4">Admin View</h1>
-        </div>
-
         <div class="container border border-dark rounded p-3">
             <h3 class="mb-3">Cinema Info</h3>
             <div class="row ">
@@ -26,7 +20,6 @@
 
             </div>
         </div>
-
 
         <form method="POST" action="<?php echo FRONT_ROOT ?>admin/showAdminAddCinemaView">
             <div class="row ">
