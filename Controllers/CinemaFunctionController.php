@@ -2,6 +2,7 @@
 namespace Controllers;
 
 use DAO\CinemaFunctionDAO;
+use DateTime;
 
 class CinemaFunctionController{
     private $cinemaFunctionDAO;
@@ -13,10 +14,33 @@ class CinemaFunctionController{
 
 
     public function addFunction(){
-        var_dump($_GET);
+        date_default_timezone_set('America/Argentina/Buenos_Aires');
+        $date = new DateTime();
+        foreach($_GET["weekday"] as $day){
+            $chosenDays[$day] = $day;
+        }
+
+        var_dump($);
+        die;
+        
+        echo $date->modify( '+1 days' )->format( 'l' );
         die;
 
+        $days = $_GET["week"] * 7;
+
+
+       for($x = 0; $x > $days; $x++){
+            if(isset($chosenDays["monday"])){
+
+            }
+        }
+     
         
+
+
+        
+
+
     }
 
 }

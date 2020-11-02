@@ -41,7 +41,7 @@
                             <h2>Ending Time</h2>
                         </label>
                     </div>
-                    <input type="time" id="Ftime" name="finishtime">
+                    <input type="time" id="Ftime" name="finishtime" disabled>
                 </div>
             </div>
             <div class="form-row px-5">
