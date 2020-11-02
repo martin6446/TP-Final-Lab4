@@ -1,6 +1,7 @@
 <?php
 namespace Controllers;
 
+use DAO\Connection;
 
 class ViewsController{
     private $cinemaController;
@@ -22,17 +23,20 @@ class ViewsController{
 
     public function homeView(){
 
-        #$this->movieController->updateDataBase();
-
         $movies = $this->movieController->getMovies();
-        $featuredMovies = array();
-
-        array_push($featuredMovies, $movies[0], $movies[3], $movies[4]);
         $genres = $this->movieController->getGenres();
 
+        $featuredMovies = array();
+        array_push($featuredMovies, $movies[0], $movies[3], $movies[4]);
+        
 
         require_once(VIEWS_PATH."home.php");
         
+    }
+
+    public function Login()
+    {
+        require_once(VIEWS_PATH."login.php");
     }
 
     public function movieList($genre="All"){
@@ -109,5 +113,9 @@ class ViewsController{
         $provinces = $this->cityController->getProvinces();
         $cities = $this->cityController->getCities();
         require_once(VIEWS_PATH."user-register-view.php");
+    }
+
+    public function moviePreview(){
+        require_once(VIEWS_PATH."movie-preview.php");
     }
 }

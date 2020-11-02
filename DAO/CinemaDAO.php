@@ -62,7 +62,6 @@ class CinemaDAO{
         }
     }
 
-
     public function getAll(City $city){
         try{
             $query = "SELECT id, nombre, direccion FROM cines WHERE id_ciudad = :city";
