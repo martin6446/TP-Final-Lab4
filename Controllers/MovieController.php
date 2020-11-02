@@ -34,7 +34,7 @@ class MovieController{
     }
 
     public function getMovieGenre(){
-        var_dump($this->movieDAO->getMovieGrenres(1));
+        var_dump($this->movieDAO->getMovieGenres(1));
     }
 
     public function getGenres(){

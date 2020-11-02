@@ -169,7 +169,7 @@ class MovieDAO
 
     }
 
-    public function getMovieGrenres($idMovie){
+    public function getMovieGenres($idMovie){
 
         $query = "SELECT id_genre FROM genresxpelicula WHERE id_pelicula = ". $idMovie;
         
@@ -207,7 +207,7 @@ class MovieDAO
             $oMovie->setTrailer($movie["trailer"]);
             $oMovie->setReleaseDate($movie["releaseDate"]);
 
-            $oMovie->setGenres($this->getMovieGrenres($movie["id"]));
+            $oMovie->setGenres($this->getMovieGenres($movie["id"]));
 
             $oMovie->setDuration($movie["duration"]);
 

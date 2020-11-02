@@ -3,6 +3,7 @@ namespace Controllers;
 
 use DAO\CinemaRoomDAO;
 use Models\CinemaRoom;
+use Models\Cinema as Cinema;
 
 class CinemaRoomController{
 
@@ -22,6 +23,10 @@ class CinemaRoomController{
 
         $this->cinemaRoomDAO->add(...$rooms);
 
+    }
+
+    public function getRooms(Cinema $cinema){
+        return $this->cinemaRoomDAO->getByCinema($cinema);
     }
 
     public function showRoomView(){}

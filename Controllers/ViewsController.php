@@ -14,13 +14,15 @@ class ViewsController{
     {
         $this->cinemaController = new CinemaController();
         $this->cinemaRoomController = new CinemaRoomController();
-        #$this->functionController = new FunctionController();
+        $this->cinemaFunctionController = new CinemaFunctionController();
         $this->movieController = new MovieController();
         $this->userController = new UserController();
         $this->cityController = new CityController();
     }
 
     public function homeView(){
+
+        #$this->movieController->updateDataBase();
 
         $movies = $this->movieController->getMovies();
         $featuredMovies = array();
@@ -83,6 +85,8 @@ class ViewsController{
 
         }
 
+        
+
         $provinces = $this->cityController->getProvinces();
         $cities = $this->cityController->getCities();
         require_once(VIEWS_PATH."add-cinema-view.php");
@@ -90,6 +94,8 @@ class ViewsController{
 
     public function addCinemaFunctionView(){
         $cinema = $this->cinemaController->getCinemaById($_GET["id"],$this->cityController->getCity($_SESSION["cityid"]));
+
+        $rooms = $this->cinemaRoomController->getRooms($cinema);
 
         require_once(VIEWS_PATH."cinemafunction-add-view.php");
     }

@@ -3,7 +3,6 @@ namespace DAO;
 
 use Exception;
 use Models\Cinema as Cinema;
-use DAO\CinemaRoomDAO as CinemaRoomDAO;
 use Models\City as City;
 
 class CinemaDAO{
