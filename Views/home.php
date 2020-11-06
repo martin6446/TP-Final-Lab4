@@ -28,7 +28,7 @@ require_once(VIEWS_PATH . "nav-bar.php");
                 <li data-target="#carouselEx" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active" style="background-image: url(<?php echo $featuredMovies[0]->getBackdrop();?>)">
+                <div class="carousel-item active" style="background-image: url(<?php echo $featuredMovies[0]->getBackdrop(); ?>)">
                     <div class="carousel-caption d-none d-md-block">
                         <h3 class="display-4"><?php echo $featuredMovies[0]->getName(); ?></h3>
                         <p class="lead">Featured movie</p>
@@ -53,7 +53,7 @@ require_once(VIEWS_PATH . "nav-bar.php");
 <section class="py-5">
     <div class="container">
         <h1 class="font-weight-light text-center">Welcome to Lumiere cinemas</h1>
-        <form action="<?php echo FRONT_ROOT ?>views/movieList" method="POST">
+        <form action="<?php echo FRONT_ROOT ?>views/functionList" method="POST">
             <div class="row">
                 <div class="col-6">
                     <select class="form-control" id="genre" name="genre">
@@ -65,10 +65,16 @@ require_once(VIEWS_PATH . "nav-bar.php");
                         ?>
                     </select>
                 </div>
+                <div class="col-4">
+                    <label for="date">Date:</label>
+
+                    <input type="date" id="date" name="date" min="<?php echo (new DateTime())->format("Y-m-d")?>" max="2022-1-1">
+                </div>
                 <div class="col-2">
                     <button type="submit" class="btn btn-success px-10">Find Movies</button>
                 </div>
             </div>
+
         </form>
     </div>
 </section>

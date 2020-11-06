@@ -36,30 +36,30 @@ use Models\Movie as Movie;
     }
 
 
-    public function setMovie($movie){
+    public function setMovie(Movie $movie){
         $this->movie = $movie;
     }
 
 
     public function getStartTime(){
-        return $this->startTime;
+        return  $this->startTime->format('Y-m-d H:i:s');
     }
 
 
     public function setStartTime($startTime){
         $this->startTime = new DateTime($startTime);
-        $this->startTime->format('Y-m-d H:i:s');
+       
     }
 
 
     public function getEndTime(){
-        return $this->endTime;
+        return $this->endTime->format('Y-m-d H:i:s');
+
     }
 
 
     public function setEndTime($endTime){
         $this->endTime = new DateTime($endTime);
-        $this->endTime->format('Y-m-d H:i:s');
     }
 
 

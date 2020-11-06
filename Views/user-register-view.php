@@ -33,15 +33,7 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="inputState">Province</label>
-                        <select id="inputState" name="province" class="form-control" required>
-                            <option selected disabled value="" >Choose a province...</option>
-                            <?php foreach ($provinces as $province) { ?>
-                                <option value="<?php echo $province->getId()?>" ><?php echo $province->getName() ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
+                    
                     <div class="form-group col-md-4">
                         <label for="inputState">City</label>
                         <select id="inputState" name="city" class="form-control" required>

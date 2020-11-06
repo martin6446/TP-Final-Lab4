@@ -12,6 +12,11 @@ class MovieController{
         $this->movieDAO = MovieDAO::getInstance();
     }
 
+    /* public function updateDataBase(){
+        $this->movieDAO->pushMovies();
+    } */
+
+
     public function getMovies($genre = "All"){
         $allMovies = $this->movieDAO->getMovieList();
         $movieList = array();
@@ -35,6 +40,10 @@ class MovieController{
 
     public function getGenres(){
         return $this->movieDAO->getGenreList();
+    }
+
+    public function retrieveMovie($movieId){
+        return $this->movieDAO->getMovieById($movieId);
     }
 
 

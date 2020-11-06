@@ -26,12 +26,12 @@ class UserController
         $this->utility->notification("Logged out", FRONT_ROOT . "index.php");
     }
 
-    public function userRegister($name, $lastname, $email, $password, $confirmpass, $city, $province)
+    public function userRegister($name, $lastname, $email, $password, $confirmpass, $city)
     {
 
         if ($password === $confirmpass) {
 
-            $user = new User($name, $lastname, $email, $password);
+            $user = new User($name, $lastname, $email, $password,$city);
 
             $data = $this->userDAO->createUser($user);
 
@@ -68,12 +68,10 @@ class UserController
 
                 header("location:" . FRONT_ROOT . "views/homeview");
             } else {
-                $_SESSION["wrongPassword"] = "contraseña incorrecta";
                 $this->utility->notification("Wrong password", FRONT_ROOT . "index.php");
             }
         } else {
-            $_SESSION["wrongUser"] = "usuario incorrecto";
-            $this->utility->notification("Wrong password", FRONT_ROOT . "index.php");
+            $this->utility->notification("Wrong user name", FRONT_ROOT . "index.php");
         }
         /// aca alertariamos de un error en el logeo.
     }

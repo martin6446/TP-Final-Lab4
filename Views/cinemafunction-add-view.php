@@ -50,13 +50,11 @@
                         <h2>Select a Movie</h2>
                     </label>
                 </div>
-                <select class="form-control " id="movie" name="movie" required>
+                <select class="form-control " id="movie" name="movieId" required>
                     <option selected disabled value="">Select a movie</option>
-                    <option value="">asdf</option>
-                    <option value="">asdf</option>
-                    <option value="">asdf</option>
-                    <option value="">asdf</option>
-                    <option value="">asdf</option>
+                    <?php foreach($movies as $movie){ ?>
+                    <option value="<?php echo $movie->getIdMovie()?>"><?php echo $movie->getName()?></option>
+                    <?php }?>                    
                 </select>
             </div>
             <div class="form-row px-5">
@@ -65,7 +63,7 @@
                         <h2>Select a Room</h2>
                     </label>
                 </div>
-                <select class="form-control " id="room" name="room" required>
+                <select class="form-control " id="room" name="roomId" required>
                     <option selected disabled value="">Select a room</option>
                     <?php foreach ($rooms as $room) { ?>
                         <option value="<?php echo $room->getId() ?>"><?php echo $room->getName() ?></option>

@@ -50,13 +50,13 @@ class MovieDAO
         return $response["runtime"];
     }
 
-    /*  public function pushMovies()
+     /* public function pushMovies()
     {
         $url = "https://api.themoviedb.org/3/movie/now_playing?api_key=c0cb585209076897c1f12bc28efc0a20";
         $json = file_get_contents($url);
         $datos = json_decode($json, true);
 
-        $this->pushGenres();
+         $this->pushGenres(); 
          
 
          foreach ($datos["results"] as $movie) {
@@ -90,6 +90,7 @@ class MovieDAO
     public function gxm($movie)
     {
         foreach($movie["genre_ids"] as $genredb_id){
+            try{
             $query = "INSERT INTO " . $this->gxmTable . " (id_pelicula, id_genre) VALUES (:id_pelicula, :id_genre);";
             
             $parameters["id_genre"] = $this->getGenreid($genredb_id);
@@ -98,6 +99,9 @@ class MovieDAO
             $this->connection = Connection::GetInstance();
 
             $this->connection->ExecuteNonQuery($query, $parameters);
+            }catch(Exception $e){
+                throw $e;
+            }
         }
         
     }
@@ -118,6 +122,15 @@ class MovieDAO
                 return $moviedb["id"];
             }
         }
+    }
+
+    public function getMovieById($id){
+        foreach($this->movieList as $movie){
+            if($movie->getIdMovie() == $id){
+                return $movie;
+            }
+        }
+        return false;
     }
 
     
@@ -158,7 +171,7 @@ class MovieDAO
         }
     }
 
-    /*  public function pushGenres()
+     /* public function pushGenres()
     {
         $url = "https://api.themoviedb.org/3/genre/movie/list?api_key=c0cb585209076897c1f12bc28efc0a20&language=en-US";
         $json = file_get_contents($url);

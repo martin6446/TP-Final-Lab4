@@ -6,7 +6,7 @@ use DAO\Connection;
 class ViewsController{
     private $cinemaController;
     private $cinemaRoomController;
-    private $functionController;
+    private $CinemaFunctionController;
     private $movieController;
     private $userController;
     private $cityController;
@@ -22,6 +22,8 @@ class ViewsController{
     }
 
     public function homeView(){
+
+        #$this->movieController->updateDataBase();
 
         $movies = $this->movieController->getMovies();
         $genres = $this->movieController->getGenres();
@@ -43,6 +45,13 @@ class ViewsController{
         $movieList = $this->movieController->getMovies($genre);
 
         require_once(VIEWS_PATH."movie-list.php");
+    }
+
+    public function functionList($genre="All", $date="Any"){
+
+        $functions = $this->cinemaFunctionController->getFunctions($this->cityController->getCity($_SESSION["cityid"]),$genre,$date);
+
+        require_once(VIEWS_PATH."function-list-view.php");
     }
 
     public function cinemaList(){
@@ -90,8 +99,6 @@ class ViewsController{
         }
 
         
-
-        $provinces = $this->cityController->getProvinces();
         $cities = $this->cityController->getCities();
         require_once(VIEWS_PATH."add-cinema-view.php");
     }
@@ -100,6 +107,8 @@ class ViewsController{
         $cinema = $this->cinemaController->getCinemaById($_GET["id"],$this->cityController->getCity($_SESSION["cityid"]));
 
         $rooms = $this->cinemaRoomController->getRooms($cinema);
+
+        $movies = $this->movieController->getMovies();
 
         require_once(VIEWS_PATH."cinemafunction-add-view.php");
     }
@@ -110,12 +119,14 @@ class ViewsController{
     }
 
     public function registerView(){
-        $provinces = $this->cityController->getProvinces();
         $cities = $this->cityController->getCities();
         require_once(VIEWS_PATH."user-register-view.php");
     }
 
     public function moviePreview(){
+
+        $movie = $this->movieController->retrieveMovie($_GET["functionId"]);
+
         require_once(VIEWS_PATH."movie-preview.php");
     }
 }

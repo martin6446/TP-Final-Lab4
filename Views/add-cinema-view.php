@@ -19,17 +19,6 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="inputState">Province</label>
-                <select id="inputState" name="cinema[state]" class="form-control" required>
-                    <option selected disabled value="">Choose a province...</option>
-                    <option value="<?php echo $provinces[0]->getId()?>"><?php echo $provinces[0]->getName() ?></option>
-                    <!-- <?php foreach ($this->cityController->getProvinces() as $province) { ?>
-                        <option value="<?php echo $province->getId() ?>"><?php echo $province->getName() ?></option>
-                    <?php } ?> -->
-
-                </select>
-            </div>
-            <div class="form-group col-md-4">
                 <label for="inputState">City</label>
                 <select id="inputState" name="cinema[city]" class="form-control" required>
                     <option selected disabled value="">Choose a city...</option>

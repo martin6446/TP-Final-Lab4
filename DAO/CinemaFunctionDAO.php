@@ -1,7 +1,6 @@
 <?php
     namespace DAO;
 
-use DateTime;
 use Exception;
     use Models\CinemaFunction as CinemaFunction;
     use Models\City as City;
@@ -13,33 +12,24 @@ use Exception;
         public function __construct(){
             $this->tableName = 'funciones';
         }
-    
-        public function add(CinemaFunction $sala){
+
+        public function add(CinemaFunction $function, $idSala){
             try{
-        
-    
+                $query = "INSERT INTO ".$this->tableName." (id_pelicula, id_sala, horario_inicio, horario_finalizacion) VALUES (:id_pelicula, :id_sala, :horario_inicio, :horario_finalizacion);";
+                $params["id_pelicula"] = $function->getMovie()->getIdMovie();
+                $params["id_sala"] = $function->getMovie()->getIdMovie();
+                $params["horario_inicio"] = $function->getStartTime();
+                $params["horario_finalizacion"] = $function->getEndTime();
+
+
+                $this->connection = Connection::GetInstance();
+                $this->connection->ExecuteNonQuery($query, $params);
             }
             catch(Exception $e){
                 throw $e;
             }
         }
-    
-        /*
-        query = "INSERT INTO ".$this->tableName." (nombre, direccion, id_ciudad) VALUES (:nombre, :direccion, :id_ciudad );";
-            $params["nombre"] = $cine->getName();
-            $params["direccion"] = $cine->getAddress();
-            $params["id_ciudad"] = 1;
-
-
-            
-            $this->connection = Connection::GetInstance();
-            $this->connection->ExecuteNonQuery($query, $params);
-            $cinemaRoomDAO = new CinemaRoomDAO();
-            foreach($cine->getRooms() as $cinemaRoom){
-                $cinemaRoomDAO->add($cinemaRoom);
-            }
-
-            */
+        
 
 
         public function getAll(City $city){
@@ -59,6 +49,7 @@ use Exception;
                 $funciones = array();
 
                 $cinemaRoomList = (new CinemaRoomDAO)->getAll($city);
+                $movieDAO = MovieDAO::getInstance();
                 foreach($queryResult as $soonToBeFunction){
                     foreach($cinemaRoomList as $sala){
                         //estaria buenisimo que PHP tuviera una funcion para hacer algo como esto, no ? :) Great language
@@ -68,7 +59,8 @@ use Exception;
                        } 
                     }
                     if($matchingSala){
-                        array_push($funciones, new CinemaFunction( $soonToBeFunction["id_pelicula"], $soonToBeFunction["horario_inicio"],
+                        $movie = $movieDAO->getMovieById($soonToBeFunction["id_pelicula"]);
+                        array_push($funciones, new CinemaFunction( $movie, $soonToBeFunction["horario_inicio"],
                         $soonToBeFunction["horario_finalizacion"], $matchingSala, $soonToBeFunction['id']));
                     }
                 }
@@ -90,12 +82,17 @@ use Exception;
                     $query = $query . "(horario_inicio < ADDTIME(:horario_finalizacion". $i . ", '0:15:00') AND ADDTIME(horario_finalizacion, '0:15:00')  > :horario_inicio".$i.") OR ";
                     $params["horario_inicio" . $i] = $function->getStartTime();
                     $params["horario_finalizacion" . $i] = $function->getEndTime();
-
+                    $i++;
                 }
                 $query = substr($query, 0, -4) . ";";
 
-                echo $query;
-                die();
+                /* echo $query;
+                die(); */
+
+                $this->connection = Connection::GetInstance();
+                return $this->connection->Execute($query,$params);
+
+
 
             }
             catch(Exception $e){
@@ -103,6 +100,7 @@ use Exception;
             }
         }
 
+        
+
     
     }
-?>

@@ -4,11 +4,11 @@ if (!isset($_SESSION["loggedUser"])) {
 
 } else {
 ?>
-  <div class="wrapper row1">
+  <div class="wrapper row1 sticky-top">
     <header id="header" class="clear">
       <div id="logo" class="fl_left">
       </div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light ">
         <h2>Lumiére</h2>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
