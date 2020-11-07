@@ -17,7 +17,7 @@ class MovieDAO
 
     private function __construct()
     {
-       /*  $this->pushGenres();
+        /* $this->pushGenres();
         $this->pushMovies(); */
         $this->loadGenres();
         $this->loadMovies();
