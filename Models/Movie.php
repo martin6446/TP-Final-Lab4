@@ -13,7 +13,7 @@ class Movie{
     private $releaseDate; 
     private $genres = array();
     private $duration;
-    
+    private $overview;
 
     public function getName()
     {
@@ -116,6 +116,17 @@ class Movie{
     public function setRating($rating)
     {
         $this->rating = $rating;
+    }
+
+    public function getOverview()
+    {
+        return $this->overview;
+    }
+
+    
+    public function setOverview($overview)
+    {
+        $this->overview = $overview;
     }
 }
 
