@@ -23,8 +23,6 @@ class ViewsController{
 
     public function homeView(){
 
-        #$this->movieController->updateDataBase();
-
         $movies = $this->movieController->getMovies();
         $genres = $this->movieController->getGenres();
 

@@ -17,7 +17,7 @@
             </div>
             <div class="row">
                 <h3>Overview</h3>
-                <p>$movie->getOverview()</p>
+                <p><?php echo $movie->getOverview() ?></p>
             </div>
             <div class="row">
                 <h3>Trailer</h3>

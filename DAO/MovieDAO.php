@@ -17,6 +17,8 @@ class MovieDAO
 
     private function __construct()
     {
+       /*  $this->pushGenres();
+        $this->pushMovies(); */
         $this->loadGenres();
         $this->loadMovies();
     }
@@ -49,23 +51,23 @@ class MovieDAO
         $response = json_decode($json, true);
         return $response["runtime"];
     }
-
-     /* public function pushMovies()
+    
+    public function pushMovies()
     {
         $url = "https://api.themoviedb.org/3/movie/now_playing?api_key=c0cb585209076897c1f12bc28efc0a20";
         $json = file_get_contents($url);
         $datos = json_decode($json, true);
 
-         $this->pushGenres(); 
+        #$this->pushGenres();
          
 
          foreach ($datos["results"] as $movie) {
 
             try {
                 $query = "INSERT INTO " . $this->moviesTable . " 
-                (nombre, movieDB_ID, poster, backdrop, trailer, releaseDate, rating, duration) 
+                (nombre, movieDB_ID, poster, backdrop, trailer, releaseDate, rating, duration, overview) 
                 VALUES 
-                (:nombre, :idMovie, :poster, :backdrop, :trailer, :releaseDate, :rating, :duration);";
+                (:nombre, :idMovie, :poster, :backdrop, :trailer, :releaseDate, :rating, :duration, :overview);";
 
                 $parameters["nombre"] = $movie["title"];
                 $parameters["idMovie"] = $movie["id"];
@@ -75,6 +77,7 @@ class MovieDAO
                 $parameters["releaseDate"] = $movie["release_date"];
                 $parameters["rating"] = $movie["vote_average"];
                 $parameters["duration"] = $this->getRuntime($movie["id"]);
+                $parameters["overview"] = $movie["overview"];
 
                 $this->connection = Connection::GetInstance();
 
@@ -85,12 +88,11 @@ class MovieDAO
                 throw $ex;
             }
         }  
-    }   */
+    }   
  
-    public function gxm($movie)
+     public function gxm($movie)
     {
         foreach($movie["genre_ids"] as $genredb_id){
-            try{
             $query = "INSERT INTO " . $this->gxmTable . " (id_pelicula, id_genre) VALUES (:id_pelicula, :id_genre);";
             
             $parameters["id_genre"] = $this->getGenreid($genredb_id);
@@ -99,15 +101,28 @@ class MovieDAO
             $this->connection = Connection::GetInstance();
 
             $this->connection->ExecuteNonQuery($query, $parameters);
-            }catch(Exception $e){
-                throw $e;
-            }
         }
         
     }
 
+    public function getGenresTable()
+    {
+        try {
+            $query = "SELECT * FROM " . $this->genresTable;
+
+            $this->connection = Connection::GetInstance();
+
+            $result = $this->connection->Execute($query);
+
+            return $result;
+
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+    }
+
     public function getGenreid($genre_id){ /// obtiene la id de generos dada por la base de datos.
-        $genres = $this->genreList;
+        $genres = $this->getGenresTable();
         foreach($genres as $genre){
             if($genre["genreDB_ID"] == $genre_id){
                 return $genre["id"];
@@ -132,8 +147,6 @@ class MovieDAO
         }
         return false;
     }
-
-    
 
     public function getMoviesTable()
     {
@@ -169,9 +182,9 @@ class MovieDAO
         } catch (Exception $ex) {
             throw $ex;
         }
-    }
+    } 
 
-     /* public function pushGenres()
+     public function pushGenres()
     {
         $url = "https://api.themoviedb.org/3/genre/movie/list?api_key=c0cb585209076897c1f12bc28efc0a20&language=en-US";
         $json = file_get_contents($url);
@@ -191,10 +204,10 @@ class MovieDAO
                 throw $ex;
             }
         }
-    }  */
+    }  
 
-    public function getGenreName($id){
-        $genres = $this->genreList;
+     public function getGenreName($id){
+        $genres = $this->getGenresTable();
 
         foreach($genres as $genre){
             if($genre["id"] == $id){
@@ -242,13 +255,12 @@ class MovieDAO
             $oMovie->setRating($movie["rating"]);
             $oMovie->setTrailer($movie["trailer"]);
             $oMovie->setReleaseDate($movie["releaseDate"]);
-
+            $oMovie->setOverview($movie["overview"]);
             $oMovie->setGenres($this->getMovieGenres($movie["id"]));
-
             $oMovie->setDuration($movie["duration"]);
 
             array_push($this->movieList,$oMovie);
         }
 
-    } 
+    }
 }
