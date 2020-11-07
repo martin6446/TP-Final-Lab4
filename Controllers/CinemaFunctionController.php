@@ -18,9 +18,11 @@ class CinemaFunctionController{
         
     }
 
-    public function retrieveFunction($functionId){
-        
+    public function retrieveFunction($city,$movieId){
+
+        return $this->cinemaFunctionDAO->getByCityAndMovieId($city,$movieId);
     }
+
 
 
     public function getFunctions($city, $genre = "All",$date="Any"){
@@ -99,6 +101,7 @@ class CinemaFunctionController{
         $endTime = (new DateTime($stTime))->modify('+'.$movie->getDuration().' minutes')->format("Y-m-d H:i:s");
 
         $roomId = $_GET["roomId"];
+
 
       $functions = array(); 
 

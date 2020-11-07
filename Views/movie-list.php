@@ -7,7 +7,7 @@
       <th scope="col">Release Date</th>
       <th scope="col">Genre</th>
       <th scope="col">Duration</th>
-      <!-- <th scope="col">Select</th> -->
+      <th scope="col">Select</th>
     </tr>
   </thead>
   <tbody>
@@ -25,7 +25,7 @@
           }
           echo "<td>". substr($strGenres, 1) . "</td>";
           echo "<td>". $movie->getDuration() ." - Min </td>";
-          /* echo "<td><button type='submit' name='movieId' value=". $movie->getIdMovie()." class='btn btn-secondary'>Select</button></td>"; */
+          echo "<td><button type='submit' name='movieId' value=". $movie->getIdMovie()." class='btn btn-secondary'>Select</button></td>"; 
           echo "</tr>";
           }
           ?>

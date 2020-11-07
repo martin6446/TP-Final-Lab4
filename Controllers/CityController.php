@@ -21,6 +21,7 @@ class CityController{
     public function getCity($idCity){
         $cities = $this->getCities();
 
+
         foreach($cities as $city){
             if($city->getId() == $idCity){
                 return $city;

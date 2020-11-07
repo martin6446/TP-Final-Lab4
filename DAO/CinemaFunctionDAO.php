@@ -14,10 +14,11 @@ use Exception;
         }
 
         public function add(CinemaFunction $function, $idSala){
+
             try{
                 $query = "INSERT INTO ".$this->tableName." (id_pelicula, id_sala, horario_inicio, horario_finalizacion) VALUES (:id_pelicula, :id_sala, :horario_inicio, :horario_finalizacion);";
                 $params["id_pelicula"] = $function->getMovie()->getIdMovie();
-                $params["id_sala"] = $function->getMovie()->getIdMovie();
+                $params["id_sala"] = $idSala;
                 $params["horario_inicio"] = $function->getStartTime();
                 $params["horario_finalizacion"] = $function->getEndTime();
 
@@ -26,6 +27,51 @@ use Exception;
                 $this->connection->ExecuteNonQuery($query, $params);
             }
             catch(Exception $e){
+                throw $e;
+            }
+        }
+
+        public function getByCityAndMovieId($city, $movieId){
+            $query = "SELECT f.id, f.id_pelicula, f.id_sala ,f.horario_inicio, f.horario_finalizacion FROM funciones f
+            INNER JOIN salas s
+            ON s.id = f.id_sala
+            INNER JOIN cines c
+            ON c.id = s.id_cine
+            INNER JOIN ciudades
+            on ciudades.id = c.id_ciudad
+            WHERE ciudades.id = :city AND
+            id_pelicula = :movieId";
+    
+            $params["city"] = $city->getId();
+            $params["movieId"] = $movieId;
+
+            try{
+                $this->connection = Connection::GetInstance();
+                $response = $this->connection->Execute($query,$params);
+                $funciones = array();
+
+                $cinemaRoomList = (new CinemaRoomDAO)->getAll($city);
+                $movieDAO = MovieDAO::getInstance();
+                foreach($response as $soonToBeFunction){
+                    foreach($cinemaRoomList as $sala){
+                        //estaria buenisimo que PHP tuviera una funcion para hacer algo como esto, no ? :) Great language
+                       if($sala->getId() == $soonToBeFunction['id_sala']){
+                           $matchingSala = $sala;
+                            break;
+                       } 
+                    }
+                    if($matchingSala){
+                        $movie = $movieDAO->getMovieById($soonToBeFunction["id_pelicula"]);
+                        array_push($funciones, new CinemaFunction( $movie, $soonToBeFunction["horario_inicio"],
+                        $soonToBeFunction["horario_finalizacion"], $matchingSala, $soonToBeFunction['id']));
+                    }
+                }
+            
+                return $funciones;
+
+                
+
+            }catch(Exception $e){
                 throw $e;
             }
         }

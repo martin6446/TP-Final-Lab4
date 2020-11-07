@@ -75,6 +75,7 @@ class ViewsController{
 
         $_SESSION["roomNumber"] = 1;
         
+        
         if(isset($_GET["button"])){
 
             if($_GET["button"] != "save"){
@@ -84,7 +85,7 @@ class ViewsController{
                 $city = $this->cityController->getCity($_GET["cinema"]["city"]);
 
 
-                #$this->cinemaController->addCinema($city,$_GET["cinema"]);
+                $this->cinemaController->addCinema($city,$_GET["cinema"]);
 
                 $cinema = $this->cinemaController->getCinemaByCityAndName($city,"Oestherheld");
 
@@ -125,7 +126,9 @@ class ViewsController{
 
     public function moviePreview(){
 
-        $movie = $this->movieController->retrieveMovie($_GET["functionId"]);
+        $movie = $this->movieController->retrieveMovie($_GET["movieId"]);
+
+        $functions = $this->cinemaFunctionController->retrieveFunction($this->cityController->getCity($_SESSION["cityid"]),$_GET["movieId"]);
 
         require_once(VIEWS_PATH."movie-preview.php");
     }
