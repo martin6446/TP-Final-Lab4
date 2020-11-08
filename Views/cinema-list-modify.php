@@ -7,7 +7,9 @@
             <th scope="col">Cinema Name</th>
             <th scope="col">Cinema Address</th>
             <th scope="col">Cinema City</th>
-            <th scope="col">Select Cinema</th>
+            <th scope="col">Modify</th>
+            <th scope="col">Delete</th>
+
         </tr>
     </thead>
     <tbody>
@@ -18,7 +20,9 @@
                 <td><?php echo $cinema->getName() ?></td>
                 <td><?php echo $cinema->getAddress() ?></td>
                 <td><?php echo $cinema->getCity()->getName() ?></td>
-                <td><button type="submit" name="id" class="btn btn-secondary" value="<?php echo $cinema->getId()?>">Modify!</button></td>
+                <td><button type="submit" name="id" class="btn btn-alert" value="<?php echo $cinema->getId()?>">Modify!</button></td>
+                <td><button type="submit" name="id" class="btn btn-danger" value="<?php echo $cinema->getId()?>" <?php if($controller->hasFunctions($cinema->getId())) echo "disabled";?>>Delete</button></td>
+
         </tr>
     <?php
             }

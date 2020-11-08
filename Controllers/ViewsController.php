@@ -2,7 +2,9 @@
 
 namespace Controllers;
 
+use DAO\CinemaDAO;
 use DAO\Connection;
+use Models\Cinema;
 
 class ViewsController
 {
@@ -25,12 +27,12 @@ class ViewsController
 
     public function homeView()
     {
-
+        $this->movieController->searchNewMovies();
         $movies = $this->movieController->getMovies();
         $genres = $this->movieController->getGenres();
 
         $featuredMovies = array();
-        array_push($featuredMovies, $movies[0], $movies[3], $movies[4]);
+        array_push($featuredMovies, $movies[0], $movies[1], $movies[2]);
 
 
         require_once(VIEWS_PATH . "home.php");
@@ -67,6 +69,7 @@ class ViewsController
     public function cinemaListModify()
     {
         $cinemaList = $this->cinemaController->getCinemas($this->cityController->getCity($_SESSION["cityid"]));
+        $controller = $this->cinemaController;
 
         require_once(VIEWS_PATH . "cinema-list-modify.php");
     }

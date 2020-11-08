@@ -97,6 +97,37 @@ class CinemaDAO{
         }
     }
 
+    public function hasFunctions($cinemaId){
+        $query = "SELECT 
+        COUNT(f.id) AS functions FROM cines c
+        INNER JOIN salas s
+        ON c.id = s.id_cine
+        LEFT JOIN funciones f
+        ON s.id = f.id_sala
+        WHERE c.id = ". $cinemaId . "
+        GROUP BY c.id;";
+        try{
+            $this->connection = Connection::GetInstance();
+            $functionsNumber = ($this->connection->Execute($query))[0];
+            return $functionsNumber == 0 ? false : true;
+        }
+        catch(Exception $e){
+            throw $e;
+        }
+
+    }
+
+    public function delete($cinemaId){
+        $query = "DELETE FROM cines WHERE id = " . $cinemaId . ";";
+        try{
+            $this->connection = Connection::GetInstance();
+            $functionsNumber = ($this->connection->Execute($query))[0];
+        }
+        catch(Exception $e){
+            throw $e;
+        }
+    }
+
 }
 
 ?>
