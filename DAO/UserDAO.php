@@ -85,7 +85,7 @@ class UserDAO
             $parameters["lastname"] = $newUserValues["lastname"];
             $parameters["email"] = $newUserValues["email"];
             $parameters["password"] = $newUserValues["password"];
-            $parameters["city_id"] = 1;
+            $parameters["city_id"] = $newUserValues["city"];
 
             try {
                 $this->conection = Connection::GetInstance();

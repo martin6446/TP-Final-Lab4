@@ -14,10 +14,6 @@ class CityController{
         return $this->cityDAO->getAll();
     }
 
-    public function getProvinces(){
-        return $this->cityDAO->getProvinces();
-    }
-
     public function getCity($idCity){
         $cities = $this->getCities();
 

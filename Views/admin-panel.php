@@ -9,7 +9,7 @@
     <div class="list-group list-group-flush">
       <a href="<?php echo FRONT_ROOT ?>views/addCinemaView" class="list-group-item list-group-item-action bg-light">Add Cinema</a>
       <a href="<?php echo FRONT_ROOT ?>views/cinemaList" class="list-group-item list-group-item-action bg-light">Add function</a>
-      <a href="<?php echo FRONT_ROOT ?>views/cinemaListRemove" class="list-group-item list-group-item-action bg-light">Manage Cinemas</a>
+      <a href="<?php echo FRONT_ROOT ?>views/cinemaListModify" class="list-group-item list-group-item-action bg-light">Manage Cinemas</a>
       <a href="" class="list-group-item list-group-item-action bg-light">Manage functions</a>
 
 

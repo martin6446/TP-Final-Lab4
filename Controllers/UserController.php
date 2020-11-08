@@ -82,6 +82,7 @@ class UserController
 
         $newUserData = $_GET;
 
+
         $oldUser = new User($_SESSION["name"], $_SESSION["lastname"], $_SESSION["email"], $_SESSION["password"], $_SESSION["cityid"], $_SESSION["isAdmin"]);
 
         $this->userDAO->modifyUser($newUserData, $oldUser);
@@ -89,7 +90,7 @@ class UserController
         $_SESSION["name"] = $newUserData["name"];
         $_SESSION["lastname"] = $newUserData["lastname"];
         $_SESSION["password"] = $newUserData["password"];
-        $_SESSION["cityid"] = $newUserData["cityid"];
+        $_SESSION["cityid"] = $newUserData["city"];
 
 
         header("location:" . FRONT_ROOT . "views/homeview");
