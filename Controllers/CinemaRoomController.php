@@ -25,6 +25,11 @@ class CinemaRoomController{
 
     }
 
+    public function updateRoom($id,$roomData){
+
+        $this->cinemaRoomDAO->update($id,$roomData);
+    }
+
     public function getRooms(Cinema $cinema){
         return $this->cinemaRoomDAO->getByCinema($cinema);
     }

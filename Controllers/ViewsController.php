@@ -142,39 +142,72 @@ class ViewsController
         require_once(VIEWS_PATH . "movie-preview.php");
     }
 
-    public function modifyCinemaView()
-    {
+    public function addMoviesView(){
+
+        
+
+        require_once(VIEWS_PATH."add-movies-view.php");
+    }
+
+    public function modifyCinemaView(){
+
         if (isset($_GET["add"])) {
-            if(empty($_GET["addedRoom"]["name"]) ||empty($_GET["addedRoom"]["price"]) ||empty($_GET["addedRoom"]["capacity"]) ){
-                $this->adminView();
-            }else {
+            if (empty($_GET["addedRoom"]["name"]) || empty($_GET["addedRoom"]["price"]) || empty($_GET["addedRoom"]["capacity"])) {
+
+                $city = $this->cityController->getCity($_SESSION["cityid"]);
+                $cinema = $this->cinemaController->getCinemaByCityAndName($city, $_GET["name"]);
+
+                unset($_GET["add"]);
+                $_GET["id"] = $cinema->getId();
+
+                $this->modifyCinemaView();
+                
+            } else {
+
+                $city = $this->cityController->getCity($_SESSION["cityid"]);
+                $cinema = $this->cinemaController->getCinemaByCityAndName($city, $_GET["name"]);
+
+                $roomToAdd = [];
+
+                array_pop($_GET);
+                array_push($roomToAdd, array_pop($_GET));
+
+
+                $this->cinemaRoomController->addRoom($cinema, $roomToAdd);
+                unset($_GET["add"]);
+                $_GET["id"] = $cinema->getId();
+
+                $this->modifyCinemaView();
+            }
+        } else if (isset($_GET["updateCinema"])) {
 
             $city = $this->cityController->getCity($_SESSION["cityid"]);
-            $cinema = $this->cinemaController->getCinemaByCityAndName($city,$_GET["name"]);
 
-            $roomToAdd = [];
+            $cinema = $this->cinemaController->getCinemaById($_GET["updateCinema"], $city);
 
-            array_pop($_GET);
-            array_push($roomToAdd,array_pop($_GET));
+            $this->cinemaController->modifyCinema($cinema, array("name" => $_GET["name"], "address" => $_GET["address"]));
 
 
-            $this->cinemaRoomController->addRoom($cinema,$roomToAdd);
-            unset($_GET["add"]);
+            unset($_GET["updateCinema"]);
             $_GET["id"] = $cinema->getId();
 
-            #require_once(VIEWS_PATH . "modify-cinema-view.php");
             $this->modifyCinemaView();
-            }
 
-        } else if (isset($_GET["save"])) {
+        } else if (isset($_GET["updateRoom"])) {
+
+            $idRoom = $_GET["updateRoom"];
+            $roomData = $_GET["room".$_GET["updateRoom"]];
+            $this->cinemaRoomController->updateRoom($idRoom,$roomData);
+
+            unset($_GET["updateRoom"]);
 
             $city = $this->cityController->getCity($_SESSION["cityid"]);
-            
-            $cinema = $this->cinemaController->getCinemaById($_GET["save"],$city);
-        
-            $this->cinemaController->modifyCinema($cinema,array("name"=>$_GET["name"],"address"=>$_GET["address"]));
+            $cinema = $this->cinemaController->getCinemaByCityAndName($city, $_GET["name"]);
 
-            $this->cinemaListModify();
+            $_GET["id"] = $cinema->getId();
+
+            $this->modifyCinemaView();
+
         } else {
             $city = $this->cityController->getCity($_SESSION["cityid"]);
             $cinema = $this->cinemaController->getCinemaById($_GET["id"], $city);
@@ -182,7 +215,5 @@ class ViewsController
 
             require_once(VIEWS_PATH . "modify-cinema-view.php");
         }
-
-        #require_once(VIEWS_PATH . "modify-cinema-view.php");
     }
 }

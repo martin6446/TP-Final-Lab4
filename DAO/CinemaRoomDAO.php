@@ -39,6 +39,21 @@ class CinemaRoomDAO{
 
         }
 
+        public function update($id,$roomData){
+            $query = "UPDATE ". $this->tableName. " SET nombre = :name, precio = :price, capacidad = :capacity WHERE id = ". $id;
+
+            $params["name"] = $roomData["name"];
+            $params["price"] = $roomData["price"];
+            $params["capacity"] = $roomData["capacity"];
+
+            try{
+                $this->connection = Connection::GetInstance();
+                $this->connection->ExecuteNonQuery($query,$params);
+            }catch(Exception $e){
+                throw $e;
+            }
+        }
+
         public function getAll(City $city){
             try{
                 $query = "SELECT s.id, s.id_cine, s.nombre, s.precio, s.capacidad FROM salas s
