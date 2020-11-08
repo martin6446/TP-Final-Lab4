@@ -42,7 +42,15 @@ class CinemaController
         $this->cinemaDAO->add($cinema);
     }
 
-    /* public function removeCinema($name){
-        $this->cinemaDAO->remove($name);   
-    } */
+    public function delete($cinemaId){
+        if(!$this->hasFunctions($cinemaId)){
+            $this->cinemaDAO->delete($cinemaId);
+        }
+    }
+
+    public function hasFunctions($cinemaId){
+        return $this->cinemaDAO->hasFunctions($cinemaId);
+    }
+
+
 }
