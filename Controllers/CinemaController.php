@@ -16,10 +16,9 @@ class CinemaController
         $this->cinemaDAO = new CinemaDAO();
     }
 
-    public function modifyCinema($name)
+    public function modifyCinema($cinema,$cinemaData)
     {
-        $cinema = $this->cinemaDAO->findCinema($name);
-        require_once(VIEWS_PATH . "edit-cinema.php");
+        $this->cinemaDAO->alterCinema($cinema,$cinemaData);
     }
 
     public function getCinemas($city)

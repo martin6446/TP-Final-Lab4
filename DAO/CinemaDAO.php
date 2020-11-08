@@ -32,6 +32,21 @@ class CinemaDAO{
         }
     }
 
+    public function alterCinema(Cinema $cinema, $cinemaData){
+        $query = "UPDATE ". $this->tableName. " SET nombre = :name, direccion = :address WHERE id = ". $cinema->getId();
+
+        $params["name"] = $cinemaData["name"];
+        $params["address"] = $cinemaData["address"];
+
+        try{
+            $this->connection = Connection::GetInstance();
+            $this->connection->ExecuteNonQuery($query,$params);
+        }catch(Exception $e){
+            throw $e;
+        }
+
+    }
+
     public function getCinemaByCityAndName(City $city, $name){
         try{
             $query = "SELECT id, nombre, direccion FROM cines WHERE id_ciudad = :city AND nombre = :name";
@@ -40,6 +55,7 @@ class CinemaDAO{
             $params["name"] = $name;
             $this->connection = Connection::GetInstance();
             $response = $this->connection->Execute($query, $params);
+
 
             return new Cinema($city,$response[0]["nombre"],$response[0]["direccion"],$response[0]["id"]);
             
