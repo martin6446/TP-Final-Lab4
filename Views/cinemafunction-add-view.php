@@ -30,18 +30,10 @@
                 <div class="col border border-dark rounded m-2 p-2">
                     <div>
                         <label for="STtime">
-                            <h2>Starting Time</h2>
+                            <h2>Start Time</h2>
                         </label>
                     </div>
                     <input type="time" id="STtime" name="starttime">
-                </div>
-                <div class="col border border-dark rounded m-2 p-2">
-                    <div>
-                        <label for="Ftime">
-                            <h2>Ending Time</h2>
-                        </label>
-                    </div>
-                    <input type="time" id="Ftime" name="finishtime" disabled>
                 </div>
             </div>
             <div class="form-row px-5">
@@ -74,7 +66,7 @@
             <div class="form-row px-5">
                 <div>
                     <label for="week">
-                        <h2>Select amount of Weeks</h2>
+                        <h2>Select an amount of Weeks</h2>
                     </label>
                 </div>
                 <select class="form-control " id="week" name="week" required>

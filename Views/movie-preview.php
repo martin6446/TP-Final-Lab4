@@ -17,7 +17,7 @@
                     <h4>Movie Duration: <?php echo $movie->getDuration() ?> min</h4>
                 </div>
                 <div class="row">
-                    <h4>Raiting: <?php echo $movie->getRating() ?> points</h4>
+                    <h4>Rating: <?php echo $movie->getRating() ?> points</h4>
                 </div>
                 <div class="row">
                     <h3>Overview</h3>

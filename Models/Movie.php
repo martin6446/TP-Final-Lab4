@@ -128,6 +128,12 @@ class Movie{
     {
         $this->overview = $overview;
     }
+
+
+    public function __toString(){
+        return $this->name;
+    }
+
 }
 
 
