@@ -81,6 +81,29 @@ class CinemaDAO{
         }
     }
 
+    public function hasFunctions(Cinema $cine){
+        $query = "SELECT 
+        CASE
+            WHEN  COUNT(f.id) >= 1 THEN 'true'
+            ELSE 'false'
+        END AS hasFunctions FROM cines c
+        INNER JOIN salas s
+        ON c.id = s.id_cine
+        LEFT JOIN funciones f
+        ON s.id = f.id_sala
+        WHERE c.id = ". $cine->getId() . "
+        GROUP BY c.id;";
+        try{
+            $this->connection = Connection::GetInstance();
+            $response = $this->connection->Execute($query);
+            var_dump($response)
+        }
+        catch(Exception $e){
+            throw $e;
+        }
+
+    }
+
 }
 
 ?>
