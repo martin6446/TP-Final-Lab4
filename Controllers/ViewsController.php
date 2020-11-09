@@ -147,7 +147,7 @@ class ViewsController
 
     public function addMoviesView(){
 
-        
+        $movieList = $this->movieController->searchNewMovies();
 
         require_once(VIEWS_PATH."add-movies-view.php");
     }

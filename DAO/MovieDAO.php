@@ -5,7 +5,7 @@ namespace DAO;
 use Models\Movie as Movie;
 use \Exception as Exception;
 
-class MovieDAO 
+class MovieDAO
 {
     private $connection;
     private $genresTable = "genres";
@@ -23,12 +23,43 @@ class MovieDAO
         $this->loadMovies();
     }
 
-    public static function getInstance(){
-        if(self::$movieDAO == null){
+    public static function getInstance()
+    {
+        if (self::$movieDAO == null) {
             self::$movieDAO = new MovieDAO();
         }
 
         return self::$movieDAO;
+    }
+
+    public function add($movie)
+    {
+
+        try {
+            $query = "INSERT INTO " . $this->moviesTable . " 
+            (nombre, movieDB_ID, poster, backdrop, trailer, releaseDate, rating, duration, overview) 
+            VALUES 
+            (:nombre, :idMovie, :poster, :backdrop, :trailer, :releaseDate, :rating, :duration, :overview);";
+
+            $parameters["nombre"] = $movie["title"];
+            $parameters["idMovie"] = $movie["id"];
+            $parameters["poster"] = $movie["poster_path"];
+            $parameters["backdrop"] = $movie["backdrop_path"];
+            $parameters["trailer"] = $this->getTrailer($movie["id"]);
+            $parameters["releaseDate"] = $movie["release_date"];
+            $parameters["rating"] = $movie["vote_average"];
+            $parameters["duration"] = $this->getRuntime($movie["id"]);
+            $parameters["overview"] = $movie["overview"];
+
+            $this->connection = Connection::GetInstance();
+
+            $this->connection->ExecuteNonQuery($query, $parameters);
+
+            $this->gxm($movie);
+
+        } catch (Exception $ex) {
+            throw $ex;
+        }
     }
 
     public function getTrailer($id)
@@ -51,7 +82,7 @@ class MovieDAO
         $response = json_decode($json, true);
         return $response["runtime"];
     }
-    
+
     public function pushMovies()
     {
         $url = "https://api.themoviedb.org/3/movie/now_playing?api_key=c0cb585209076897c1f12bc28efc0a20";
@@ -59,50 +90,40 @@ class MovieDAO
         $datos = json_decode($json, true);
 
         #$this->pushGenres();
-         
 
-         foreach ($datos["results"] as $movie) {
 
-            try {
-                $query = "INSERT INTO " . $this->moviesTable . " 
-                (nombre, movieDB_ID, poster, backdrop, trailer, releaseDate, rating, duration, overview) 
-                VALUES 
-                (:nombre, :idMovie, :poster, :backdrop, :trailer, :releaseDate, :rating, :duration, :overview);";
+        foreach ($datos["results"] as $movie) {
 
-                $parameters["nombre"] = $movie["title"];
-                $parameters["idMovie"] = $movie["id"];
-                $parameters["poster"] = $movie["poster_path"];
-                $parameters["backdrop"] = $movie["backdrop_path"];
-                $parameters["trailer"] = $this->getTrailer($movie["id"]);
-                $parameters["releaseDate"] = $movie["release_date"];
-                $parameters["rating"] = $movie["vote_average"];
-                $parameters["duration"] = $this->getRuntime($movie["id"]);
-                $parameters["overview"] = $movie["overview"];
+            $this->add($movie);
+        }
+    }
+
+    public function gxm($movie)
+    {
+        if (isset($movie["genre_ids"])) {
+
+            foreach ($movie["genre_ids"] as $genredb_id) {
+                $query = "INSERT INTO " . $this->gxmTable . " (id_pelicula, id_genre) VALUES (:id_pelicula, :id_genre);";
+
+                $parameters["id_genre"] = $this->getGenreid($genredb_id);
+                $parameters["id_pelicula"] = $this->getMovieid($movie);
 
                 $this->connection = Connection::GetInstance();
 
                 $this->connection->ExecuteNonQuery($query, $parameters);
-
-                $this->gxm($movie);
-            } catch (Exception $ex) {
-                throw $ex;
             }
-        }  
-    }   
- 
-     public function gxm($movie)
-    {
-        foreach($movie["genre_ids"] as $genredb_id){
-            $query = "INSERT INTO " . $this->gxmTable . " (id_pelicula, id_genre) VALUES (:id_pelicula, :id_genre);";
-            
-            $parameters["id_genre"] = $this->getGenreid($genredb_id);
-            $parameters["id_pelicula"] = $this->getMovieid($movie);
+        } else {
+            foreach ($movie["genres"] as $genredb) {
+                $query = "INSERT INTO " . $this->gxmTable . " (id_pelicula, id_genre) VALUES (:id_pelicula, :id_genre);";
 
-            $this->connection = Connection::GetInstance();
+                $parameters["id_genre"] = $this->getGenreid($genredb["id"]);
+                $parameters["id_pelicula"] = $this->getMovieid($movie);
 
-            $this->connection->ExecuteNonQuery($query, $parameters);
+                $this->connection = Connection::GetInstance();
+
+                $this->connection->ExecuteNonQuery($query, $parameters);
+            }
         }
-        
     }
 
     public function getGenresTable()
@@ -115,33 +136,35 @@ class MovieDAO
             $result = $this->connection->Execute($query);
 
             return $result;
-
         } catch (Exception $ex) {
             throw $ex;
         }
     }
 
-    public function getGenreid($genre_id){ /// obtiene la id de generos dada por la base de datos.
+    public function getGenreid($genre_id)
+    { /// obtiene la id de generos dada por la base de datos.
         $genres = $this->getGenresTable();
-        foreach($genres as $genre){
-            if($genre["genreDB_ID"] == $genre_id){
+        foreach ($genres as $genre) {
+            if ($genre["genreDB_ID"] == $genre_id) {
                 return $genre["id"];
             }
         }
     }
 
-    public function getMovieid($movie){ /// obtiene la id de peliculas dada por la base de datos.
+    public function getMovieid($movie)
+    { /// obtiene la id de peliculas dada por la base de datos.
         $moviesdb = $this->getMoviesTable();
-        foreach($moviesdb as $moviedb){
-            if($moviedb["movieDB_ID"] == $movie["id"]){
+        foreach ($moviesdb as $moviedb) {
+            if ($moviedb["movieDB_ID"] == $movie["id"]) {
                 return $moviedb["id"];
             }
         }
     }
 
-    public function getMovieById($id){
-        foreach($this->movieList as $movie){
-            if($movie->getIdMovie() == $id){
+    public function getMovieById($id)
+    {
+        foreach ($this->movieList as $movie) {
+            if ($movie->getIdMovie() == $id) {
                 return $movie;
             }
         }
@@ -158,7 +181,6 @@ class MovieDAO
             $result = $this->connection->Execute($query);
 
             return $result;
-
         } catch (Exception $ex) {
             throw $ex;
         }
@@ -169,7 +191,8 @@ class MovieDAO
         return $this->genreList;
     }
 
-    private function loadGenres(){
+    private function loadGenres()
+    {
         try {
             $query = "SELECT * FROM " . $this->genresTable;
 
@@ -178,13 +201,12 @@ class MovieDAO
             $result = $this->connection->Execute($query);
 
             $this->genreList = $result;
-
         } catch (Exception $ex) {
             throw $ex;
         }
-    } 
+    }
 
-     public function pushGenres()
+    public function pushGenres()
     {
         $url = "https://api.themoviedb.org/3/genre/movie/list?api_key=c0cb585209076897c1f12bc28efc0a20&language=en-US";
         $json = file_get_contents($url);
@@ -204,34 +226,34 @@ class MovieDAO
                 throw $ex;
             }
         }
-    }  
+    }
 
-     public function getGenreName($id){
+    public function getGenreName($id)
+    {
         $genres = $this->getGenresTable();
 
-        foreach($genres as $genre){
-            if($genre["id"] == $id){
+        foreach ($genres as $genre) {
+            if ($genre["id"] == $id) {
                 return $genre["nombre"];
             }
         }
-
     }
 
-    public function getMovieGenres($idMovie){
+    public function getMovieGenres($idMovie)
+    {
 
-        $query = "SELECT id_genre FROM genresxpelicula WHERE id_pelicula = ". $idMovie;
-        
-        try{
+        $query = "SELECT id_genre FROM genresxpelicula WHERE id_pelicula = " . $idMovie;
+
+        try {
 
             $this->connection = Connection::GetInstance();
             $results = $this->connection->Execute($query);
 
             $gxp = array();
-            foreach($results as $result){
-            array_push($gxp,$this->getGenreName($result["id_genre"]));
+            foreach ($results as $result) {
+                array_push($gxp, $this->getGenreName($result["id_genre"]));
             }
-
-        }catch(Exception $e){
+        } catch (Exception $e) {
             throw $e;
         }
 
@@ -243,14 +265,17 @@ class MovieDAO
         return $this->movieList;
     }
 
-    private function loadMovies(){
+    public function loadMovies()
+    {
+        $this->movieList = array();
         $movies = $this->getMoviesTable();
 
-        foreach($movies as $movie){
+
+        foreach ($movies as $movie) {
             $oMovie = new Movie();
             $oMovie->setIdMovie($movie["id"]);
-            $oMovie->setMoviePoster("https://image.tmdb.org/t/p/original/".$movie["poster"]);
-            $oMovie->setBackdrop("https://image.tmdb.org/t/p/original/".$movie["backdrop"]);
+            $oMovie->setMoviePoster("https://image.tmdb.org/t/p/original/" . $movie["poster"]);
+            $oMovie->setBackdrop("https://image.tmdb.org/t/p/original/" . $movie["backdrop"]);
             $oMovie->setName($movie["nombre"]);
             $oMovie->setRating($movie["rating"]);
             $oMovie->setTrailer($movie["trailer"]);
@@ -259,8 +284,7 @@ class MovieDAO
             $oMovie->setGenres($this->getMovieGenres($movie["id"]));
             $oMovie->setDuration($movie["duration"]);
 
-            array_push($this->movieList,$oMovie);
+            array_push($this->movieList, $oMovie);
         }
-
     }
 }
