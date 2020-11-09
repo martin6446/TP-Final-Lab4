@@ -86,7 +86,8 @@ use Exception;
             ON c.id = s.id_cine
             INNER JOIN ciudades
             on ciudades.id = c.id_ciudad
-            WHERE ciudades.id = :city;";
+            WHERE ciudades.id = :city
+            AND f.horario_inicio > NOW();";
         
             $params["city"] = $city->getId();
             try{
@@ -98,7 +99,7 @@ use Exception;
                 $movieDAO = MovieDAO::getInstance();
                 foreach($queryResult as $soonToBeFunction){
                     foreach($cinemaRoomList as $sala){
-                        //estaria buenisimo que PHP tuviera una funcion para hacer algo como esto, no ? :) Great language
+                        //estaria buenisimo que PHP tuviera una funcion para hacer algo como esto, no ? :) 
                        if($sala->getId() == $soonToBeFunction['id_sala']){
                            $matchingSala = $sala;
                             break;
