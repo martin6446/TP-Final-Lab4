@@ -15,6 +15,7 @@ class CinemaRoomController{
     }
 
     public function addRoom($cinema, $roomData){
+        UtilitiesController::validateAdmin();
 
         $rooms = [];
         foreach($roomData as $data){
@@ -26,6 +27,7 @@ class CinemaRoomController{
     }
 
     public function updateRoom($id,$roomData){
+        UtilitiesController::validateAdmin();
 
         $this->cinemaRoomDAO->update($id,$roomData);
     }
@@ -33,8 +35,6 @@ class CinemaRoomController{
     public function getRooms(Cinema $cinema){
         return $this->cinemaRoomDAO->getByCinema($cinema);
     }
-
-    public function showRoomView(){}
 
     public function removeRoom(){}
 

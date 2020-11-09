@@ -33,13 +33,13 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    
+
                     <div class="form-group col-md-4">
                         <label for="inputState">City</label>
                         <select id="inputState" name="city" class="form-control" required>
-                            <option selected disabled value="" >Choose a city...</option>
+                            <option selected disabled value="">Choose a city...</option>
                             <?php foreach ($cities as $city) { ?>
-                                <option value="<?php echo $city->getId()?>" ><?php echo $city->getName() ?></option>
+                                <option value="<?php echo $city->getId() ?>"><?php echo $city->getName() ?></option>
                             <?php } ?>
                         </select>
                     </div>
@@ -47,6 +47,16 @@
 
                 <button type="submit" class="btn btn-secondary m-2">Register</button>
                 <a class="btn btn-danger" href="<?php echo FRONT_ROOT ?>">Return</a>
+                <?php if (isset($_SESSION["register"])) { ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?php if (isset($_SESSION["register"]["email_error"])) {
+                            echo $_SESSION["register"]["email_error"];
+                        } else if ($_SESSION["register"]["passwords_dont_match"]) {
+                            echo $_SESSION["register"]["passwords_dont_match"];
+                        } ?>
+                    </div>
+                <?php }
+                unset($_SESSION["register"]) ?>
             </form>
         </div>
     </div>

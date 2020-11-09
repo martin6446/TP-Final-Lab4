@@ -35,6 +35,7 @@ class MovieController
 
     public function addMovie($movieId)
     {
+        UtilitiesController::validateAdmin();
 
         $movie = $this->fetchApiMovie($movieId);
 
@@ -118,6 +119,8 @@ class MovieController
 
     public function searchNewMovies()
     {
+        UtilitiesController::validateAdmin();
+        
         $apiMovies = $this->fetchApiMovies();
         $dbMovies = $this->movieDAO->getMovieList();
 

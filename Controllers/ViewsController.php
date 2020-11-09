@@ -68,20 +68,33 @@ class ViewsController
 
     public function cinemaListModify()
     {
-        $cinemaList = $this->cinemaController->getCinemas($this->cityController->getCity($_SESSION["cityid"]));
-        $controller = $this->cinemaController;
+        UtilitiesController::validateAdmin();
 
-        require_once(VIEWS_PATH . "cinema-list-modify.php");
+        if (isset($_POST["modify"])) {
+
+            $this->modifyCinemaView($_POST["modify"]);
+        } else if (isset($_POST["delete"])) {
+            $this->cinemaController->delete($_POST["delete"]);
+            unset($_POST["delete"]);
+            $this->cinemaListModify();
+        } else {
+            $cinemaList = $this->cinemaController->getCinemas($this->cityController->getCity($_SESSION["cityid"]));
+            $controller = $this->cinemaController;
+
+            require_once(VIEWS_PATH . "cinema-list-modify.php");
+        }
+
     }
 
     public function adminView()
     {
+        UtilitiesController::validateAdmin();
         require_once(VIEWS_PATH . "admin-panel.php");
     }
 
     public function addCinemaView()
     {
-
+        UtilitiesController::validateAdmin();
         $_SESSION["roomNumber"] = 1;
 
 
@@ -94,13 +107,14 @@ class ViewsController
                 $city = $this->cityController->getCity($_GET["cinema"]["city"]);
 
 
-                #$this->cinemaController->addCinema($city, $_GET["cinema"]);
+                $this->cinemaController->addCinema($city, $_GET["cinema"]);
 
-                $cinema = $this->cinemaController->getCinemaByCityAndName($city, "Oestherheld");
+                $cinema = $this->cinemaController->getCinemaByCityAndName($city, $_GET["cinema"]["name"]);
 
 
                 array_shift($_GET);
                 array_pop($_GET);
+
 
                 $this->cinemaRoomController->addRoom($cinema, $_GET);
             }
@@ -113,6 +127,7 @@ class ViewsController
 
     public function addCinemaFunctionView()
     {
+        UtilitiesController::validateAdmin();
         $cinema = $this->cinemaController->getCinemaById($_GET["id"], $this->cityController->getCity($_SESSION["cityid"]));
 
         $rooms = $this->cinemaRoomController->getRooms($cinema);
@@ -145,75 +160,76 @@ class ViewsController
         require_once(VIEWS_PATH . "movie-preview.php");
     }
 
-    public function addMoviesView(){
+    public function addMoviesView()
+    {
+        UtilitiesController::validateAdmin();
 
         $movieList = $this->movieController->searchNewMovies();
 
-        require_once(VIEWS_PATH."add-movies-view.php");
+        require_once(VIEWS_PATH . "add-movies-view.php");
     }
 
-    public function modifyCinemaView(){
+    public function modifyCinemaView($id)
+    {
 
-        if (isset($_GET["add"])) {
-            if (empty($_GET["addedRoom"]["name"]) || empty($_GET["addedRoom"]["price"]) || empty($_GET["addedRoom"]["capacity"])) {
+        UtilitiesController::validateAdmin();
+        if (isset($_POST["add"])) {
+            if (empty($_POST["addedRoom"]["name"]) || empty($_POST["addedRoom"]["price"]) || empty($_POST["addedRoom"]["capacity"])) {
 
                 $city = $this->cityController->getCity($_SESSION["cityid"]);
-                $cinema = $this->cinemaController->getCinemaByCityAndName($city, $_GET["name"]);
+                $cinema = $this->cinemaController->getCinemaByCityAndName($city, $_POST["name"]);
 
-                unset($_GET["add"]);
-                $_GET["id"] = $cinema->getId();
+                unset($_POST["add"]);
+                $id = $cinema->getId();
 
-                $this->modifyCinemaView();
-                
+                $this->modifyCinemaView($id);
             } else {
 
                 $city = $this->cityController->getCity($_SESSION["cityid"]);
-                $cinema = $this->cinemaController->getCinemaByCityAndName($city, $_GET["name"]);
+                $cinema = $this->cinemaController->getCinemaByCityAndName($city, $_POST["name"]);
 
                 $roomToAdd = [];
 
-                array_pop($_GET);
-                array_push($roomToAdd, array_pop($_GET));
+                array_pop($_POST);
+                array_push($roomToAdd, array_pop($_POST));
 
 
                 $this->cinemaRoomController->addRoom($cinema, $roomToAdd);
-                unset($_GET["add"]);
-                $_GET["id"] = $cinema->getId();
+                unset($_POST["add"]);
+                $id = $cinema->getId();
 
-                $this->modifyCinemaView();
+                $this->modifyCinemaView($id);
             }
-        } else if (isset($_GET["updateCinema"])) {
+        } else if (isset($_POST["updateCinema"])) {
 
             $city = $this->cityController->getCity($_SESSION["cityid"]);
 
-            $cinema = $this->cinemaController->getCinemaById($_GET["updateCinema"], $city);
+            $cinema = $this->cinemaController->getCinemaById($_POST["updateCinema"], $city);
 
-            $this->cinemaController->modifyCinema($cinema, array("name" => $_GET["name"], "address" => $_GET["address"]));
+            $this->cinemaController->modifyCinema($cinema, array("name" => $_POST["name"], "address" => $_POST["address"]));
 
 
-            unset($_GET["updateCinema"]);
-            $_GET["id"] = $cinema->getId();
+            unset($_POST["updateCinema"]);
+            $id = $cinema->getId();
 
-            $this->modifyCinemaView();
+            $this->modifyCinemaView($id);
+        } else if (isset($_POST["updateRoom"])) {
 
-        } else if (isset($_GET["updateRoom"])) {
+            $idRoom = $_POST["updateRoom"];
+            $roomData = $_POST["room" . $_POST["updateRoom"]];
+            $this->cinemaRoomController->updateRoom($idRoom, $roomData);
 
-            $idRoom = $_GET["updateRoom"];
-            $roomData = $_GET["room".$_GET["updateRoom"]];
-            $this->cinemaRoomController->updateRoom($idRoom,$roomData);
-
-            unset($_GET["updateRoom"]);
+            unset($_POST["updateRoom"]);
 
             $city = $this->cityController->getCity($_SESSION["cityid"]);
-            $cinema = $this->cinemaController->getCinemaByCityAndName($city, $_GET["name"]);
+            $cinema = $this->cinemaController->getCinemaByCityAndName($city, $_POST["name"]);
 
-            $_GET["id"] = $cinema->getId();
+            $id = $cinema->getId();
 
-            $this->modifyCinemaView();
-
+            $this->modifyCinemaView($id);
         } else {
             $city = $this->cityController->getCity($_SESSION["cityid"]);
-            $cinema = $this->cinemaController->getCinemaById($_GET["id"], $city);
+            $cinema = $this->cinemaController->getCinemaById($id, $city);
             $rooms = $this->cinemaRoomController->getRooms($cinema);
 
             require_once(VIEWS_PATH . "modify-cinema-view.php");

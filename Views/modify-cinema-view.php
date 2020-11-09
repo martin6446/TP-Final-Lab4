@@ -1,8 +1,8 @@
-<?php require_once(VIEWS_PATH . "nav-bar.php") ?>
+<?php require_once("admin-panel.php") ?>
 <div class="container ">
     <div class="row">
         <div class="col-sm-9 col-md-7 col-lg-7 mx-auto border border-dark rounded">
-            <form method="GET" action="<?php echo FRONT_ROOT ?>views/modifyCinemaView">
+            <form method="POST" action="<?php echo FRONT_ROOT ?>views/modifyCinemaView">
                 <div>
                     <h4>Modify Cinema</h4>
                 </div>
@@ -77,7 +77,6 @@
 
 
                 <button type="submit" name="add" value="" class="btn btn-primary ml-auto d-block">Agregar</button>
-                <a class="btn btn-danger" href="<?php echo FRONT_ROOT ?>">Return</a>
             </form>
         </div>
     </div>

@@ -18,6 +18,7 @@ class CinemaController
 
     public function modifyCinema($cinema,$cinemaData)
     {
+        UtilitiesController::validateAdmin();
         $this->cinemaDAO->alterCinema($cinema,$cinemaData);
     }
 
@@ -37,12 +38,14 @@ class CinemaController
 
     public function addCinema($city, $cinemaData){
 
+        UtilitiesController::validateAdmin();
         $cinema = new Cinema($city, $cinemaData["name"], $cinemaData["address"] . " " . $cinemaData["addressNumber"]);
 
         $this->cinemaDAO->add($cinema);
     }
 
     public function delete($cinemaId){
+        UtilitiesController::validateAdmin();
         if(!$this->hasFunctions($cinemaId)){
             $this->cinemaDAO->delete($cinemaId);
         }

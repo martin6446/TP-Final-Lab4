@@ -1,6 +1,6 @@
 <?php require_once("admin-panel.php")?>
 
-    <form action="<?php echo FRONT_ROOT?>views/modifyCinemaView" method="GET">
+    <form action="<?php echo FRONT_ROOT?>views/cinemaListModify" method="POST">
 <table class="table table-striped">
     <thead class="thead-dark">
         <tr>
@@ -20,8 +20,8 @@
                 <td><?php echo $cinema->getName() ?></td>
                 <td><?php echo $cinema->getAddress() ?></td>
                 <td><?php echo $cinema->getCity()->getName() ?></td>
-                <td><button type="submit" name="id" class="btn btn-alert" value="<?php echo $cinema->getId()?>">Modify!</button></td>
-                <td><button type="submit" name="id" class="btn btn-danger" value="<?php echo $cinema->getId()?>" <?php if($controller->hasFunctions($cinema->getId())) echo "disabled";?>>Delete</button></td>
+                <td><button type="submit" name="modify" class="btn btn-warning" value="<?php echo $cinema->getId()?>">Modify!</button></td>
+                <td><button type="submit" name="delete" class="btn btn-danger" value="<?php echo $cinema->getId()?>" <?php if($controller->hasFunctions($cinema->getId())){ echo "disabled";}?>>Delete</button></td>
 
         </tr>
     <?php

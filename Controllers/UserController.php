@@ -31,21 +31,29 @@ class UserController
 
         if ($password === $confirmpass) {
 
-            $user = new User($name, $lastname, $email, $password,$city);
+            $user = new User($name, $lastname, $email, $password, $city);
 
             $data = $this->userDAO->createUser($user);
 
             if ($data[0] === false) {
                 if ($data[1] == 1062) {
+                    $_SESSION["register"]["email_error"] = "That email is already in use";
+                    header("location:" . FRONT_ROOT . "views/registerView");
                 }
+            } else {
+
+                $_SESSION["isAdmin"] = $user->getIsAdmin();
+                $_SESSION["name"] = $user->getName();
+                $_SESSION["lastname"] = $user->getLastName();
+                $_SESSION["password"] = $user->getPassword();
+                $_SESSION["email"] = $user->getEmail();
+                $_SESSION["cityid"] = $user->getCity_id();
+                $_SESSION["loggedUser"] = $user;
+
+                header("location:" . FRONT_ROOT . "views/homeview");
             }
-
-
-            $_SESSION["isAdmin"] = $user->getIsAdmin();
-            $_SESSION["loggedUser"] = $user;
-
-            header("location:" . FRONT_ROOT . "views/homeview");
         } else {
+            $_SESSION["register"]["passwords_dont_match"] = "The passwords don't match";
             header("location:" . FRONT_ROOT . "views/registerView");
         }
     }
@@ -64,7 +72,7 @@ class UserController
                 $_SESSION["password"] = $user->getPassword();
                 $_SESSION["email"] = $user->getEmail();
                 $_SESSION["cityid"] = $user->getCity_id();
-                $_SESSION["loggedUser"]= $user;
+                $_SESSION["loggedUser"] = $user;
 
                 header("location:" . FRONT_ROOT . "views/homeview");
             } else {

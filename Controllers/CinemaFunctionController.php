@@ -81,6 +81,7 @@ class CinemaFunctionController{
 
 
     public function addFunction(){
+        UtilitiesController::validateAdmin();
         date_default_timezone_set('America/Argentina/Buenos_Aires');
         $date = new DateTime();
         foreach($_GET["weekday"] as $day){

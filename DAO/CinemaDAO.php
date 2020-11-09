@@ -105,10 +105,23 @@ class CinemaDAO{
         LEFT JOIN funciones f
         ON s.id = f.id_sala
         WHERE c.id = ". $cinemaId . "
-        GROUP BY c.id;";
+        GROUP BY c.id;"; 
+
+        /* $query = "SELECT 
+        CASE
+            WHEN  COUNT(f.id) >= 1 THEN 'true'
+            ELSE 'false'
+        END AS hasFunctions FROM cines c
+        INNER JOIN salas s
+        ON c.id = s.id_cine
+        LEFT JOIN funciones f
+        ON s.id = f.id_sala
+        WHERE c.id = 6
+        GROUP BY c.id;"; */
         try{
             $this->connection = Connection::GetInstance();
-            $functionsNumber = ($this->connection->Execute($query))[0];
+            $functionsNumber = ($this->connection->Execute($query))[0][0];
+
             return $functionsNumber == 0 ? false : true;
         }
         catch(Exception $e){
@@ -121,7 +134,7 @@ class CinemaDAO{
         $query = "DELETE FROM cines WHERE id = " . $cinemaId . ";";
         try{
             $this->connection = Connection::GetInstance();
-            $functionsNumber = ($this->connection->Execute($query))[0];
+            $this->connection->ExecuteNonQuery($query);
         }
         catch(Exception $e){
             throw $e;

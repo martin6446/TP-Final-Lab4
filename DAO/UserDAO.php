@@ -29,6 +29,7 @@ class UserDAO
             $this->conection = Connection::GetInstance();
 
             $affectedRows = $this->conection->ExecuteNonQuery($sql, $parameters);
+
             return [true,$affectedRows];
         } catch (Exception $e) {
             return [false, $e->errorInfo[1]];
