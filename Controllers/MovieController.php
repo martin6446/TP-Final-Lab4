@@ -12,7 +12,6 @@ class MovieController
 
     public function __construct()
     {
-
         $this->movieDAO = MovieDAO::getInstance();
     }
 

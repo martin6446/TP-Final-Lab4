@@ -43,19 +43,19 @@
             <div class="col-lg-4">
                 <div class="form-group">
                     <label for="">Capacity</label>
-                    <input type="number" name="<?php echo "cinemaRoom".$x."[capacity]"?>" class="form-control" required>
+                    <input type="number" name="<?php echo "cinemaRoom".$x."[capacity]"?>" class="form-control" min="100" max="1000" required>
                 </div>
             </div>
             <div class="col-lg-2">
                 <div class="form-group">
                     <label for="">Price</label>
-                    <input type="number" name="<?php echo "cinemaRoom".$x."[price]"?>" class="form-control" required>
+                    <input type="number" name="<?php echo "cinemaRoom".$x."[price]"?>" class="form-control" min="50" max="5000" required>
                 </div>
             </div>
         </div>
         <?php }?>
 
-        <button type="submit" name="button" value="<?php echo $_SESSION["roomNumber"]?>" class="btn btn-secondary ml-auto d-block">Agregar</button>
+        <button type="submit" name="button" value="<?php echo $_SESSION["roomNumber"]?>" class="btn btn-success ml-auto d-block">Add Room</button>
         <button type="submit" name="button" value="save" class="btn btn-secondary m-2">Register Cinema</button>
     </form>
     <?php unset($_SESSION["roomNumber"])?>
