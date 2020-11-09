@@ -1,4 +1,4 @@
-<?php require_once(VIEWS_PATH . "nav-bar.php") ?>
+<?php require_once("admin-panel.php")?>
 <form action="<?php echo FRONT_ROOT?>movie/addMovie" method="GET">
     <table class="table">
         <thead class="thead-dark ">

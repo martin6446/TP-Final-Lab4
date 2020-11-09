@@ -20,8 +20,8 @@
             echo "<td>" . $function->getCinemaRoom()->getCinema()->getName() . "</td>";
             echo "<td>" . $function->getCinemaRoom()->getName() . "</td>";
             echo "<td>" . $function->getMovie()->getName() . "</td>";
-            echo "<td>" . $function->getStartTime() . "</td>";
-            echo "<td>" . $function->getEndTime() . "</td>";
+            echo "<td>" . $function->getPrettyStartTime() . "</td>";
+            echo "<td>" . $function->getPrettyEndTime() . "</td>";
             echo "<td><button type='submit' name='functionId' value=".$function->getId()." class='btn btn-secondary'>Select</button></td>"; 
           }
            

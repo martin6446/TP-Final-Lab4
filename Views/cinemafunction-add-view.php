@@ -79,7 +79,7 @@
             </div>
             <div class="form-row pt-5 mt-4">
                 <button type="submit" class="btn btn-success m-2">Save Function</button>
-                <a type="button" class="btn btn-danger m-2">Cancel</a>
+                <a type="button" class="btn btn-danger m-2" href="<?php echo FRONT_ROOT."views/cinemaList"?>" >Cancel</a>
             </div>
         </div>
         <div class="col-2  border border-dark rounded m-2 col-3">

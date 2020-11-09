@@ -27,7 +27,6 @@ class ViewsController
 
     public function homeView()
     {
-        $this->movieController->searchNewMovies();
         $movies = $this->movieController->getMovies();
         $genres = $this->movieController->getGenres();
 

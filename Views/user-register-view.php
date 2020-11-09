@@ -10,22 +10,22 @@
                 <div class="form-row">
                     <div class="form-group  col-md-4">
                         <label for="inputCinemaName">Nombre</label>
-                        <input type="text" name="name" class="form-control" id="inputCinemaName" placeholder="Your Name" required>
+                        <input type="text" name="name" class="form-control" id="inputCinemaName" placeholder="Your Name" pattern="[A-Za-z]{,30}" title="only letters are permited" required>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputCinemaName">Apellido</label>
-                        <input type="text" name="lastname" class="form-control" id="inputCinemaName" placeholder="Your Last Name" required>
+                        <input type="text" name="lastname" class="form-control" id="inputCinemaName" placeholder="Your Last Name" pattern="[A-Za-z] {,30}" title="only letters are permited" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group mx-auto col-4">
                         <label for="inputAddress">Email</label>
-                        <input type="text" name="email" class="form-control" id="inputAddress" placeholder="Your Email Address" required>
+                        <input type="text" name="email" class="form-control" id="inputAddress" placeholder="Your Email Address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="invalid email address" required>
                     </div>
                     <div class="form-group mx-auto col-4">
                         <label for="inputCity">Password</label>
-                        <input type="password" name="password" class="form-control" id="inputCity" placeholder="**************" required>
+                        <input type="password" name="password" class="form-control" id="inputCity" placeholder="**************"  pattern=".{8,}" title="Eight or more characters" required>
                     </div>
                     <div class="form-group mx-auto col-4">
                         <label for="inputCity">Confirm Password</label>

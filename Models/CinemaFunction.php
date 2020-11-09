@@ -45,6 +45,10 @@ use Models\Movie as Movie;
         return  $this->startTime->format('Y-m-d H:i:s');
     }
 
+    public function getPrettyStartTime(){
+        return $this->startTime->format("l d/m  H:i");
+    }
+
 
     public function setStartTime($startTime){
         $this->startTime = new DateTime($startTime);
@@ -55,6 +59,10 @@ use Models\Movie as Movie;
     public function getEndTime(){
         return $this->endTime->format('Y-m-d H:i:s');
 
+    }
+
+    public function getPrettyEndTime(){
+        return $this->endTime->format("H:i");
     }
 
 

@@ -145,9 +145,9 @@ class CinemaFunctionController{
                 $this->cinemaFunctionDAO->add($function,$roomId);
             }
 
-            $this->utility->notification("Succesfully added functions",FRONT_ROOT."index.php");
+            $this->utility->notification("Succesfully added functions",FRONT_ROOT."views/cinemaList");
         } else {
-            $this->utility->notification("There was a conflict with an existing function",FRONT_ROOT."index.php");
+            $this->utility->notification("There was a conflict with an existing function",FRONT_ROOT."views/cinemaList");
         }
 
         
