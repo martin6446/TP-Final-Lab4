@@ -126,4 +126,8 @@ class MovieController
 
         return array_diff($apiMovies, $dbMovies);
     }
+
+    public function getMoviesWithFunctions($cityId){
+        return $this->movieDAO->getMoviesWithFunctions($cityId);
+    }
 }

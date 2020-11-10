@@ -27,7 +27,7 @@ class CinemaFunctionController
 
 
 
-    public function getFunctions($city, $genre = "All", $date = "Any")
+    public function getFunctions($city, $genre = "All", $date)
     {
 
         if ($date == "") {

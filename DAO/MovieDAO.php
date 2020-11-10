@@ -288,7 +288,7 @@ class MovieDAO
         }
     }
 
-    function getMoviesWithFunctions($cityId){
+    public function getMoviesWithFunctions($cityId){
         $query ="SELECT DISTINCT p.id from peliculas p
         INNER JOIN funciones f
         ON p.id = f.id_pelicula

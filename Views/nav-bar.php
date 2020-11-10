@@ -1,7 +1,6 @@
 <?php
 if (!isset($_SESSION["loggedUser"])) {
-  header("location:".FRONT_ROOT);
-
+  header("location:" . FRONT_ROOT);
 } else {
 ?>
   <div class="wrapper row1 sticky-top">
@@ -19,22 +18,27 @@ if (!isset($_SESSION["loggedUser"])) {
               <a class="nav-link" href="<?php echo FRONT_ROOT ?>views/homeView">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo FRONT_ROOT ?>views/movieList">Movies</a>
+              <a class="nav-link" href="<?php echo FRONT_ROOT ?>views/cinemaListinView">Cinema Listing</a>
             </li>
             <!-- <li class="nav-item">
             <a class="nav-link" href="<?php echo FRONT_ROOT ?>views/cinemaList">Cinemas</a>
           </li> -->
           </ul>
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item ">
-              <?php
-              if ($_SESSION["isAdmin"] == 1) {
-              ?>
+
+            <?php
+            if ($_SESSION["isAdmin"] == 1) {
+            ?>
+              <li class="nav-item ">
                 <a class="nav-link" href="<?php echo FRONT_ROOT ?>views/adminView">Admin View</a>
-              <?php
-              }
-              ?>
-            </li>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo FRONT_ROOT ?>views/movieList">Movies</a>
+              </li>
+            <?php
+            }
+            ?>
+
             <li class="nav-item nav">
               <a class="nav-link" href="<?php echo FRONT_ROOT ?>views/modifyUser">My Profile</a>
             </li>

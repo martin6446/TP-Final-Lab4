@@ -53,7 +53,7 @@ require_once(VIEWS_PATH . "nav-bar.php");
 <section class="py-5">
     <div class="container">
         <h1 class="font-weight-light text-center">Welcome to Lumiere cinemas</h1>
-        <form action="<?php echo FRONT_ROOT ?>views/functionList" method="POST">
+        <form action="<?php echo FRONT_ROOT ?>views/functionList" method="GET">
             <div class="row">
                 <div class="col-6">
                     <select class="form-control" id="genre" name="genre">
@@ -67,7 +67,6 @@ require_once(VIEWS_PATH . "nav-bar.php");
                 </div>
                 <div class="col-4">
                     <label for="date">Date:</label>
-
                     <input type="date" id="date" name="date" min="<?php echo (new DateTime())->format("Y-m-d")?>" max="2022-1-1">
                 </div>
                 <div class="col-2">

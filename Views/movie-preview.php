@@ -1,7 +1,5 @@
 <?php require_once(VIEWS_PATH . "nav-bar.php"); ?>
 
-<!--esto sirve para sacar el poster -->
-
 <!-- <div style="background-image: url(<?php echo $movie->getBackdrop() ?>); height: 100%; width: 100%; position: fixed; background-repeat: no-repeat"></div> -->
 
 

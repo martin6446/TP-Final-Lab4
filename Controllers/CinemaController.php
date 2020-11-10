@@ -41,7 +41,12 @@ class CinemaController
         UtilitiesController::validateAdmin();
         $cinema = new Cinema($city, $cinemaData["name"], $cinemaData["address"] . " " . $cinemaData["addressNumber"]);
 
-        $this->cinemaDAO->add($cinema);
+        if($this->cinemaDAO->validateCinemaName($city->getId(),$cinema->getName())){
+            $this->cinemaDAO->add($cinema);
+        } else {
+            UtilitiesController::notification("this cinema alerady exists!",FRONT_ROOT."views/addCinemaView");
+        }
+        
     }
 
     public function delete($cinemaId){
