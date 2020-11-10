@@ -82,7 +82,6 @@ class ViewsController
 
             require_once(VIEWS_PATH . "cinema-list-modify.php");
         }
-
     }
 
     public function adminView()
@@ -97,27 +96,36 @@ class ViewsController
         $_SESSION["roomNumber"] = 1;
 
 
-        if (isset($_GET["button"])) {
+        if (isset($_GET["save"])) {
 
-            if ($_GET["button"] != "save") {
-                $_SESSION["roomNumber"] = $_GET["button"] + 1;
-            } else {
-
-                $city = $this->cityController->getCity($_GET["cinema"]["city"]);
+            $city = $this->cityController->getCity($_GET["cinema"]["city"]);
 
 
-                $this->cinemaController->addCinema($city, $_GET["cinema"]);
+            $this->cinemaController->addCinema($city, $_GET["cinema"]);
 
-                $cinema = $this->cinemaController->getCinemaByCityAndName($city, $_GET["cinema"]["name"]);
-
-
-                array_shift($_GET);
-                array_pop($_GET);
+            $cinema = $this->cinemaController->getCinemaByCityAndName($city, $_GET["cinema"]["name"]);
 
 
-                $this->cinemaRoomController->addRoom($cinema, $_GET);
+            array_shift($_GET);
+            array_pop($_GET);
+
+
+            $this->cinemaRoomController->addRoom($cinema, $_GET);
+        } else {
+
+            if (isset($_GET["add"])) {
+
+                $_SESSION["roomNumber"] = $_GET["add"] + 1;
+            } else if (isset($_GET["remove"])){
+
+                $_SESSION["roomNumber"] = $_GET["remove"] - 1;
             }
+
+            $_SESSION["add_cinema"] = $_GET;
         }
+
+
+
 
 
         $cities = $this->cityController->getCities();

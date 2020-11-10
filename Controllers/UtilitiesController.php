@@ -11,6 +11,7 @@ class UtilitiesController{
 
     public static function validateAdmin(){
 
+        
         if($_SESSION["loggedUser"]->getIsAdmin() == 0){
             header("location:".FRONT_ROOT);   
         }
