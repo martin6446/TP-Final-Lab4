@@ -141,6 +141,18 @@ class CinemaDAO{
         }
     }
 
+    public function validateCinemaName($city, $name){
+        $query = "SELECT * FROM cines WHERE id_ciudad = $city AND nombre = '$name';";
+        try{
+            $this->connection = Connection::GetInstance();
+            $response = $this->connection->Execute($query);
+            return empty($response) ? true : false;
+        }
+        catch(Exception $e){
+            throw $e;
+        }
+    }
+
 }
 
 ?>

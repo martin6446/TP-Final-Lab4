@@ -2,10 +2,6 @@
 
 namespace Controllers;
 
-use DAO\CinemaDAO;
-use DAO\Connection;
-use Models\Cinema;
-
 class ViewsController
 {
     private $cinemaController;

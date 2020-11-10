@@ -287,4 +287,29 @@ class MovieDAO
             array_push($this->movieList, $oMovie);
         }
     }
+
+    function getMoviesWithFunctions($cityId){
+        $query ="SELECT DISTINCT p.id from peliculas p
+        INNER JOIN funciones f
+        ON p.id = f.id_pelicula
+        INNER JOIN salas s
+        ON s.id = f.id_sala
+        INNER JOIN cines c
+        ON c.id = s.id_cine
+        WHERE c.id_ciudad =". $cityId .";
+        ";
+        try{
+            $this->connection = Connection::GetInstance();
+            $response = $this->connection->Execute($query);
+            $moviesWithFunctions = array();
+            foreach($response as $movie){
+                array_push($moviesWithFunctions, $this->getMovieById($movie["id"]));
+            }
+            return $moviesWithFunctions;
+        }
+        catch(Exception $e){
+            throw $e;
+        }
+
+    }
 }
