@@ -38,13 +38,13 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="room[capacity]">Capacity</label>
-                                <input type="number" name="room<?php echo $room->getId()?>[capacity]" class="form-control" value="<?php echo $room->getCapacity() ?>" required>
+                                <input type="number" name="room<?php echo $room->getId()?>[capacity]" class="form-control" value="<?php echo $room->getCapacity() ?>" min="100" max="1000" required>
                             </div>
                         </div>
                         <div class="col-lg-2">
                             <div class="form-group">
                                 <label for="room[price]">Price</label>
-                                <input type="number" name="room<?php echo $room->getId()?>[price]" class="form-control" value="<?php echo $room->getPrice() ?>" required>
+                                <input type="number" name="room<?php echo $room->getId()?>[price]" class="form-control" value="<?php echo $room->getPrice() ?>" min="50" max="5000" required>
                             </div>
                         </div>
                         <div class="col-lg-2 ">
@@ -64,19 +64,19 @@
                     <div class="col-lg-4">
                         <div class="form-group">
                             <label for="addedRoom[capacity]">Capacity</label>
-                            <input type="number" name="addedRoom[capacity]" class="form-control">
+                            <input type="number" name="addedRoom[capacity]" class="form-control" min="100" max="1000">
                         </div>
                     </div>
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="addedRoom[price]">Price</label>
-                            <input type="number" name="addedRoom[price]" class="form-control">
+                            <input type="number" name="addedRoom[price]" class="form-control" min="50" max="5000">
                         </div>
                     </div>
                 </div>
 
 
-                <button type="submit" name="add" value="" class="btn btn-primary ml-auto d-block">Agregar</button>
+                <button type="submit" name="add" value="" class="btn btn-primary ml-auto d-block mb-2">Add Room</button>
             </form>
         </div>
     </div>

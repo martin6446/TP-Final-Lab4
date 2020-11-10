@@ -1,5 +1,5 @@
 <?php require_once(VIEWS_PATH."nav-bar.php");?>
-<form action="<?php echo FRONT_ROOT?>views/moviePreview" method="POST">
+<form action="<?php echo FRONT_ROOT?>views/moviePreview" method="GET">
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -22,7 +22,7 @@
             echo "<td>" . $function->getMovie()->getName() . "</td>";
             echo "<td>" . $function->getPrettyStartTime() . "</td>";
             echo "<td>" . $function->getPrettyEndTime() . "</td>";
-            echo "<td><button type='submit' name='functionId' value=".$function->getId()." class='btn btn-secondary'>Select</button></td>"; 
+            echo "<td><button type='submit' name='movieId' value=".$function->getMovie()->getIdMovie()." class='btn btn-secondary'>Select</button></td>"; 
           }
            
           echo "</tr>";
