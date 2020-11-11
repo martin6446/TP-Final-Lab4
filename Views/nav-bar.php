@@ -18,7 +18,7 @@ if (!isset($_SESSION["loggedUser"])) {
               <a class="nav-link" href="<?php echo FRONT_ROOT ?>views/homeView">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo FRONT_ROOT ?>views/cinemaListinView">Cinema Listing</a>
+              <a class="nav-link" href="<?php echo FRONT_ROOT ?>views/cinemaListingView">Cinema Listing</a>
             </li>
             <!-- <li class="nav-item">
             <a class="nav-link" href="<?php echo FRONT_ROOT ?>views/cinemaList">Cinemas</a>
@@ -32,9 +32,7 @@ if (!isset($_SESSION["loggedUser"])) {
               <li class="nav-item ">
                 <a class="nav-link" href="<?php echo FRONT_ROOT ?>views/adminView">Admin View</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo FRONT_ROOT ?>views/movieList">Movies</a>
-              </li>
+              
             <?php
             }
             ?>

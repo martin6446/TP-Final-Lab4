@@ -18,7 +18,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="inputPassword">Password</label>
-                <input type="text" name="password" class="form-control" id="inputPassword" value="<?php echo $_SESSION["password"] ?>" pattern=".{8,}" title="Eight or more characters" required>
+                <input type="password" name="password" class="form-control" id="inputPassword" value="<?php echo $_SESSION["password"] ?>" pattern=".{8,}" title="Eight or more characters" required>
             </div>
         </div>
         <div class="form-row">

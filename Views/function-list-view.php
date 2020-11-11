@@ -1,6 +1,6 @@
 <?php require_once(VIEWS_PATH."nav-bar.php");?>
 <form action="<?php echo FRONT_ROOT?>views/moviePreview" method="GET">
-<table class="table">
+<table class="table table-striped">
   <thead class="thead-dark">
     <tr>
       <th scope="col">Cinema Name</th>

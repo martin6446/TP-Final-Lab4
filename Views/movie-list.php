@@ -1,5 +1,5 @@
-<?php require_once(VIEWS_PATH."nav-bar.php");?>
-<form action="<?php echo FRONT_ROOT?>views/moviePreview" method="GET">
+<?php require_once(VIEWS_PATH."admin-panel.php");?>
+<form action="<?php echo FRONT_ROOT?>views/moviePreview" method="GET" class="border border-dark rounded">
 <table class="table">
   <thead class="thead-dark ">
     <tr>
@@ -24,7 +24,7 @@
             $strGenres = $strGenres . ", " . $genre; 
           }
           echo "<td>". substr($strGenres, 1) . "</td>";
-          echo "<td>". $movie->getDuration() ." - Min </td>";
+          echo "<td>". $movie->getDuration() ." Min </td>";
           echo "<td><button type='submit' name='movieId' value=". $movie->getIdMovie()." class='btn btn-secondary'>Select</button></td>"; 
           echo "</tr>";
           }

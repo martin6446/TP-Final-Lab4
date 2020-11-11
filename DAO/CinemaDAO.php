@@ -1,6 +1,7 @@
 <?php
 namespace DAO;
 
+use Controllers\CityController;
 use Exception;
 use Models\Cinema as Cinema;
 use Models\City as City;
@@ -20,7 +21,7 @@ class CinemaDAO{
             $query = "INSERT INTO ".$this->tableName." (nombre, direccion, id_ciudad) VALUES (:nombre, :direccion, :id_ciudad );";
             $params["nombre"] = $cine->getName();
             $params["direccion"] = $cine->getAddress();
-            $params["id_ciudad"] = 1;
+            $params["id_ciudad"] = $cine->getCity()->getId();
 
 
             
@@ -65,15 +66,37 @@ class CinemaDAO{
         }
     }
 
-    public function getCinemaById($id, City $city){
-        $query = "SELECT id, nombre, direccion FROM cines WHERE id = ". $id;
+    public function getCinemaById($id){
+        $query = "SELECT * FROM cines WHERE id = ". $id;
 
         try{
             $this->connection = Connection::GetInstance();
             $response = $this->connection->Execute($query);
-
+            $cityController = new CityController();
+            $city = $cityController->getCity($response[0]["id_ciudad"]);
             return new Cinema($city,$response[0]["nombre"],$response[0]["direccion"],$response[0]["id"]);
         }catch(Exception $e){
+            throw $e;
+        }
+    }
+
+    public function getAllCinemas(){
+        
+        try{
+            $query = "SELECT * FROM cines";
+
+            $this->connection = Connection::GetInstance();
+            $response = $this->connection->Execute($query);
+            $cinemaList = array();
+            $cityController = new CityController();
+            foreach($response as $soonToBeCine){
+                $city = $cityController->getCity($soonToBeCine["id_ciudad"]);
+                array_push($cinemaList, new Cinema($city, $soonToBeCine['nombre'], $soonToBeCine['direccion'], $soonToBeCine['id']));
+            }
+
+            return $cinemaList;
+        }
+        catch(Exception $e){
             throw $e;
         }
     }
@@ -100,24 +123,13 @@ class CinemaDAO{
     public function hasFunctions($cinemaId){
         $query = "SELECT 
         COUNT(f.id) AS functions FROM cines c
-        INNER JOIN salas s
+        LEFT JOIN salas s
         ON c.id = s.id_cine
         LEFT JOIN funciones f
         ON s.id = f.id_sala
         WHERE c.id = ". $cinemaId . "
         GROUP BY c.id;"; 
 
-        /* $query = "SELECT 
-        CASE
-            WHEN  COUNT(f.id) >= 1 THEN 'true'
-            ELSE 'false'
-        END AS hasFunctions FROM cines c
-        INNER JOIN salas s
-        ON c.id = s.id_cine
-        LEFT JOIN funciones f
-        ON s.id = f.id_sala
-        WHERE c.id = 6
-        GROUP BY c.id;"; */
         try{
             $this->connection = Connection::GetInstance();
             $functionsNumber = ($this->connection->Execute($query))[0][0];
@@ -143,6 +155,7 @@ class CinemaDAO{
 
     public function validateCinemaName($city, $name){
         $query = "SELECT * FROM cines WHERE id_ciudad = $city AND nombre = '$name';";
+
         try{
             $this->connection = Connection::GetInstance();
             $response = $this->connection->Execute($query);

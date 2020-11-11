@@ -4,6 +4,7 @@
     var_dump($_SESSION["add_cinema"]);
 }
 die; */
+
 ?>
 <div class="container border border-dark rounded p-3">
     <form method="GET" action="<?php echo FRONT_ROOT ?>views/addCinemaView">
@@ -27,9 +28,8 @@ die; */
             <div class="form-group col-md-4">
                 <label for="inputState">City</label>
                 <select id="inputState" name="cinema[city]" class="form-control" required>
-                    <option selected disabled value="">Choose a city...</option>
                     <?php foreach ($cities as $city) { ?>
-                        <option value="<?php echo $city->getId() ?>"><?php echo $city->getName() ?></option>
+                        <option value="<?php echo $city->getId() ?>" <?php if(isset($_SESSION["add_cinema"]["cinema"]) && $_SESSION["add_cinema"]["cinema"]["city"] == $city->getId()){ echo "selected";}?>><?php echo $city->getName()  ?></option>
                     <?php } ?>
 
                 </select>
@@ -72,6 +72,7 @@ die; */
         <button type="submit" name="save" value="save" class="btn btn-secondary m-2">Register Cinema</button>
     </form>
     <?php unset($_SESSION["roomNumber"])?>
+    <?php unset($_SESSION["add_cinema"])?>
 
 </div>
 
