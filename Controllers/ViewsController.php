@@ -70,6 +70,13 @@ class ViewsController
         require_once(VIEWS_PATH . "cinema-list.php");
     }
 
+    public function purchaseView($functionId){
+        
+        $function = $this->cinemaFunctionController->getFunctionById($this->cityController->getCity($_SESSION["cityid"]),$functionId);
+
+        require_once(VIEWS_PATH."purchase-view.php");
+    }
+
     public function cinemaListModify()
     {
         UtilitiesController::validateAdmin();

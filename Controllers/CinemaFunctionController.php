@@ -21,10 +21,13 @@ class CinemaFunctionController
 
     public function retrieveFunction($city, $movieId)
     {
-
         return $this->cinemaFunctionDAO->getByCityAndMovieId($city, $movieId);
     }
 
+
+    public function getFunctionById($functionId){
+        return $this->cinemaFunctionDAO->getFunctionById($city,$functionId);
+    }
 
 
     public function getFunctions($city, $genre = "All", $date)

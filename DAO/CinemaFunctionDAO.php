@@ -13,6 +13,29 @@ use Exception;
             $this->tableName = 'funciones';
         }
 
+
+        public function getFunctionById($city,$functionId){
+            $query = "SELECT * FROM ". $this->tableName." WHERE id = :id;";
+            $params["id"] = $functionId;
+
+            try{
+
+                $this->connection = Connection::GetInstance();
+                $result = $this->connection->Execute($query,$params)[0];
+                var_dump($result);
+                die;
+
+                $movieDAO = MovieDAO::getInstance();
+                return new CinemaFunction($movieDAO->getMovieById($result["id_pelicula"]),$result["horario_inicio"],$result["horario_finalizacion"],);
+
+            }catch(Exception $e){
+                throw $e;
+            }
+        }
+
+
+
+
         public function add(CinemaFunction $function, $idSala){
 
             try{
