@@ -19,14 +19,21 @@ use Exception;
             $params["id"] = $functionId;
 
             try{
-
                 $this->connection = Connection::GetInstance();
                 $result = $this->connection->Execute($query,$params)[0];
-                var_dump($result);
-                die;
 
                 $movieDAO = MovieDAO::getInstance();
-                return new CinemaFunction($movieDAO->getMovieById($result["id_pelicula"]),$result["horario_inicio"],$result["horario_finalizacion"],);
+
+                $cinemaRoomList = (new CinemaRoomDAO)->getAll($city);
+                
+                foreach($cinemaRoomList as $sala){
+                   if($sala->getId() == $result['id_sala']){
+                       $matchingSala = $sala;
+                       break;
+                   }
+                }
+
+                return new CinemaFunction($movieDAO->getMovieById($result["id_pelicula"]),$result["horario_inicio"],$result["horario_finalizacion"],$matchingSala,$result["id"]);
 
             }catch(Exception $e){
                 throw $e;

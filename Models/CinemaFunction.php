@@ -5,6 +5,7 @@ use DateTime;
 use Models\Movie as Movie;
 
     class CinemaFunction{
+        
         private $id;
         private $movie;
         private $startTime;
@@ -61,8 +62,16 @@ use Models\Movie as Movie;
 
     }
 
-    public function getPrettyEndTime(){
+    public function getSimpleStartTime(){
+        return $this->startTime->format("H:i");
+    }
+
+    public function getSimpleEndTime(){
         return $this->endTime->format("H:i");
+    }
+
+    public function getPrettyEndTime(){
+        return $this->endTime->format("l d/m H:i");
     }
 
 

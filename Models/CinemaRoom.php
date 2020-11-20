@@ -4,6 +4,7 @@ use Models\Cinema;
 
 
 class CinemaRoom{
+    
     private $id;
     private $cinema;
     private $name;
