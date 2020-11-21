@@ -21,7 +21,7 @@
             echo "<td>" . $function->getCinemaRoom()->getName() . "</td>";
             echo "<td>" . $function->getMovie()->getName() . "</td>";
             echo "<td>" . $function->getPrettyStartTime() . "</td>";
-            echo "<td>" . $function->getPrettyEndTime() . "</td>";
+            echo "<td>" . $function->getSimpleEndTime() . "</td>";
             echo "<td><button type='submit' name='movieId' value=".$function->getMovie()->getIdMovie()." class='btn btn-secondary'>Select</button></td>"; 
           }
            

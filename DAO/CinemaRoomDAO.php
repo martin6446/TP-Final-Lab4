@@ -107,9 +107,26 @@ class CinemaRoomDAO{
             }
         }
 
+        public function getAvailableSeats(Cinema $cinema){
+
+            try{
+
+                $query = "CALL p_get_available_seats( :pIdFuncion,  :response )";
+
+                $params["pIdFuncion"] = $cinema->getId();
+                $params["response"] = NULL;
+                
+                $this->connection = Connection::GetInstance();
+                
+                return $this->connection->Execute($query, $params);
+
+                
+            }catch(Exception $e){
+                throw $e;
+            }
+
+
+        }
+
     
     }
-
-
-
-?>

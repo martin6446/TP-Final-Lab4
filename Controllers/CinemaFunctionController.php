@@ -25,8 +25,9 @@ class CinemaFunctionController
     }
 
 
-    public function getFunctionById($functionId){
-        return $this->cinemaFunctionDAO->getFunctionById($city,$functionId);
+    public function getFunctionById($city, $functionId){
+
+        return $this->cinemaFunctionDAO->getFunctionById($city, $functionId);
     }
 
 
