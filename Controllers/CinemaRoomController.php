@@ -26,6 +26,10 @@ class CinemaRoomController{
 
     }
 
+    public function getAvailableSeats(Cinema $cinema){
+        return $this->cinemaRoomDAO->getAvailableSeats($cinema);
+    }
+
     public function updateRoom($id,$roomData){
         UtilitiesController::validateAdmin();
 
