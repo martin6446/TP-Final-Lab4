@@ -26,8 +26,8 @@ class CinemaRoomController{
 
     }
 
-    public function getAvailableSeats(Cinema $cinema){
-        return $this->cinemaRoomDAO->getAvailableSeats($cinema);
+    public function getAvailableSeats($idFunction){
+        return $this->cinemaRoomDAO->getAvailableSeats($idFunction);
     }
 
     public function updateRoom($id,$roomData){

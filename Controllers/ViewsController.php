@@ -73,7 +73,7 @@ class ViewsController
     public function purchaseView($functionId){
         
         $function = $this->cinemaFunctionController->getFunctionById($this->cityController->getCity($_SESSION["cityid"]),$functionId);
-        //$availableSeats = $this->cinemaRoomController->getAvailableSeats($function->getCinemaRoom()->getCinema()); 
+        $availableSeats = $this->cinemaRoomController->getAvailableSeats($function->getId()); 
         require_once(VIEWS_PATH."purchase-view.php");
     }
 

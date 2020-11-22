@@ -10,7 +10,7 @@
                 <h4>Ticket Price : $<?php echo $function->getCinemaRoom()->getPrice() ?></h4>
                 <h4>Start time : <?php echo $function->getPrettyStartTime() ?> </h4>
                 <h4>End time : <?php echo $function->getPrettyEndTime() ?> </h4>
-                <h4>Available Seats : <?php echo $function->getCinemaRoom()->getCapacity() ?></h4>
+                <h4>Available Seats : <?php echo $availableSeats ?></h4>
             </div>
         </div>
         <div class="form-row">
@@ -18,12 +18,11 @@
                 <h4>Number of Seats : </h4>
             </div>
             <div class="col-md-3">
-                <input type="number" id="seats" name="seats" class="form-control" placeholder="Place the number of seats" min = 1 max = <?php ?>  required autofocus>
+                <input type="number" id="seats" name="seats" class="form-control" placeholder="Place the number of seats" min = 1 max = <?php echo $function->getCinemaRoom()->getCapacity() ?>  required autofocus>
             </div>
         </div>
 
-
-        <button type="submit" class="btn btn-success m-2">Save Changes</button>
+        <button type="submit" class="btn btn-success m-2">Purchase</button>
         <a class="btn btn-danger" href="<?php echo FRONT_ROOT ?>landing/loadData">Cancel</a>
     </form>
 
