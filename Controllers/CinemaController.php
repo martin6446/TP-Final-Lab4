@@ -67,4 +67,8 @@ class CinemaController
     {
         return $this->cinemaDAO->hasFunctions($cinemaId);
     }
+
+    public function getIncomeByDate($stDate,$endDate){
+        return $this->cinemaDAO->getIncome($stDate,$endDate);
+    }
 }

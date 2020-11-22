@@ -31,6 +31,11 @@ class CinemaFunctionController
     }
 
 
+    public function getTicketsByCinema($city,$idCinema){
+        return $this->cinemaFunctionDAO->getTicketsByCinema($city,$idCinema);
+    }
+
+
     public function getFunctions($city, $genre = "All", $date)
     {
 

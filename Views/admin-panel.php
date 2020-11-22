@@ -14,6 +14,10 @@
       <a href="<?php echo FRONT_ROOT ?>views/cinemaListModify" class="list-group-item list-group-item-action bg-light">Manage Cinemas</a>
       <a href="<?php echo FRONT_ROOT ?>views/addMoviesView" class="list-group-item list-group-item-action bg-light">Add Movies</a>
       <a href="<?php echo FRONT_ROOT ?>views/movieList" class="list-group-item list-group-item-action bg-light">List Movies</a>
+      <a href="<?php echo FRONT_ROOT ?>views/cinemaList2" class="list-group-item list-group-item-action bg-light">Show Function Availability</a>
+      
+      <a href="<?php echo FRONT_ROOT ?>views/SelectDateView" class="list-group-item list-group-item-action bg-light">List Movie Gross Income</a>
+      <a href="<?php echo FRONT_ROOT ?>views/SelectDateView2" class="list-group-item list-group-item-action bg-light">List Cinema Gross Income</a>
 
 
 

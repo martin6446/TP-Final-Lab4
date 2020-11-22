@@ -15,13 +15,13 @@ class TicketDAO{
     }
 
 
-    public function add(Ticket $ticket){
+    public function add(Ticket $ticket, $discount){
 
         $query = "CALL p_buy_tickets(?,?,?,?);";
         $params["userEmail"] = $ticket->getUser()->getEmail();
         $params["functionId"] = $ticket->getFunction()->getId();
         $params["ticketAmount"] = $ticket->getTicketAmount();
-        $params["discount"] = $ticket->getDiscount();
+        $params["discount"] = $discount;
 
         try{
 
@@ -34,6 +34,9 @@ class TicketDAO{
         }
 
     }
+
+    
+
 
 }
 

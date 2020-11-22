@@ -16,6 +16,23 @@ class CinemaDAO{
         $this->cinemaList = array();
     }
 
+    public function getIncome($stDate,$endDate){
+        $query ="CALL p_get_cinemas_gross_income(?,?)";
+
+        $params["startDate"] = $stDate;
+        $params["endDate"] = $endDate;
+
+        try{
+
+            $this->connection = Connection::GetInstance();
+            return $this->connection->Execute($query,$params,QueryType::StoredProcedure);
+
+        }catch(Exception $e){
+            throw $e;
+        }
+
+    }
+
     public function add(Cinema $cine){
         try{
             $query = "INSERT INTO ".$this->tableName." (nombre, direccion, id_ciudad) VALUES (:nombre, :direccion, :id_ciudad );";

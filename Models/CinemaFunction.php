@@ -11,13 +11,15 @@ use Models\Movie as Movie;
         private $startTime;
         private $endTime;
         private $cinemaRoom;
+        private $availableSeats;
         
-        public function __construct($movie = null, $startTime = null, $endTime = null, $cinemaRoom = null, $id=0){
+        public function __construct($movie = null, $startTime = null, $endTime = null, $cinemaRoom = null, $id=0, $availableSeats=0){
           $this->setId($id);  
           $this->setMovie($movie);  
           $this->setStartTime($startTime);  
           $this->setEndTime($endTime);  
           $this->setCinemaRoom($cinemaRoom);  
+          $this->setAvailableSeats($availableSeats);
         }
 
 
@@ -89,6 +91,17 @@ use Models\Movie as Movie;
         $this->cinemaRoom = $cinemaRoom;
     }
 
+
+    public function getAvailableSeats()
+    {
+        return $this->availableSeats;
+    }
+
+    
+    public function setAvailableSeats($availableSeats)
+    {
+        $this->availableSeats = $availableSeats;
+    }
     }
 
 

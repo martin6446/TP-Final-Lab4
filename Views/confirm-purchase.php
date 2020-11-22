@@ -10,7 +10,10 @@
                 <h4>Ticket Price : $<?php echo $function->getCinemaRoom()->getPrice() ?></h4>
                 <label for="seats"><h4>Total Seats Selected: </h4></label>
                 <input type="text" id="seats" name="seats" readonly value="<?php echo $seats ?>">
-                <h4>Total Amount : $<?php echo $function->getCinemaRoom()->getPrice() * $_GET["seats"] ?></h4>
+                <?php if($discount != 0){?>
+                    <h4>Congratulations you have a 25% discount</h4>
+                    <?php }?>
+                <h4>Total Amount : $<?php echo $function->getCinemaRoom()->getPrice() * $_GET["seats"] * (1- $discount) ?></h4>
                 <h4>Start time : <?php echo $function->getPrettyStartTime() ?> </h4>
                 <h4>End time : <?php echo $function->getPrettyEndTime() ?> </h4>
             </div>

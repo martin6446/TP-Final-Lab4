@@ -23,6 +23,24 @@ class MovieDAO
         $this->loadMovies();
     }
 
+
+    public function getIncome($stDate,$endDate){
+        $query ="CALL p_get_movie_gross_income(?,?)";
+
+        $params["startDate"] = $stDate;
+        $params["endDate"] = $endDate;
+
+        try{
+
+            $this->connection = Connection::GetInstance();
+            return $this->connection->Execute($query,$params,QueryType::StoredProcedure);
+
+        }catch(Exception $e){
+            throw $e;
+        }
+
+    }
+
     public static function getInstance()
     {
         if (self::$movieDAO == null) {

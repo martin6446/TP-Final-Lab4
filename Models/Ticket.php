@@ -8,14 +8,12 @@ class Ticket{
     private $user;
     private $function;
     private $ticketAmount;
-    private $discount;
 
-    public function __construct($user=null,$function=null,$ticketAmount=0,$discount=0,$id=0)
+    public function __construct($user=null,$function=null,$ticketAmount=0,$id=0)
     {
         $this->user = $user;
         $this->function = $function;
         $this->ticketAmount = $ticketAmount;
-        $this->discount = $discount;
         $this->id = $id;
     }
 
@@ -50,17 +48,6 @@ class Ticket{
     public function setTicketAmount($ticketAmount)
     {
         $this->ticketAmount = $ticketAmount;
-    }
-
-    public function getDiscount()
-    {
-        return $this->discount;
-    }
-
-    
-    public function setDiscount($discount)
-    {
-        $this->discount = $discount;
     }
 
     public function getId()

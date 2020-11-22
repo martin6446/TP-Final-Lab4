@@ -29,13 +29,13 @@ class TicketController{
         }
 
 
-        $ticket = new Ticket($_SESSION["loggedUser"],$function,$_GET["seats"],$discount);
+        $ticket = new Ticket($_SESSION["loggedUser"],$function,$_GET["seats"]);
 
 
-        if($this->ticketDAO->add($ticket) != 1){
+        if($this->ticketDAO->add($ticket,$discount) != 1){
             UtilitiesController::notification("There was an error with out Data Base",FRONT_ROOT."views/homeView");
         } else {
-            UtilitiesController::notification("Ticket successfully buyed!", FRONT_ROOT."views/homeView");
+            UtilitiesController::notification("Ticket successfully purchased!", FRONT_ROOT."views/homeView");
         }
 
     }

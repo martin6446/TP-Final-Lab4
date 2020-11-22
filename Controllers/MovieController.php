@@ -130,4 +130,9 @@ class MovieController
     public function getMoviesWithFunctions($cityId){
         return $this->movieDAO->getMoviesWithFunctions($cityId);
     }
+
+
+    public function getIncomeByDate($stDate,$endDate){
+        return $this->movieDAO->getIncome($stDate,$endDate);
+    }
 }
