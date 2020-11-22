@@ -1,14 +1,15 @@
 <?php require_once(VIEWS_PATH . "nav-bar.php");?>
 <div class="container border border-secondary rounded ">
     <h1>Confirm Purchase</h1>
-    <form method="GET" action="<?php echo FRONT_ROOT ?>user/modifyUser">
+    <form method="GET" action="<?php echo FRONT_ROOT ?>ticket/purchaseTickets">
     <div class="form-row">
             <div class="form-group col-md-4">
                 <h3>Cinema: <?php echo $function->getCinemaRoom()->getCinema()->getName() ?></h3>
                 <h4>Movie : <?php echo $function->getMovie()->getName() ?> </h4>
                 <h4>Duration : <?php echo $function->getMovie()->getDuration() ?> Min. </h4>
                 <h4>Ticket Price : $<?php echo $function->getCinemaRoom()->getPrice() ?></h4>
-                <h4>Total Seats Selected: <?php echo $_GET["seats"] ?></h4>
+                <label for="seats"><h4>Total Seats Selected: </h4></label>
+                <input type="text" id="seats" name="seats" readonly value="<?php echo $seats ?>">
                 <h4>Total Amount : $<?php echo $function->getCinemaRoom()->getPrice() * $_GET["seats"] ?></h4>
                 <h4>Start time : <?php echo $function->getPrettyStartTime() ?> </h4>
                 <h4>End time : <?php echo $function->getPrettyEndTime() ?> </h4>
@@ -29,7 +30,7 @@
             </div>
 
         </div>
-        <button type="submit" class="btn btn-success m-2">Confirm</button>
+        <button type="submit" name="functionId" value="<?php echo $function->getId()?>" class="btn btn-success m-2">Confirm</button>
         <a class="btn btn-danger" href="<?php echo FRONT_ROOT ?>views/cinemaListingView">Cancel</a>
     </form>
 </div>

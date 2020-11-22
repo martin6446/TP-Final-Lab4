@@ -4,28 +4,74 @@ namespace Models;
 
 class Ticket{
 
-    private $ticketNumber;
-    private $movieFunction;
+    private $id;
+    private $user;
+    private $function;
+    private $ticketAmount;
+    private $discount;
+
+    public function __construct($user=null,$function=null,$ticketAmount=0,$discount=0,$id=0)
+    {
+        $this->user = $user;
+        $this->function = $function;
+        $this->ticketAmount = $ticketAmount;
+        $this->discount = $discount;
+        $this->id = $id;
+    }
+
+    public function getUser()
+    {
+        return $this->user;
+    }
+
     
-    public function getTicketNumber()
+    public function setUser($user)
     {
-        return $this->ticketNumber;
+        $this->user = $user;
     }
 
-    public function setTicketNumber($ticketNumber)
+    public function getFunction()
     {
-        $this->ticketNumber = $ticketNumber;
-    }
-
-    public function getMovieFunction()
-    {
-        return $this->movieFunction;
+        return $this->function;
     }
 
     
-    public function setMovieFunction($movieFunction)
+    public function setFunction($function)
     {
-        $this->movieFunction = $movieFunction;
+        $this->function = $function;
+    }
+
+    public function getTicketAmount()
+    {
+        return $this->ticketAmount;
+    }
+
+    
+    public function setTicketAmount($ticketAmount)
+    {
+        $this->ticketAmount = $ticketAmount;
+    }
+
+    public function getDiscount()
+    {
+        return $this->discount;
+    }
+
+    
+    public function setDiscount($discount)
+    {
+        $this->discount = $discount;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 }
 

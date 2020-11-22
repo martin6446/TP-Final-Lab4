@@ -20,6 +20,7 @@ class User{
         $this->city_id = $city_id;
     }
 
+
     public function getEmail()
     {
         return $this->email;

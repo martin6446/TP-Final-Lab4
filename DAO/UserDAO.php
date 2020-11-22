@@ -21,7 +21,7 @@ class UserDAO
         $parameters["lastname"] = $user->getLastname();
         $parameters["email"] = $user->getEmail();
         $parameters["password"] = $user->getPassword();
-        $parameters["city_id"] = 1;
+        $parameters["city_id"] = $user->getCity_id();
         $parameters["user_type"] = $user->getIsAdmin();
 
         try {

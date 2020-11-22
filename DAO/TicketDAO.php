@@ -1,74 +1,39 @@
 <?php
 namespace DAO;
 
+use Exception;
 use Models\Ticket as Ticket;
 
 class TicketDAO{
-    
-    private $filename;
-    private $ticketList = array();
+    private $connection;
+    private $tableName;
+    private $ticketList;
 
-    public function __construct()
-    {
-        $this->filename = dirname(__DIR__)."/Data/Ticket.json";
+    public function __construct(){
+        $this->tableName = 'entradas';
+        $this->ticketList = array();
     }
 
-    public function retrieveData(){
-
-        if(file_exists($this->filename)){
-            $jsonContent = file_get_contents($this->filename);
-
-            $arrayToDecode = ($jsonContent) ? json_decode($jsonContent,true) : array();
-
-            foreach($arrayToDecode as $data){
-                $ticket = new Ticket();
-
-                /*llenar con datos de ticket*/
-
-                array_push($this->ticketList,$ticket);
-            }
-        }
-    }
-
-    public function saveData(){
-        $arrayToEncode = array();
-
-        foreach($this->ticketList as $ticket){
-            
-            /*llenar con datos de ticket*/
-
-            array_push($arrayToEncode,$valuesArray);
-        }
-
-        file_put_contents($this->filename,json_encode($arrayToEncode,JSON_PRETTY_PRINT));
-    }
 
     public function add(Ticket $ticket){
 
-        $this->retrieveData();
-        array_push($this->ticketList,$ticket);
-        $this->saveData();
-    }
+        $query = "CALL p_buy_tickets(?,?,?,?);";
+        $params["userEmail"] = $ticket->getUser()->getEmail();
+        $params["functionId"] = $ticket->getFunction()->getId();
+        $params["ticketAmount"] = $ticket->getTicketAmount();
+        $params["discount"] = $ticket->getDiscount();
 
-    public function getAll(){
-        $this->retrieveData();
-        return $this->ticketList;
-    }
+        try{
 
-    public function remove($ticketid){
-        
-        $this->retrieveData();
+            $this->connection = Connection::GetInstance();
+            
+            return  $this->connection->ExecuteNonQuery($query,$params, QueryType::StoredProcedure);
 
-        foreach($this->ticketList as $ticket){
-            if($ticket->getId() == $ticketid){
-                array_splice($this->ticketList,array_search($ticket,$this->ticketList),1);
-            break;
-            }
+        }catch(Exception $e){
+            throw $e;
         }
 
-        $this->saveData();
     }
-
 
 }
 
