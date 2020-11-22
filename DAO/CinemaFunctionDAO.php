@@ -14,7 +14,7 @@ use Exception;
         }
 
 
-        public function getFunctionById($functionId){
+        public function getFunctionById($city, $functionId){
             $query = "SELECT * FROM ". $this->tableName." WHERE id = :id;";
             $params["id"] = $functionId;
 

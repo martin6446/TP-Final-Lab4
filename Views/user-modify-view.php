@@ -39,6 +39,6 @@
         <div class="form-group">
         </div>
         <button type="submit" class="btn btn-success m-2">Save Changes</button>
-        <a class="btn btn-danger" href="<?php echo FRONT_ROOT ?>landing/loadData">Cancel</a>
+        <a class="btn btn-danger" href="<?php echo FRONT_ROOT ?>views/homeView">Cancel</a>
     </form>
 </div>

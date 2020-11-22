@@ -6,7 +6,7 @@ class ViewsController
 {
     private $cinemaController;
     private $cinemaRoomController;
-    private $CinemaFunctionController;
+    private $cinemaFunctionController;
     private $movieController;
     private $userController;
     private $cityController;
@@ -254,5 +254,11 @@ class ViewsController
 
             require_once(VIEWS_PATH . "modify-cinema-view.php");
         }
+    }
+
+
+    public function confirmPurchaseView($functionId){
+        $function = $this->cinemaFunctionController->getFunctionById($this->cityController->getCity($_SESSION["cityid"]),$functionId) ;
+        require_once(VIEWS_PATH."confirm-purchase.php");
     }
 }
