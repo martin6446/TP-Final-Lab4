@@ -18,6 +18,20 @@ class CinemaRoomDAO
         $this->tableName = 'salas';
     }
 
+    public function getRoomNamesByCinema($cinemaId){
+
+        $query = "SELECT nombre, id from salas WHERE id_cine = :id_cine;";
+
+        $params["id_cine"] = $cinemaId;
+
+        try{
+            $this->connection = Connection::GetInstance();
+            return $this->connection->Execute($query,$params);
+        }catch(Exception $e){
+            throw $e;
+        }
+    }
+
     public function add(CinemaRoom ...$salas)
     {
         try {

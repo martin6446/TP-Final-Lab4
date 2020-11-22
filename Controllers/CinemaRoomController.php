@@ -40,7 +40,21 @@ class CinemaRoomController{
         return $this->cinemaRoomDAO->getByCinema($cinema);
     }
 
-    public function removeRoom(){}
+    public function validateRoomName($cinemaId,$roomId,$newRoomName){
+         $rooms = $this->cinemaRoomDAO->getRoomNamesByCinema($cinemaId);
+         $names = [];
+         $flag = true;
+
+         foreach($rooms as $room){
+             if($roomId != $room["id"] && $room["nombre"] == $newRoomName){
+                $flag = false;
+                 
+             }
+         }
+
+        return $flag;
+
+    }
 
     
 }

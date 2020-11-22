@@ -72,7 +72,7 @@ class ViewsController
         require_once(VIEWS_PATH . "cinema-list.php");
     }
 
-    
+
 
     public function cinemaListModify()
     {
@@ -120,8 +120,6 @@ class ViewsController
 
 
             $this->cinemaRoomController->addRoom($cinema, $_GET);
-
-            
         } else {
 
             if (isset($_GET["add"])) {
@@ -133,8 +131,6 @@ class ViewsController
             }
 
             $_SESSION["add_cinema"] = $_GET;
-
-
         }
 
 
@@ -210,12 +206,21 @@ class ViewsController
                 array_pop($_POST);
                 array_push($roomToAdd, array_pop($_POST));
 
+                if ($this->cinemaRoomController->validateRoomName($cinema->getId(),0, $roomToAdd[0]["name"])) {
 
-                $this->cinemaRoomController->addRoom($cinema, $roomToAdd);
-                unset($_POST["add"]);
-                $id = $cinema->getId();
 
-                $this->modifyCinemaView($id);
+                    $this->cinemaRoomController->addRoom($cinema, $roomToAdd);
+                    unset($_POST["add"]);
+
+
+                    $id = $cinema->getId();
+
+                    $this->modifyCinemaView($id);
+                } else {
+                    unset($_POST["updateRoom"]);
+                    UtilitiesController::notification("That name already exists, please choose another one", FRONT_ROOT . "views/cinemaListModify");
+                }
+
             }
         } else if (isset($_POST["updateCinema"])) {
 
@@ -232,18 +237,27 @@ class ViewsController
             $this->modifyCinemaView($id);
         } else if (isset($_POST["updateRoom"])) {
 
-            $idRoom = $_POST["updateRoom"];
-            $roomData = $_POST["room" . $_POST["updateRoom"]];
-            $this->cinemaRoomController->updateRoom($idRoom, $roomData);
-
-            unset($_POST["updateRoom"]);
-
             $city = $this->cityController->getCity($_SESSION["cityid"]);
             $cinema = $this->cinemaController->getCinemaByCityAndName($city, $_POST["name"]);
 
-            $id = $cinema->getId();
+            $idRoom = $_POST["updateRoom"];
+            $roomData = $_POST["room" . $_POST["updateRoom"]];
 
-            $this->modifyCinemaView($id);
+
+            if ($this->cinemaRoomController->validateRoomName($cinema->getId(), $idRoom, $roomData["name"])) {
+
+                $this->cinemaRoomController->updateRoom($idRoom, $roomData);
+
+                unset($_POST["updateRoom"]);
+
+
+                $id = $cinema->getId();
+
+                $this->modifyCinemaView($id);
+            } else {
+                unset($_POST["updateRoom"]);
+                UtilitiesController::notification("That name already exists, please choose another one", FRONT_ROOT . "views/cinemaListModify");
+            }
         } else {
             $cinema = $this->cinemaController->getCinemaById($id);
             $city = $this->cityController->getCity($cinema->getCity()->getId());
@@ -253,31 +267,34 @@ class ViewsController
         }
     }
 
-    public function purchaseView($functionId){
-        
-        $function = $this->cinemaFunctionController->getFunctionById($this->cityController->getCity($_SESSION["cityid"]),$functionId);
-        $availableSeats = $this->cinemaRoomController->getAvailableSeats($function->getId()); 
-        require_once(VIEWS_PATH."purchase-view.php");
+    public function purchaseView($functionId)
+    {
+
+        $function = $this->cinemaFunctionController->getFunctionById($this->cityController->getCity($_SESSION["cityid"]), $functionId);
+        $availableSeats = $this->cinemaRoomController->getAvailableSeats($function->getId());
+        require_once(VIEWS_PATH . "purchase-view.php");
     }
 
 
-    public function confirmPurchaseView($seats,$functionId){
+    public function confirmPurchaseView($seats, $functionId)
+    {
 
         $date = (new DateTime())->format("l");
 
-        if($_GET["seats"] >= 2 && $date == "Tuesday" || $date == "Wednesday"){
+        if ($_GET["seats"] >= 2 && $date == "Tuesday" || $date == "Wednesday") {
 
             $discount = 0.25;
-        } else{
+        } else {
             $discount = 0;
         }
 
 
-        $function = $this->cinemaFunctionController->getFunctionById($this->cityController->getCity($_SESSION["cityid"]),$functionId) ;
-        require_once(VIEWS_PATH."confirm-purchase.php");
+        $function = $this->cinemaFunctionController->getFunctionById($this->cityController->getCity($_SESSION["cityid"]), $functionId);
+        require_once(VIEWS_PATH . "confirm-purchase.php");
     }
 
-    public function cinemaList2(){
+    public function cinemaList2()
+    {
         UtilitiesController::validateAdmin();
 
         $cinemaList = $this->cinemaController->getCinemas();
@@ -286,24 +303,28 @@ class ViewsController
     }
 
 
-    public function FunctionAvailability($idCinema){
+    public function FunctionAvailability($idCinema)
+    {
 
-        $functionList = $this->cinemaFunctionController->getTicketsByCinema($this->cityController->getCity($_SESSION["cityid"]),$idCinema);
+        $functionList = $this->cinemaFunctionController->getTicketsByCinema($this->cityController->getCity($_SESSION["cityid"]), $idCinema);
 
-        require_once(VIEWS_PATH."functionAvailabilityView.php");
+        require_once(VIEWS_PATH . "functionAvailabilityView.php");
     }
 
 
-    public function SelectDateView(){
-        require_once(VIEWS_PATH."date-selection-view.php");
+    public function SelectDateView()
+    {
+        require_once(VIEWS_PATH . "date-selection-view.php");
     }
 
-    public function SelectDateView2(){
-        require_once(VIEWS_PATH."date-selection-view2.php");
+    public function SelectDateView2()
+    {
+        require_once(VIEWS_PATH . "date-selection-view2.php");
     }
 
 
-    public function movieGrossIncomeView($stDate,$endDate){
+    public function movieGrossIncomeView($stDate, $endDate)
+    {
 
         if ($stDate == "") {
             $stDate = "2000-1-1";
@@ -314,13 +335,14 @@ class ViewsController
         }
 
 
-        $movieList = $this->movieController->getIncomeByDate($stDate,$endDate);
+        $movieList = $this->movieController->getIncomeByDate($stDate, $endDate);
 
-        require_once(VIEWS_PATH."movie-gross-income-view.php");
+        require_once(VIEWS_PATH . "movie-gross-income-view.php");
     }
 
 
-    public function cinemaGrossIncome($stDate,$endDate){
+    public function cinemaGrossIncome($stDate, $endDate)
+    {
         if ($stDate == "") {
             $stDate = "2000-1-1";
         }
@@ -329,9 +351,8 @@ class ViewsController
             $endDate = "3000-1-1";
         }
 
-        $cinemaList = $this->cinemaController->getIncomeByDate($stDate,$endDate);
+        $cinemaList = $this->cinemaController->getIncomeByDate($stDate, $endDate);
 
-        require_once(VIEWS_PATH."cinema-gross-income-view.php");
+        require_once(VIEWS_PATH . "cinema-gross-income-view.php");
     }
-
 }
