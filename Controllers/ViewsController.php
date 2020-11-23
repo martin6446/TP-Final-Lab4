@@ -140,7 +140,12 @@ class ViewsController
     public function addCinemaFunctionView()
     {
         UtilitiesController::validateAdmin();
-        $cinema = $this->cinemaController->getCinemaById($_GET["id"], $this->cityController->getCity($_SESSION["cityid"]));
+
+
+
+        $cinema = $this->cinemaController->getCinemaById($_GET["id"]);
+
+        $_SESSION["cinemacity"] = $cinema->getCity();
 
         $rooms = $this->cinemaRoomController->getRooms($cinema);
 

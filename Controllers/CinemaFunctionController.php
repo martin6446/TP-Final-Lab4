@@ -147,13 +147,16 @@ class CinemaFunctionController
             $date->modify('+1 days');
         }
 
-        if (empty($this->cinemaFunctionDAO->validate($_GET["roomId"], ...$functions))) {
+
+        if (empty($this->cinemaFunctionDAO->validate($_SESSION["cinemacity"],$_GET["roomId"], ...$functions))) {
 
 
 
             foreach ($functions as $function) {
                 $this->cinemaFunctionDAO->add($function, $roomId);
             }
+
+            unset($_SESSION["cinemacity"]);
 
             $this->utility->notification("Succesfully added functions",FRONT_ROOT."views/cinemaList");
         } else {

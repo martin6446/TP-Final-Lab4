@@ -2,6 +2,7 @@
 
 namespace DAO;
 
+use DateTime;
 use Exception;
 use Models\CinemaFunction as CinemaFunction;
 use Models\City as City;
@@ -112,7 +113,9 @@ class CinemaFunctionDAO
             INNER JOIN ciudades
             on ciudades.id = c.id_ciudad
             WHERE ciudades.id = :city AND
-            id_pelicula = :movieId";
+            id_pelicula = :movieId AND 
+            f.horario_inicio > '". (new DateTime())->format("Y-m-d h:i:s")."';";
+
 
         $params["city"] = $city->getId();
         $params["movieId"] = $movieId;
@@ -198,12 +201,11 @@ class CinemaFunctionDAO
         }
     }
 
-    public function validate($idSala, CinemaFunction ...$functions)
+    public function validate($cityId,$idSala, CinemaFunction ...$functions)
     {
         try {
             $query = "SELECT * FROM funciones WHERE id_sala = :id_sala AND ";
             $params["id_sala"] = $idSala;
-            //(horario_inicio < ADDTIME(:horario_finalizacion, "0:15:00") AND ADDTIME(horario_finalizacion, "0:15:00")  > :horario_inicio);
             $i = 1;
             foreach ($functions as $function) {
                 $query = $query . "(horario_inicio < ADDTIME(:horario_finalizacion" . $i . ", '0:15:00') AND ADDTIME(horario_finalizacion, '0:15:00')  > :horario_inicio" . $i . ") OR ";

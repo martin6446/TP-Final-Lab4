@@ -43,6 +43,14 @@ use Models\Movie as Movie;
         $this->movie = $movie;
     }
 
+    public function getOnlyDateStart(){
+        return $this->startTime->format("Y-m-d");
+    }
+
+    public function getOnlyDateEnd(){
+        return $this->endTime->format("Y-m-d");
+    }
+
 
     public function getStartTime(){
         return  $this->startTime->format('Y-m-d H:i:s');

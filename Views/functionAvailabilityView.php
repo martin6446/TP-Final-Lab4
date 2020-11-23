@@ -9,6 +9,7 @@ if (empty($functionList)) { ?>
                 <th scope="col">Cinema Function Name </th>
                 <th scope="col">Available Seats</th>
                 <th scope="col">Taken Seats</th>
+                <th scope="col">Date</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +21,7 @@ if (empty($functionList)) { ?>
                         <td><?php echo $function[0]->getMovie()->getName() ?></td>
                         <td><?php echo $function[0]->getAvailableSeats() ?></td>
                         <td><?php echo $function[1] ?></td>
+                        <td><?php echo $function[0]->getOnlyDateStart() ?></td>
             </tr>
     <?php }
                 } ?>

@@ -50,7 +50,7 @@
                             echo "<tr>";
                             echo "<td>" . $function->getCinemaRoom()->getCinema()->getName() . "</td>";
                             echo "<td>" . $function->getCinemaRoom()->getName() . "</td>";
-                            echo "<td>" . $function->getSimpleStartTime() . "</td>";
+                            echo "<td>" . $function->getPrettyStartTime() . "</td>";
                             echo "<td>" . $function->getSimpleEndTime() . "</td>";
                             echo "<td><button type='submit' name='functionId' value=" . $function->getId() . " class='btn btn-primary'>Buy Ticket</button></td>";
                         }

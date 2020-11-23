@@ -2,6 +2,7 @@
 
 namespace DAO;
 
+use DateTime;
 use Models\Movie as Movie;
 use \Exception as Exception;
 
@@ -315,8 +316,8 @@ class MovieDAO
         ON s.id = f.id_sala
         INNER JOIN cines c
         ON c.id = s.id_cine
-        WHERE c.id_ciudad =". $cityId .";
-        ";
+        WHERE c.id_ciudad =". $cityId ." AND f.horario_inicio > '". (new DateTime())->format("Y-m-d h:i:s")."' ;";
+ 
         try{
             $this->connection = Connection::GetInstance();
             $response = $this->connection->Execute($query);
