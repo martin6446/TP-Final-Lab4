@@ -110,7 +110,11 @@ use Models\Movie as Movie;
     {
         $this->availableSeats = $availableSeats;
     }
-    }
+
+
+
+
+}
 
 
 

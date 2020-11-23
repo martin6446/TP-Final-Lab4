@@ -148,7 +148,7 @@ class CinemaFunctionController
         }
 
 
-        if (empty($this->cinemaFunctionDAO->validate($_SESSION["cinemacity"],$_GET["roomId"], ...$functions))) {
+        if ($this->cinemaFunctionDAO->validate($_SESSION["cinemacity"],$_GET["roomId"], ...$functions)) {
 
 
 
@@ -163,4 +163,5 @@ class CinemaFunctionController
             $this->utility->notification("There was a conflict with an existing function",FRONT_ROOT."views/cinemaList");
         }
     }
+
 }

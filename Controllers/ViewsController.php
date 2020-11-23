@@ -145,7 +145,7 @@ class ViewsController
 
         $cinema = $this->cinemaController->getCinemaById($_GET["id"]);
 
-        $_SESSION["cinemacity"] = $cinema->getCity();
+        $_SESSION["cinemacity"] = $cinema->getCity()->getId();
 
         $rooms = $this->cinemaRoomController->getRooms($cinema);
 
