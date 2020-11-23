@@ -102,7 +102,15 @@ use Models\Movie as Movie;
     {
         $this->availableSeats = $availableSeats;
     }
+    
+    public function getOnlyDateStart(){
+        return $this->startTime->format("Y-m-d");
     }
+
+
+
+
+}
 
 
 

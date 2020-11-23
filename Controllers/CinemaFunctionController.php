@@ -147,7 +147,8 @@ class CinemaFunctionController
             $date->modify('+1 days');
         }
 
-        if (empty($this->cinemaFunctionDAO->validate($_GET["roomId"], ...$functions))) {
+
+        if ($this->cinemaFunctionDAO->validate(1, $_GET["roomId"], ...$functions)) {
 
 
 
@@ -160,4 +161,5 @@ class CinemaFunctionController
             $this->utility->notification("There was a conflict with an existing function",FRONT_ROOT."views/cinemaList");
         }
     }
+
 }

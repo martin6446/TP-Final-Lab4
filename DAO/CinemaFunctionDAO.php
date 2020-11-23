@@ -2,6 +2,7 @@
 
 namespace DAO;
 
+use DateTime;
 use Exception;
 use Models\CinemaFunction as CinemaFunction;
 use Models\City as City;
@@ -198,8 +199,42 @@ class CinemaFunctionDAO
         }
     }
 
-    public function validate($idSala, CinemaFunction ...$functions)
+    public function validate($idCity, $idSala, CinemaFunction ...$functions)
     {
+        if($this->validateRoom($idCity, $idSala, ...$functions) && $this->validateTime($idSala, ...$functions)){
+            return true;
+        }
+        return false;
+    }
+
+
+    private function validateRoom($idCity, $idSala, CinemaFunction ...$functions){
+        try{    
+            $query =  "SELECT 1 IN(";
+            foreach($functions as $function){  
+                $query= $query. "SELECT EXISTS( 
+                    SELECT * from funciones f
+                    INNER JOIN salas s
+                    ON s.id = f.id_sala
+                    INNER JOIN cines c
+                    ON c.id = s.id_cine AND c.id_ciudad =" . $idCity ."
+                    WHERE  f.id_pelicula =". $function->getMovie()->getIdMovie() ." AND DATE(f.horario_inicio) ='". $function->getOnlyDateStart() ."' AND s.id !=". $idSala ."
+                    )
+                    UNION ALL ";
+            }
+             $query = substr($query, 0, -9) . ") as invalid;";
+
+
+            $this->connection = Connection::GetInstance();
+            return $this->connection->Execute($query)[0][0] == 1;
+
+        }
+        catch(Exception $e){
+            throw $e;   
+        }
+    }
+
+    private function validateTime($idSala, CinemaFunction ...$functions){
         try {
             $query = "SELECT * FROM funciones WHERE id_sala = :id_sala AND ";
             $params["id_sala"] = $idSala;
@@ -217,9 +252,12 @@ class CinemaFunctionDAO
                 die(); */
 
             $this->connection = Connection::GetInstance();
-            return $this->connection->Execute($query, $params);
+            return empty($this->connection->Execute($query, $params));
         } catch (Exception $e) {
             throw $e;
         }
     }
+
+    
+
 }
