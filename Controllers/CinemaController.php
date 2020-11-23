@@ -50,8 +50,11 @@ class CinemaController
         if ($this->cinemaDAO->validateCinemaName($city->getId(), $cinema->getName())) {
 
             $this->cinemaDAO->add($cinema);
+
+            return true;
         } else {
             UtilitiesController::notification("this cinema alerady exists!", FRONT_ROOT . "views/addCinemaView");
+            return false;
         }
     }
 

@@ -103,23 +103,21 @@ class ViewsController
     {
         UtilitiesController::validateAdmin();
         $_SESSION["roomNumber"] = 1;
-
+        $flag = true;
 
         if (isset($_GET["save"])) {
 
-            $city = $this->cityController->getCity($_GET["cinema"]["city"]);
+            if (!$this->cinemaRoomController->validateCinemaRooms($_GET)) {
 
+                $city = $this->cityController->getCity($_GET["cinema"]["city"]);
+                $flag = $this->cinemaController->addCinema($city, $_GET["cinema"]);
+                $cinema = $this->cinemaController->getCinemaByCityAndName($city, $_GET["cinema"]["name"]);
 
-            $this->cinemaController->addCinema($city, $_GET["cinema"]);
-
-            $cinema = $this->cinemaController->getCinemaByCityAndName($city, $_GET["cinema"]["name"]);
-
-
-            array_shift($_GET);
-            array_pop($_GET);
-
-
-            $this->cinemaRoomController->addRoom($cinema, $_GET);
+                $this->cinemaRoomController->addRoom($cinema, $_GET);
+            } else {
+                UtilitiesController::notification("Duplicate names on Cinemas Rooms", FRONT_ROOT . "views/addCinemaView");
+                $flag = false;
+            }
         } else {
 
             if (isset($_GET["add"])) {
@@ -133,9 +131,10 @@ class ViewsController
             $_SESSION["add_cinema"] = $_GET;
         }
 
-
-        $cities = $this->cityController->getCities();
-        require_once(VIEWS_PATH . "add-cinema-view.php");
+        if ($flag) {
+            $cities = $this->cityController->getCities();
+            require_once(VIEWS_PATH . "add-cinema-view.php");
+        }
     }
 
     public function addCinemaFunctionView()
@@ -206,7 +205,7 @@ class ViewsController
                 array_pop($_POST);
                 array_push($roomToAdd, array_pop($_POST));
 
-                if ($this->cinemaRoomController->validateRoomName($cinema->getId(),0, $roomToAdd[0]["name"])) {
+                if ($this->cinemaRoomController->validateRoomName($cinema->getId(), 0, $roomToAdd[0]["name"])) {
 
 
                     $this->cinemaRoomController->addRoom($cinema, $roomToAdd);
@@ -220,7 +219,6 @@ class ViewsController
                     unset($_POST["updateRoom"]);
                     UtilitiesController::notification("That name already exists, please choose another one", FRONT_ROOT . "views/cinemaListModify");
                 }
-
             }
         } else if (isset($_POST["updateCinema"])) {
 
