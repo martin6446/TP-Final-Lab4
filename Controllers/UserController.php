@@ -5,6 +5,7 @@ namespace Controllers;
 use DAO\UserDAO as UserDAO;
 use Models\User as User;
 use Controllers\UtilitiesController as UtilitiesController;
+use DAO\TicketDAO as TicketDAO;
 
 class UserController
 {
@@ -90,7 +91,6 @@ class UserController
 
         $newUserData = $_GET;
 
-
         $oldUser = new User($_SESSION["name"], $_SESSION["lastname"], $_SESSION["email"], $_SESSION["password"], $_SESSION["cityid"], $_SESSION["isAdmin"]);
 
         $this->userDAO->modifyUser($newUserData, $oldUser);
@@ -103,4 +103,10 @@ class UserController
 
         header("location:" . FRONT_ROOT . "views/homeview");
     }
+
+    public function getUserPurchases(){
+        return  $userPurchases = (new TicketDAO)->getPurchases($_SESSION['email']);
+    }
+
+
 }

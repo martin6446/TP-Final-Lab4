@@ -156,6 +156,8 @@ class ViewsController
 
     public function modifyUser()
     {
+        $userPurchases = (new UserController)->getUserPurchases();
+
         $cities = $this->cityController->getCities();
         $cityUser = $this->cityController->getCity($_SESSION["cityid"]);
         require_once(VIEWS_PATH . "user-modify-view.php");
