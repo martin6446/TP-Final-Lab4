@@ -18,7 +18,7 @@
                 <h4>Number of Seats : </h4>
             </div>
             <div class="col-md-3">
-                <input type="number" id="seats" name="seats" class="form-control" placeholder="Place the number of seats" min = 1 max = <?php echo $function->getCinemaRoom()->getCapacity() ?>  required autofocus>
+                <input type="number" id="seats" name="seats" class="form-control" placeholder="Place the number of seats" min = 1 max = <?php echo $availableSeats ?>  required autofocus>
             </div>
         </div>
 

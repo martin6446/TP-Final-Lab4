@@ -46,19 +46,22 @@
                     <form action="<?php echo FRONT_ROOT?>views/purchaseView" method="POST">
                         <?php
                         foreach ($functions as $function) {
+                            $aux = $this->cinemaRoomController->getAvailableSeats($function->getId());
 
                             echo "<tr>";
                             echo "<td>" . $function->getCinemaRoom()->getCinema()->getName() . "</td>";
                             echo "<td>" . $function->getCinemaRoom()->getName() . "</td>";
                             echo "<td>" . $function->getPrettyStartTime() . "</td>";
-                            echo "<td>" . $function->getSimpleEndTime() . "</td>";
-                            echo "<td><button type='submit' name='functionId' value=" . $function->getId() . " class='btn btn-primary'>Buy Ticket</button></td>";
+                            echo "<td>" . $function->getSimpleEndTime() . "</td>";?>
+                            <td><button type='submit' name='functionId' value="<?php echo $function->getId()?>" <?php if($aux == 0) {echo "class='btn btn-danger'";} else { echo "class='btn btn-primary'";}?> <?php if($aux == 0) {echo "disabled";}?>><?php if($aux == 0) {echo "No Tickets Avalible";} else {echo "Buy Ticket";}?></button></td>
+                            <?php
                         }
 
                         echo "</tr>";
 
                         ?>
                     </form>
+                    
                 <tr>
             </tbody>
         </table>
